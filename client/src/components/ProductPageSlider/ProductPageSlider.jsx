@@ -8,43 +8,43 @@ const ProductPageSlider = () => {
   return (
     <div
       id="carouselExampleControls"
-      class="carousel slide carousel-dark"
+      className="carousel slide carousel-dark"
       data-bs-ride="carousel"
       data-bs-interval={null}
     >
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src={slide1} class="d-block w-100" alt="..." />
+      <div className="carousel-inner">
+        <div className="carousel-item active">
+          <img src={slide1} className="d-block w-100" alt="..." />
         </div>
-        <div class="carousel-item">
-          <img src={slide2} class="d-block w-100" alt="..." />
+        <div className="carousel-item">
+          <img src={slide2} className="d-block w-100" alt="..." />
         </div>
-        <div class="carousel-item">
-          <img src={slide3} class="d-block w-100" alt="..." />
+        <div className="carousel-item">
+          <img src={slide3} className="d-block w-100" alt="..." />
         </div>
-        <div class="carousel-item">
-          <img src={slide4} class="d-block w-100" alt="..." />
+        <div className="carousel-item">
+          <img src={slide4} className="d-block w-100" alt="..." />
         </div>
       </div>
       <button
-        class="carousel-control-prev"
+        className="carousel-control-prev"
         type="button"
         data-bs-target="#carouselExampleControls"
         data-bs-slide="prev"
       >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Previous</span>
       </button>
       <button
-        class="carousel-control-next"
+        className="carousel-control-next"
         type="button"
         data-bs-target="#carouselExampleControls"
         data-bs-slide="next"
       >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Next</span>
       </button>
-    </div>
+    </div> // Серега: поменял классы на клас нэйм, установил линт через си и подтянул актуальную версию проекта. Раскомментил сагу, может ругаться
   );
 };
 
