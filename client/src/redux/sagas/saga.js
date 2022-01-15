@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { call, put, takeEvery } from 'redux-saga/effects';
 
 const fetchData = async ({
