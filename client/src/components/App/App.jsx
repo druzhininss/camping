@@ -6,6 +6,7 @@ import Products from '../Products/Products.jsx';
 import Footer from '../Footer/Footer.jsx';
 import Cart from '../Cart/Cart.jsx';
 import ProductPage from '../ProductPage/ProductPage.jsx';
+import AdminPanel from '../ AdminPanel/ AdminPanel.jsx';
 import Registration from '../Registration/Registration.jsx'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/products/spalniki" exact component={Products} />
         <Route path="/products/kovriki" exact component={ProductPage} />
         <Route path="/cart" exact component={Cart} />
+        <Route path="/admin" exact component={AdminPanel} />
         <Route path="/registration" exact component={Registration} />
       </Switch>
       <Footer />
