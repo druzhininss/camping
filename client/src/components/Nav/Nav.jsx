@@ -20,8 +20,8 @@ function Nav() {
         <Link className={style.link} to='/logout'>выйти</Link>
         <Link className={style.link} to='/cart'>Корзина</Link>
         <Link className={style.link} to='/admin'>Администрирование</Link>
-        <form>
-        <input type="text" placeholder="Искать здесь..." />
+        <form className={style.form}>
+        <input className={style.input} type="text" placeholder="Искать здесь..." />
         <button className={style.btn} type="submit"></button>
         </form>
       </ul>

@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer.jsx';
 import Cart from '../Cart/Cart.jsx';
 import ProductPage from '../ProductPage/ProductPage.jsx';
 import AdminPanel from '../ AdminPanel/ AdminPanel.jsx';
+import Registration from '../Registration/Registration.jsx'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/products/kovriki" exact component={ProductPage} />
         <Route path="/cart" exact component={Cart} />
         <Route path="/admin" exact component={AdminPanel} />
+        <Route path="/registration" exact component={Registration} />
       </Switch>
       <Footer />
     </Router>
