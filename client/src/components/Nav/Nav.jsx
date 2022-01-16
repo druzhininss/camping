@@ -21,7 +21,7 @@ function Nav() {
         <Link className={style.link} to='/cart'>Корзина</Link>
         <form>
         <input type="text" placeholder="Искать здесь..." />
-        <button type="submit"></button>
+        <button className={style.btn} type="submit"></button>
         </form>
       </ul>
       </nav>
