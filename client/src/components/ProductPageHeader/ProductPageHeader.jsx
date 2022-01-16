@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
 const ProductPageHeader = () => {
   return (
-    <div className='d-flex flex-row justify-content-between'>
+    <div className="d-flex justify-content-between align-items-center ms-3 me-3">
       <div>Заголовок</div> {/* сюда тянем название товара */}
+      <div>Цена: 12 499 руб.</div> {/* сюда тянем цену */}
       <div>
-        <div>Цена: 12 499 руб.</div> {/* сюда тянем цену */}
-        <button>Купить</button>
+        {/* <button>Купить</button> */} {/* раскомментировать после пула */}
       </div>
     </div>
   );
 };
 
-export default ProductPageHeader; 
+export default ProductPageHeader;
