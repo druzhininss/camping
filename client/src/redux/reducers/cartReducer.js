@@ -21,11 +21,18 @@ export const cartReducer = (state = initialState, action) => {
     case cartAT.INCREASE_PRODUCT: {
       const copiedCurrentItem = {...state.currentItem};
       const copiedTotalPrice = {...state.stats};
-      copiedCurrentItem.quantity += 1;
+      const copiedCart = [...state.cart];
+      console.log(copiedCart)
+      console.log(action.payload, 2)
+      copiedCart.map((el) => {
+        if (el.id === +action.payload.id) {
+          copiedCurrentItem.quantity += 1;
+        }
+      })
       copiedTotalPrice.totalPrice += +action.payload.price;
 
       return {
-        ...state, currentItem: copiedCurrentItem, stats: copiedTotalPrice
+        ...state, currentItem: copiedCurrentItem, stats: copiedTotalPrice, cart: copiedCart
       }
     }
 
@@ -34,6 +41,9 @@ export const cartReducer = (state = initialState, action) => {
       const copiedTotalPrice = {...state.stats};
       copiedCurrentItem.quantity -= 1;
       copiedTotalPrice.totalPrice -= +action.payload.price;
+      if(copiedCurrentItem.quantity < 0) {
+        alert ('Вы убрали все товары')
+      }
       
 
       return {
