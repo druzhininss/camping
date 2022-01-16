@@ -13,6 +13,7 @@ export const productsReducers = (state = initialState, action) => {
       };
 
     case productsAT.SORT_PRICE_PRODUCT:
+      // eslint-disable-next-line no-case-declarations
       const notSortedProducts = [...state.listProducts];
       if (action.payload == "min") {
          notSortedProducts.sort((a, b) => a.price - b.price);
