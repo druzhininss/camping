@@ -7,7 +7,7 @@ function Nav() {
     <>
       <div className={style.title}>
         <h1 className={style.titleName}>Camping for Life</h1>
-        <div className={style.pic}></div>
+        <Link to='/'><div className={style.pic}></div></Link>
       </div>
       <nav className={style.nav}>
       <ul>
