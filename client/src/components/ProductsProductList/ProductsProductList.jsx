@@ -10,7 +10,7 @@ function ProductsProductList() {
   const dispatch = useDispatch();
 
   return (
-    <>
+    <div>
       <div>
         <select className={style.sort_select} onChange={(event) => dispatch(sortPriceProductsAC(event.target.value))}>
           <option value="min" >Повозрастанию</option>
@@ -18,14 +18,14 @@ function ProductsProductList() {
         </select>
       </div>
       <div>
-        <ul>
+        <ul className={style.products_items}>
           {products.length ? products.map((product) => <ProductsProductItems
             key={product.id} product={product} />) : <li>None!</li>
           }
           )
         </ul>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -10,3 +10,9 @@
   box-shadow: 4px 4px #ccc;
   }
 
+  .products_items {
+    display: flex;
+    flex-wrap: wrap;
+	  /*max-width: 700px; /* макс ширина */
+	  margin: 0 auto; /* выровняем по центру */
+  }

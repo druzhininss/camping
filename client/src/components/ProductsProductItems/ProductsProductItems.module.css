@@ -1,3 +1,12 @@
 .items_card {
-  margin-left: 900px;
+  background-color: rgb(255, 225, 0))
+  
 }
+
+.items_card {
+  flex:1 1 calc(33.33% - 30px); /* отнимем margin и скажем растягиваться */
+	margin:5px;
+	box-sizing:border-box; /* чтобы внутренний отступ не влиял когда там будет текст... */
+	min-width:170px; /* мин. ширина блока, чтобы переносились на другой ряд */
+	padding:50px 20px; font-size:400%; text-align:center; background:#b5ced8; /* для к*/
+ }
