@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import style from './Nav.module.css';
 
 function Nav() {
+
   return (
     <>
       <div className={style.title}>
