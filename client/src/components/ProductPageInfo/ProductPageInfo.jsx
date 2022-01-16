@@ -1,6 +1,8 @@
+import React from "react";
+
 export default function ProductPageInfo() {
   return (
-    <table className={'table table-dark table-hover'}>
+    <table className={"table table-dark table-hover"}>
       <tbody>
         <tr>
           <td>Вес</td>
@@ -20,15 +22,15 @@ export default function ProductPageInfo() {
         </tr>
         <tr>
           <td>Материал верха</td>
-          <td>{'Polyester 50D Stretch Laminated TPU'}</td>
+          <td>{"Polyester 50D Stretch Laminated TPU"}</td>
         </tr>
         <tr>
           <td>Материал низа</td>
-          <td>{'Polyester 75D Non-Slip Laminated TPU'}</td>
+          <td>{"Polyester 75D Non-Slip Laminated TPU"}</td>
         </tr>
         <tr>
           <td>Область применения</td>
-          <td>{'Кемпинг'}</td>
+          <td>{"Кемпинг"}</td>
         </tr>
         <tr>
           <td>R-value</td>

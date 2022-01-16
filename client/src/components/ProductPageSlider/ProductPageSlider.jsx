@@ -44,7 +44,7 @@ const ProductPageSlider = () => {
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
         <span className="visually-hidden">Next</span>
       </button>
-    </div> // Серега: поменял классы на клас нэйм, установил линт через си и подтянул актуальную версию проекта. Раскомментил сагу, может ругаться
+    </div>
   );
 };
 
