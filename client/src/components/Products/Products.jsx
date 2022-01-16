@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import ProductsProductList from '../ProductsProductList/ProductsProductList.jsx';
 import { useDispatch } from 'react-redux';
-import { initProductsAC } from '../../redux/actionCreators/productsAC'
+import { initProductsAC } from '../../redux/actionCreators/productsAC';
+import ProductsProductList from '../ProductsProductList/ProductsProductList.jsx';
+import ProductsCatalog from '../ProductsCatalog/ProductsCatalog.jsx'
 
 function Products() {
   const dispatch = useDispatch();
@@ -24,7 +25,10 @@ function Products() {
     dispatch(initProductsAC(listProduct))
   }, [dispatch])
   return (
-    < ProductsProductList />
+    <>
+      < ProductsProductList />
+      <ProductsCatalog />
+    </>
   );
 }
 
