@@ -62,7 +62,7 @@ input:focus {
   z-index: 1;
   border-bottom: 2px solid #F9F0DA;
 }
-button {
+.btn {
   background: #683B4D;
   border: none;
   height: 42px;
@@ -72,7 +72,7 @@ button {
   right: 0;
   cursor: pointer;
 }
-button:before {
+.btn:before {
   content: "\f002";
   font-family: FontAwesome;
   font-size: 16px;

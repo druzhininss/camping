@@ -12,16 +12,16 @@ function Nav() {
       </div>
       <nav className={style.nav}>
       <ul>
-        <Link className={style.link} to='/palatki'>палатки</Link>
-        <Link className={style.link} to='/spalniki'>спальники</Link>
-        <Link className={style.link} to='/kovriki'>коврики</Link>
+        <Link className={style.link} to='/products/palatki'>палатки</Link>
+        <Link className={style.link} to='/products/spalniki'>спальники</Link>
+        <Link className={style.link} to='/products/kovriki'>коврики</Link>
         <Link className={style.link} to='/registration'>регистрация</Link>
         <Link className={style.link} to='/login'>войти</Link>
         <Link className={style.link} to='/logout'>выйти</Link>
         <Link className={style.link} to='/cart'>Корзина</Link>
         <form>
         <input type="text" placeholder="Искать здесь..." />
-        <button type="submit"></button>
+        <button className={style.btn} type="submit"></button>
         </form>
       </ul>
       </nav>

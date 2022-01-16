@@ -7,3 +7,11 @@ export function initProductsAC(payload) {
     payload
   };
 }
+
+export function sortPriceProductsAC(payload) {
+  console.log(payload);
+  return {
+    type: productsAT.SORT_PRICE_PRODUCT,
+    payload
+  };
+}
