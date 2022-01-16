@@ -9,4 +9,23 @@ const fetchData = async ({
   return data;
 };
 
-export function* myWatcher() {}
+function* getAdmin(action) {
+  console.log(action);
+  try {
+    const getLoginAdmin = yield call(fetchData, {
+      url: 'http://localhost:5000/login',
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(action.payload)
+    });
+    yield put({ type: "INIT_ADMIN_IN_SYSTEM", payload: getLoginAdmin })
+  } catch (e) {
+    yield put({ type: "DONT_INIT_ADMIN_IN_SYSTEM", payload: "Error login admin" })
+  }
+}
+
+export function* myWatcher() {
+  yield takeEvery("LOGIN_ADMIN_SAGA", getAdmin);
+}
+
+export default myWatcher;
