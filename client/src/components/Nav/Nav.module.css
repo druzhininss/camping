@@ -37,13 +37,13 @@ nav{
 }
 
 * {box-sizing: border-box;}
-form {
+.form {
   position: relative;
   width: 300px;
   margin: 0 auto;
   height: 42px;
 }
-input {
+.input {
   height: 42px;
   width: 0;
   padding: 0 42px 0 15px;
@@ -57,7 +57,7 @@ input {
   right: 0;
   z-index: 2;
 }
-input:focus {
+.input:focus {
   width: 300px;
   z-index: 1;
   border-bottom: 2px solid #F9F0DA;
