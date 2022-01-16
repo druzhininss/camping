@@ -15,10 +15,9 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/products/palatki" exact component={Products} />
         <Route path="/products/spalniki" exact component={Products} />
-        <Route path="/products/kovriki" exact component={Products} />
-        <Route path="/products/cart" exact component={Cart} />
+        <Route path="/products/kovriki" exact component={ProductPage} />
+        <Route path="/cart" exact component={Cart} />
       </Switch>
-      <ProductPage />
       <Footer />
     </Router>
   );

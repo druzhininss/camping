@@ -3,7 +3,7 @@ import React from 'react';
 function Home() {
   return (
     <div>
-      {/* Доделать home   */}
+      <h1>ЭТО ГЛАВНАЯ СТРАНИЦА НАШЕГО САЙТА!</h1>
     </div>
   );
 }
