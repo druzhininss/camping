@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from '../Nav/Nav.jsx';
 import Home from '../Home/Home.jsx';
+import Products from '../Products/Products.jsx';
 import Footer from '../Footer/Footer.jsx';
 
 function App() {
@@ -10,6 +11,9 @@ function App() {
       <Nav />
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/palatki" exact component={Products} />
+        <Route path="/spalniki" exact component={Products} />
+        <Route path="/kovriki" exact component={Products} />
       </Switch>
       <Footer />
     </Router>

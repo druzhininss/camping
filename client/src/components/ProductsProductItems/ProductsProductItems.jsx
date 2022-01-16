@@ -1,11 +1,13 @@
 import React from 'react';
+import style from './ProductsProductItems.module.css'
 
 function ProductsProductItems({ product }) {
   return (
-    <div>
-      <li>{product.name}</li>
-      <li>{product.two}</li>
-      <li>{product.three}</li>
+    <div className={style.items_card}>
+      <p>{product.name}</p>
+      <p>{product.two}</p>
+      <p>{product.three}</p>
+      <button >Купить</button> 
     </div>
   );
 }

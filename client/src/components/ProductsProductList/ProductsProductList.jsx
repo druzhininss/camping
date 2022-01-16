@@ -4,7 +4,7 @@ import ProductsProductItems from '../ProductsProductItems/ProductsProductItems.j
 
 function ProductsProductList() {
   const products = useSelector((state) => state.productsReducers.listProducts);
-  console.log(products);
+  
   return (
     <ul>
       {products.length ? products.map((product) => <ProductsProductItems
