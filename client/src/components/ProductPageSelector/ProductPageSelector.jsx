@@ -1,11 +1,9 @@
 import React from "react";
 import { useState } from "react";
 
-const listSelectors = ["Фото", "Описание", "Преимущества", "Схема", "Отзывы"];
-
 const ProductPageSelector = () => {
-  const classes = ["list-group-item"];
-
+  const listSelectors = ["Фото", "Описание", "Преимущества", "Схема", "Отзывы"];
+  const classes = ["list-group-item list-group-item-action"];
   const [isActive, isSetActive] = useState(false);
 
   const handleClick = () => {
@@ -18,7 +16,7 @@ const ProductPageSelector = () => {
       {isActive
         ? listSelectors.map((link) => (
             <li
-              className={classes.join(" ")}
+              className={classes.join(", ")}
               aria-current="true"
               onClick={handleClick}
               key={link}
@@ -27,7 +25,7 @@ const ProductPageSelector = () => {
             </li>
           ))
         : listSelectors.map((link) => (
-            <li className={classes} onClick={handleClick} key={link}>
+            <li className={classes} key={link}>
               {link}
             </li>
           ))}
