@@ -4,6 +4,7 @@ import Nav from '../Nav/Nav.jsx';
 import Home from '../Home/Home.jsx';
 import Products from '../Products/Products.jsx';
 import Footer from '../Footer/Footer.jsx';
+import Cart from '../Cart/Cart.jsx';
 import ProductPage from '../ProductPage/ProductPage.jsx';
 
 function App() {
@@ -12,9 +13,10 @@ function App() {
       <Nav />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/palatki" exact component={Products} />
-        <Route path="/spalniki" exact component={Products} />
-        <Route path="/kovriki" exact component={Products} />
+        <Route path="/products/palatki" exact component={Products} />
+        <Route path="/products/spalniki" exact component={Products} />
+        <Route path="/products/kovriki" exact component={Products} />
+        <Route path="/products/cart" exact component={Cart} />
       </Switch>
       <ProductPage />
       <Footer />

@@ -5,8 +5,7 @@ const initialState = {
 };
 
 export const productsReducers = (state = initialState, action) => {
-  console.log(action.type);
-  console.log(action);
+  
   switch (action.type) {
     case productsAT.INIT_PRODUCTS:
       return {
