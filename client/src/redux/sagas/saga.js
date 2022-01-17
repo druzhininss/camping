@@ -24,12 +24,11 @@ function* getAdmin(action) {
 }
 
 function* getProduct(action) {
-  console.log(action);
   try {
     const getProductList = yield call(fetchData, {
       url: `http://localhost:5000/categories/${action.payload}`,
     });
-    yield put({ type: "GOODS_RECEIVED", payload: getProductList })
+    yield put({ type: "GOODS_RECEIVED", payload: getProductList });
   } catch (e) {
     yield put({ type: "THE_ITEM_IS_NOT_RECEIVED", payload: "Error, The item is not received" })
   }

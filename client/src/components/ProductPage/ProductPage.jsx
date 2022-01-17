@@ -1,6 +1,5 @@
 import React from "react";
 import ProductPageCarousel from "../ProductPageCarousel/ProductPageCarousel";
-import ProductPageColor from "../ProductPageColor/ProductPageColor";
 import ProductPageHeader from "../ProductPageHeader/ProductPageHeader";
 import ProductPageInfo from "../ProductPageInfo/ProductPageInfo";
 import ProductPageSelector from "../ProductPageSelector/ProductPageSelector";
@@ -21,7 +20,6 @@ const ProductPage = () => {
       </div>
       <div>
         <ProductPageInfo />
-        <ProductPageColor />
       </div>
       <div>
         <p>

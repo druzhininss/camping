@@ -1,21 +1,21 @@
 {
   "development": {
-    "username": "elbrus",
-    "password": null,
+    "username": "postgres",
+    "password": "postgres",
     "database": "campingDB",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "elbrus",
-    "password": null,
+    "username": "postgres",
+    "password": "postgres",
     "database": "campingDB",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "username": "elbrus",
-    "password": null,
+    "username": "postgres",
+    "password": "postgres",
     "database": "campingDB",
     "host": "127.0.0.1",
     "dialect": "postgres"

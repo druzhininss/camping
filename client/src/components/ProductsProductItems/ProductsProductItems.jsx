@@ -21,8 +21,8 @@ function ProductsProductItems({ product }) {
   return (
     <div className={style.items_card}>
       <p>{product.name}</p>
-      <p>{product.description}</p>
-      <p>{product.instruction}</p>
+      <p>{product.product_img_path}</p>
+      <p>{product.product_name}</p>
       <p>{product.price}</p>
       <button onClick={() => dispatch(cartProductsAC(addProductInCart()))}>Купить</button> 
     </div>
