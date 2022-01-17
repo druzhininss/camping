@@ -17,14 +17,14 @@ function ProductsProductList() {
           <option value="max" >По убыванию</option>
         </select>
       </div>
-      {/* <div>
+      <div>
         <ul className={style.products_items}>
           {products.length ? products.map((product) => <ProductsProductItems
             key={product.product_id} product={product} />) : <li>None!</li>
           }
           )
         </ul>
-      </div> */}
+      </div>
     </div>
   );
 }

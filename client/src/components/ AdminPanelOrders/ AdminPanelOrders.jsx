@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 import ProductsProductItems from '../ProductsProductItems/ProductsProductItems.jsx';
 
 function  AdminPanelOrders() {
-  const cartProduct = useSelector((state) => state.cartReducer.cart);
+  const cartProduct = useSelector((state) => state.productsReduserAdmin.listProductsAll);
   
+  console.log(cartProduct);
   return (
     <div>
        <div>

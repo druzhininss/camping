@@ -6,12 +6,12 @@ const initialState = {
 };
 
 export const productsReduserAdmin = (state = initialState, action) => {
-
   switch (action.type) {
     case "GOODS_RECEIVED":
+      console.log(action.payload.products);
       return {
-        ...state, listProducts: action.payload, 
-        listProductsOrders: action.payload,
+        ...state, listProductsAll: action.payload.products,
+        listProductsOrders: action.payload.products,
       };
 
     default:

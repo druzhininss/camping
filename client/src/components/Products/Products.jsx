@@ -12,7 +12,7 @@ function Products() {
 
   useEffect(() => {
     dispatch(initProductsAC(categoryName))
-  }, {})
+  }, )
   return (
     <>
       < ProductsProductList />
