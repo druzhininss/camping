@@ -359,7 +359,7 @@ module.exports = {
       {
         spec_id: 11, // Цвет
         product_id: 3,
-        specValue: '	красный',
+        specValue: 'красный',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -978,70 +978,70 @@ module.exports = {
       // Коврик 2
       {
         spec_id: 3, // Вес
-        product_id: 8,
+        product_id: 9,
         specValue: '0.7 кг',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         spec_id: 4, // Размер
-        product_id: 8,
+        product_id: 9,
         specValue: '183x51x3,1 см',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         spec_id: 5, // Размер в чехле
-        product_id: 8,
+        product_id: 9,
         specValue: '27x14 см',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         spec_id: 21, // Наполнитель коврика
-        product_id: 8,
+        product_id: 9,
         specValue: 'Вспененный полиуретан 16 кг/м3',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         spec_id: 22, // Материал верха
-        product_id: 8,
+        product_id: 9,
         specValue: 'Polyester 75D Laminated TPU',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         spec_id: 23, // Материал низа
-        product_id: 8,
+        product_id: 9,
         specValue: 'Polyester 75D Laminated TPU',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         spec_id: 1, // Область применения
-        product_id: 8,
+        product_id: 9,
         specValue: 'Трекинг',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         spec_id: 24, // R-value
-        product_id: 8,
+        product_id: 9,
         specValue: '3.5',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         spec_id: 11, // Цвет
-        product_id: 8,
+        product_id: 9,
         specValue: 'синий',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         spec_id: 25, // Описание
-        product_id: 8,
+        product_id: 9,
         specValue: `Alexika Travel - самый легкий и компактный коврик в трекинговой серии. Длина в
         183 см и ширина 51 см достаточны для комфортного сна. Он позволяет
         путешествовать с апреля по октябрь, не боясь прохладной земли и дискомфорта от
@@ -1073,14 +1073,14 @@ module.exports = {
       },
       {
         spec_id: 26, // Бренд
-        product_id: 8,
+        product_id: 9,
         specValue: 'Travel',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         spec_id: 27, // Цена
-        product_id: 8,
+        product_id: 9,
         specValue: '5 599',
         createdAt: new Date(),
         updatedAt: new Date(),
