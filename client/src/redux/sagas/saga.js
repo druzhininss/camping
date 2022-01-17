@@ -24,7 +24,6 @@ function* getAdmin(action) {
 }
 
 function* getProduct(action) {
-  console.log(action);
   try {
     const getProductList = yield call(fetchData, {
       url: `http://localhost:5000/categories/${action.payload}`,

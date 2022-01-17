@@ -20,7 +20,7 @@ function ProductsProductList() {
       <div>
         <ul className={style.products_items}>
           {products.length ? products.map((product) => <ProductsProductItems
-            key={product.id} product={product} />) : <li>None!</li>
+            key={product.product_id} product={product} />) : <li>None!</li>
           }
           )
         </ul>
