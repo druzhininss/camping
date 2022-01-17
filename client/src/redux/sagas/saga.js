@@ -35,6 +35,7 @@ function* getProduct(action) {
 }
 
 function* getUser(action) {
+  console.log(action.payload)
   try {
     const newUser = yield call(fetchData, {
       url: 'http://localhost:5000/registration',
