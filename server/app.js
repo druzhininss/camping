@@ -4,24 +4,26 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 const SessionFileStore = require('session-file-store')(expressSession);
+const cors = require('cors');
+const dotenv = require('dotenv');
+const helmet = require('helmet');
 const bcrypt = require('bcrypt');
+
 const indexRouter = require('./routes/index.router'); // Index router req
+const categoriesRouter = require('./routes/categories.router');
+
 const registrationRouter = require('./routes/registration.router');
 const logoutRouter = require('./routes/logout.router');
 const loginRouter = require('./routes/login.router');
 const profileRouter = require('./routes/profile.router');
-const editProfileRouter = require('./routes/editProfile.router');
-const createRouter = require('./routes/create.router');
-const editCardProfile = require('./routes/cardEdit.router');
 
-const PORT = process.env.PORT ?? 3000;
+const PORT = process.env.PORT ?? 5000;
 
 const app = express();
 
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'views'));
+// app.use(helmet());
 
-app.locals.title = 'The amazing title!'; // Change app locals
+// dotenv.config();
 
 const sessionConfig = {
   store: new SessionFileStore(),
@@ -35,21 +37,28 @@ const sessionConfig = {
   },
 };
 
+const corsOptions = {
+  origin: ['http://localhost:3000'], // TODO: access on build ?
+  credentials: true,
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
 app.use(morgan('dev'));
 app.use(expressSession(sessionConfig));
+app.use(cors(corsOptions)); // cors init
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true })); // for req.body
 app.use(express.json());
 
 app.use('/', indexRouter); // Index router setup
+
+app.use('/categories', categoriesRouter);
+
 app.use('/registration', registrationRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/profile', profileRouter);
-app.use('/edit/', editProfileRouter);
-app.use('/create', createRouter);
-app.use('/card/edit/', editCardProfile);
 
 app.listen(PORT, () => {
   console.log(`*** Server started on port ${PORT} ***`);
