@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { userRegistrationAC } from '../../redux/actionCreators/registrationAC';
+import {useDispatch} from 'react-redux';
 
 function Registration() {
   const usernameRef = useRef();
@@ -7,6 +8,7 @@ function Registration() {
   const passwordRef = useRef();
   const repeatPasswordRef = useRef();
   const phoneRef = useRef();
+  const dispatch = useDispatch();
   
 
   const registerUser = () => {
@@ -14,12 +16,18 @@ function Registration() {
       username: usernameRef.current.value,
       email: emailRef.current.value,
       password: passwordRef.current.value,
-
+      phone: phoneRef.current.value,
+      password2: repeatPasswordRef.current.value,
     }
+  }
+
+  function userAdd(event) {
+    event.preventDefault()
+    dispatch(userRegistrationAC(registerUser()))
   }
   return (
     <div>
-      <htmlForm onSubmit={() => userRegistrationAC(registerUser())}>
+      <form onSubmit={userAdd} >
         <div>
           <h1>Регистрация</h1>
           <p>Пожалуйста, заполните эту форму, чтобы создать учетную запись.</p>
@@ -30,7 +38,7 @@ function Registration() {
           <label htmlFor="email"><b>Email</b></label>
           <input ref={emailRef} type="text" placeholder="Enter Email" name="email" required />
           <hr />
-          <p><input ref={phoneRef}type="tel" name="phone_number" list="tel-list" placeholder="+7 (900) 123-45-67" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" /></p>
+          <p><input ref={phoneRef}type="tel" name="phone_number" list="tel-list" placeholder="+7 (900) 123-45-67" /></p>
           <hr />
           <label htmlFor="psw"><b>Password</b></label>
           <input ref={passwordRef} type="password" placeholder="Enter Password" name="psw" required />
@@ -44,7 +52,7 @@ function Registration() {
         <div >
           <p>Already have an account? <a href="login">Sign in</a>.</p>
         </div>
-      </htmlForm>
+      </form>
     </div>
   );
 }
