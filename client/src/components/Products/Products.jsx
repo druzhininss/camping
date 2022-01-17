@@ -8,16 +8,16 @@ function Products() {
   const dispatch = useDispatch();
   const listProduct = [
     {
-      id: 1, name: 'Палатка зимняя', description: 'Теплая', instruction: 'растели', price: 10,
+      id: 1, name: 'Палатка зимняя', description: 'Теплая', instruction: 'растели', price: 10, 
     },
     {
-      id: 2, name: 'Палатка летняя', description: 'Тонкая', instruction: 'постели', price: 20,
+      id: 2, name: 'Палатка летняя', description: 'Тонкая', instruction: 'постели', price: 20, 
     },
     {
-      id: 3, name: 'Палатка осеняя', description: 'Хорошая', instruction: 'установи', price: 30,
+      id: 3, name: 'Палатка осеняя', description: 'Хорошая', instruction: 'установи', price: 30, 
     },
     {
-      id: 4, name: 'Палатка всесезонка', description: 'Отличная', instruction: 'надуй', price: 40,
+      id: 4, name: 'Палатка всесезонка', description: 'Отличная', instruction: 'надуй', price: 40, 
     },
   ]
 
