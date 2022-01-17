@@ -18,9 +18,9 @@ function App() {
       <Nav />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/products/palatki" exact component={Products} />
-        <Route path="/products/spalniki" exact component={Products} />
-        <Route path="/products/kovriki" exact component={ProductPage} />
+        <Route path="/products/:categoryName" exact component={Products} />
+        <Route path="/products/:categoryName" exact component={Products} />
+        <Route path="/products/:categoryName" exact component={ProductPage} />
         <Route path="/cart" exact component={Cart} />
         <Route path="/registration" exact component={Registration} />
         <Route path="/admin" exact component={AdminPanel} />

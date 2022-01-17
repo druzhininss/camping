@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeEvery, takeLeading } from 'redux-saga/effects';
 
 const fetchData = async ({
   url, method, headers, body,
@@ -10,7 +10,6 @@ const fetchData = async ({
 };
 
 function* getAdmin(action) {
-  console.log(action);
   try {
     const getLoginAdmin = yield call(fetchData, {
       url: 'http://localhost:5000/login',
@@ -24,8 +23,21 @@ function* getAdmin(action) {
   }
 }
 
+function* getProduct(action) {
+  console.log(action);
+  try {
+    const getProductList = yield call(fetchData, {
+      url: `http://localhost:5000/categories/${action.payload}`,
+    });
+    yield put({ type: "GOODS_RECEIVED", payload: getProductList })
+  } catch (e) {
+    yield put({ type: "THE_ITEM_IS_NOT_RECEIVED", payload: "Error, The item is not received" })
+  }
+}
+
 export function* myWatcher() {
   yield takeEvery("LOGIN_ADMIN_SAGA", getAdmin);
+  yield takeEvery("INIT_PRODUCTS", getProduct)
 }
 
 export default myWatcher;
