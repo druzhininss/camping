@@ -7,11 +7,9 @@ const SessionFileStore = require('session-file-store')(expressSession);
 const cors = require('cors');
 const dotenv = require('dotenv');
 const helmet = require('helmet');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
-const indexRouter = require('./routes/index.router'); // Index router req
 const categoriesRouter = require('./routes/categories.router');
-
 const registrationRouter = require('./routes/registration.router');
 const logoutRouter = require('./routes/logout.router');
 const loginRouter = require('./routes/login.router');
@@ -48,13 +46,10 @@ app.use(expressSession(sessionConfig));
 app.use(cors(corsOptions)); // cors init
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({ extended: true })); // for req.body
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/', indexRouter); // Index router setup
-
-app.use('/categories', categoriesRouter);
-
+app.use('/categories', categoriesRouter); // Products router
 app.use('/registration', registrationRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);

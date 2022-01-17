@@ -21,6 +21,11 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
+      phone: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+        unique: true,
+      },
       role: {
         type: Sequelize.TEXT,
         allowNull: false,
