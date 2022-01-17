@@ -66,7 +66,7 @@ router.route('/palatki')
         return obj;
       });
 
-      res.status(201).json({ palatki, message: 'Ok' });
+      res.status(201).json({ products: palatki, message: 'Ok' });
     } catch (err) {
       res.status(500).json({ err, message: 'Ошибка получения данных' });
     }
@@ -107,7 +107,7 @@ router.route('/spalniki')
         return obj;
       });
 
-      res.status(201).json({ spalniki, message: 'Ok' });
+      res.status(201).json({ products: spalniki, message: 'Ok' });
     } catch (err) {
       res.status(500).json({ err, message: 'Ошибка получения данных' });
     }
@@ -148,7 +148,7 @@ router.route('/kovriki')
         return obj;
       });
 
-      res.status(201).json({ kovriki, message: 'Ok' });
+      res.status(201).json({ products: kovriki, message: 'Ok' });
     } catch (err) {
       res.status(500).json({ err, message: 'Ошибка получения данных' });
     }
