@@ -8,22 +8,19 @@ const initialState = {
 export const productsReducers = (state = initialState, action) => {
   switch (action.type) {
     case "GOODS_RECEIVED":
-      console.log(action.payload);
       return {
-        ...state, listProducts: action.payload, 
-        listProductsAll: action.payload,
+        ...state, listProducts: action.payload.products,
+        listProductsAll: action.payload.products,
       };
 
     case productsAT.SORT_PRICE_PRODUCT:
       // eslint-disable-next-line no-case-declarations
       const notSortedProducts = [...state.listProducts];
       if (action.payload == "min") {
-        notSortedProducts.sort((a, b) => a.price - b.price);
+        notSortedProducts.sort((a, b) => a.Цена - b.Цена);
       } else if (action.payload == "max") {
-        console.log(action.payload);
-        notSortedProducts.sort((a, b) => b.price - a.price);
+        notSortedProducts.sort((a, b) => b.Цена - a.Цена);
       }
-      console.log(notSortedProducts);
       return {
         ...state, listProducts: notSortedProducts
       }

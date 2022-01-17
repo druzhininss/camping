@@ -23,7 +23,7 @@ function ProductsProductItems({ product }) {
       <p>{product.name}</p>
       <p>{product.product_img_path}</p>
       <p>{product.product_name}</p>
-      <p>{product.price}</p>
+      <p>{product.Цена}</p>
       <button onClick={() => dispatch(cartProductsAC(addProductInCart()))}>Купить</button> 
     </div>
   );

@@ -24,6 +24,7 @@ function* getAdmin(action) {
 }
 
 function* getProduct(action) {
+  console.log(action.payload);
   try {
     const getProductList = yield call(fetchData, {
       url: `http://localhost:5000/categories/${action.payload}`,
@@ -33,6 +34,15 @@ function* getProduct(action) {
     yield put({ type: "THE_ITEM_IS_NOT_RECEIVED", payload: "Error, The item is not received" })
   }
 }
+
+function* getAllProductsInbase(action) {
+  try {
+    const getProductListAll = yield call(fetchData, {
+      url: 'http://localhost:5000/categories/products',
+    });
+    yield put({ type: "GOODS_RECEIVED", payload: getProductListAll });
+  } catch (e) {
+    yield put({ type: "THE_ITEM_IS_NOT_RECEIVED", payload: "Error, The item is not received" })
 
 function* getUser(action) {
   console.log(action.payload)
@@ -51,9 +61,9 @@ function* getUser(action) {
 
 export function* myWatcher() {
   yield takeEvery("LOGIN_ADMIN_SAGA", getAdmin);
-  yield takeEvery("INIT_PRODUCTS", getProduct);
+  yield takeEvery("INIT_PRODUCTS", getProduct)
+  yield takeEvery("GET_ALL_PRODUCTS", getAllProductsInbase)
   yield takeEvery("REGISTER_USER", getUser)
-
 }
 
 export default myWatcher;
