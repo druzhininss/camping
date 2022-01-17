@@ -25,6 +25,7 @@ router
           password: hashedPass,
           email,
           phone,
+          role: 'customer',
         });
 
         req.session.user = { username: user.username, id: user.id };
