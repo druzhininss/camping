@@ -7,7 +7,7 @@ router
       if (error) {
         res.status(500).json({ message: 'Ошибка при удалении сессии.' });
       }
-      res.clearCookie('user_sid').redirect('/');
+      res.clearCookie('user_sid').json({ login: false });
     });
   });
 
