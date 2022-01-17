@@ -1,8 +1,9 @@
 .container{
   max-width: auto;
   margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 5rem;
 }
 
 .footer{
@@ -35,10 +36,10 @@
 .item{
   margin-right: 18px;
 }
-
+/* 
 .link{
 
-}
+} */
 
 .footer-list{
   list-style-type: none;

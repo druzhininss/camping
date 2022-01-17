@@ -1,5 +1,5 @@
 .items_card {
-  background-color: rgb(255, 225, 0))
+  background-color: rgb(255, 225, 0);
   
 }
 
@@ -9,4 +9,32 @@
 	box-sizing:border-box; /* чтобы внутренний отступ не влиял когда там будет текст... */
 	min-width:170px; /* мин. ширина блока, чтобы переносились на другой ряд */
 	padding:50px 20px; font-size:400%; text-align:center; background:#b5ced8; /* для к*/
+  font-size: 1rem;
+  box-shadow: 5px 9px 20px 0px rgba(0, 0, 0, 0.459);
+
  }
+
+.items_card:hover {
+  flex:1 1 calc(33.33% - 30px); /* отнимем margin и скажем растягиваться */
+  margin:5px;
+  box-sizing:border-box; /* чтобы внутренний отступ не влиял когда там будет текст... */
+  min-width:170px; /* мин. ширина блока, чтобы переносились на другой ряд */
+  padding:50px 20px; font-size:400%; text-align:center; background:#b5ced8; /* для к*/
+  font-size: 1rem;
+  box-shadow: 5px 9px 20px 0px rgba(216, 19, 19, 0.459);
+
+  cursor: pointer;
+
+}
+ 
+.button {
+  border-radius: 10px;
+  background-color: rgb(74, 187, 240);
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #04AA6D;
+  padding: 14px 28px;
+  font-size: 1rem;
+  text-align: center;
+}
