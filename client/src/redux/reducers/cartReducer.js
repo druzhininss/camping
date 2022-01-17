@@ -4,7 +4,6 @@ const initialState = {
   cart: [],
   makeOrder: false,
   stats: {totalPrice: 0},
-  currentItem: {quantity: 1}
 };
 
 export const cartReducer = (state = initialState, action) => {
@@ -20,35 +19,37 @@ export const cartReducer = (state = initialState, action) => {
       };
 
     case cartAT.INCREASE_PRODUCT: {
-      const copiedCurrentItem = {...state.currentItem};
       const copiedTotalPrice = {...state.stats};
       const copiedCart = [...state.cart];
-      console.log(copiedCart)
-      console.log(action.payload, 2)
       copiedCart.map((el) => {
         if (el.id === +action.payload.id) {
-          copiedCurrentItem.quantity += 1;
+          el.quantity += 1;
         }
       })
       copiedTotalPrice.totalPrice += +action.payload.price;
 
       return {
-        ...state, currentItem: copiedCurrentItem, stats: copiedTotalPrice, cart: copiedCart
+        ...state, stats: copiedTotalPrice, cart: copiedCart
       }
     }
 
     case cartAT.DECREASE_PRODUCT:{
-      const copiedCurrentItem = {...state.currentItem};
+      const copiedCart = [...state.cart];
       const copiedTotalPrice = {...state.stats};
-      copiedCurrentItem.quantity -= 1;
-      copiedTotalPrice.totalPrice -= +action.payload.price;
-      if(copiedCurrentItem.quantity < 0) {
-        alert ('Вы убрали все товары')
-      }
+      copiedCart.map((el) => {
+        if(el.id === +action.payload.id) {
+          if(el.quantity === 0) {
+            alert ('Вы убрали все товары')
+          } else {
+            el.quantity -= 1;
+            copiedTotalPrice.totalPrice -= +action.payload.price;
+          }
+        }
+      })
       
 
       return {
-        ...state, currentItem: copiedCurrentItem, stats: copiedTotalPrice
+        ...state, stats: copiedTotalPrice, cart: copiedCart
       }
     }
 

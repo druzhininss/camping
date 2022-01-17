@@ -10,6 +10,7 @@ import AdminPanel from '../ AdminPanel/ AdminPanel.jsx';
 import Registration from '../Registration/Registration.jsx'
 import AdminPanelOrders from '../ AdminPanelOrders/ AdminPanelOrders.jsx';
 import AdminPanelProducts from '../ AdminPanelProducts/ AdminPanelProducts.jsx'
+import Login from '../Login/Login.jsx';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/admin" exact component={AdminPanel} />
         <Route path="/admin/order" exact component={AdminPanelOrders} />
         <Route path="/admin/products" exact component={AdminPanelProducts} />
+        <Route path="/login" exact component={Login} />
       </Switch>
       <Footer />
     </Router>
