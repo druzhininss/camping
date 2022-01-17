@@ -43,6 +43,8 @@ function* getAllProductsInbase(action) {
     yield put({ type: "GOODS_RECEIVED", payload: getProductListAll });
   } catch (e) {
     yield put({ type: "THE_ITEM_IS_NOT_RECEIVED", payload: "Error, The item is not received" })
+  }
+}
 
 function* getUser(action) {
   console.log(action.payload)
