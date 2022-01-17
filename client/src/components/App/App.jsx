@@ -8,6 +8,7 @@ import Cart from '../Cart/Cart.jsx';
 import ProductPage from '../ProductPage/ProductPage.jsx';
 import AdminPanel from '../ AdminPanel/ AdminPanel.jsx';
 import Registration from '../Registration/Registration.jsx'
+import Login from '../Login/Login.jsx';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/cart" exact component={Cart} />
         <Route path="/admin" exact component={AdminPanel} />
         <Route path="/registration" exact component={Registration} />
+        <Route path="/login" exact component={Login} />
       </Switch>
       <Footer />
     </Router>
