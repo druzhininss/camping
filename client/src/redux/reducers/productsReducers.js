@@ -8,6 +8,7 @@ const initialState = {
 export const productsReducers = (state = initialState, action) => {
   switch (action.type) {
     case "GOODS_RECEIVED":
+      console.log(action.payload);
       return {
         ...state, listProducts: action.payload, 
         listProductsAll: action.payload,
