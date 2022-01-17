@@ -8,6 +8,8 @@ import Cart from '../Cart/Cart.jsx';
 import ProductPage from '../ProductPage/ProductPage.jsx';
 import AdminPanel from '../ AdminPanel/ AdminPanel.jsx';
 import Registration from '../Registration/Registration.jsx'
+import AdminPanelOrders from '../ AdminPanelOrders/ AdminPanelOrders.jsx';
+import AdminPanelProducts from '../ AdminPanelProducts/ AdminPanelProducts.jsx'
 import Login from '../Login/Login.jsx';
 
 function App() {
@@ -20,8 +22,10 @@ function App() {
         <Route path="/products/spalniki" exact component={Products} />
         <Route path="/products/kovriki" exact component={ProductPage} />
         <Route path="/cart" exact component={Cart} />
-        <Route path="/admin" exact component={AdminPanel} />
         <Route path="/registration" exact component={Registration} />
+        <Route path="/admin" exact component={AdminPanel} />
+        <Route path="/admin/order" exact component={AdminPanelOrders} />
+        <Route path="/admin/products" exact component={AdminPanelProducts} />
         <Route path="/login" exact component={Login} />
       </Switch>
       <Footer />
