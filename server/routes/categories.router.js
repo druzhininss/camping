@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Product, Specification, Category } = require('../db/models');
 
-router.route('/products')
+router
+  .route('/products')
   .get(async (req, res) => {
     try {
       const rawProducts = await Product.findAll({
@@ -31,7 +32,8 @@ router.route('/products')
     }
   });
 
-router.route('/palatki')
+router
+  .route('/palatki')
   .get(async (req, res) => {
     try {
       const categories = await Category.findAll({
@@ -72,7 +74,8 @@ router.route('/palatki')
     }
   });
 
-router.route('/spalniki')
+router
+  .route('/spalniki')
   .get(async (req, res) => {
     try {
       const categories = await Category.findAll({
@@ -113,7 +116,8 @@ router.route('/spalniki')
     }
   });
 
-router.route('/kovriki')
+router
+  .route('/kovriki')
   .get(async (req, res) => {
     try {
       const categories = await Category.findAll({
