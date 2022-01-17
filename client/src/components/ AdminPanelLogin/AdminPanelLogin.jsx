@@ -31,9 +31,6 @@ function  AdminPanelLogin() {
           <button type="submit" onClick={() =>  dispatch({type: "LOGIN_ADMIN_SAGA", payload: loginAdminObj() })} >Login</button>
           </div>
         </div>
-          <div >
-            <p>Already have an account? <a href="#">Sign in</a>.</p>
-          </div>
       </htmlForm>
     </div>
   );
