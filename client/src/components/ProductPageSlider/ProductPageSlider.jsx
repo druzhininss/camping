@@ -19,7 +19,7 @@ const ProductPageSlider = () => {
     arrows: true,
   };
   return (
-    <div style={{ maxWidth: 1260, margin: "auto" }}>
+    <div style={{ maxWidth: 700, height: 468, margin: "auto" }}>
       <Slider {...settings}>
         {listPhoto.map((slide, index) => (
           <div key={index}>
