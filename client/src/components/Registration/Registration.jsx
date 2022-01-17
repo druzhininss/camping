@@ -9,7 +9,8 @@ function Registration() {
           <p>Пожалуйста, заполните эту форму, чтобы создать учетную запись.</p>
           <hr/>
           <label htmlFor="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required /> 
+          <input type="text" placeholder="Enter Email" name="email" required />
+          <hr/> 
           <label htmlFor="psw"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" required />
           <hr />
