@@ -1,16 +1,14 @@
-//import { adminAT } from '../actionTypes/adminAT';
-
 const initialState = {
   listProductsAll: [],
   listProductsOrders: [],
 };
 
-export const productsReduserAdmin = (state = initialState, action) => {
+export const productsReducerAdmin = (state = initialState, action) => {
   switch (action.type) {
     case "GOODS_RECEIVED":
-      console.log(action.payload.products);
       return {
-        ...state, listProductsAll: action.payload.products,
+        ...state, 
+        listProductsAll: action.payload.products,
         listProductsOrders: action.payload.products,
       };
 

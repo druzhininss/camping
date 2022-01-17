@@ -1,18 +1,23 @@
+.sort_div{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cards_div{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .sort_select {
-  margin-left: 900px;
-  width: 120px;
-  height: 30px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  width: 10rem;
   border: 1px solid #999;
-  font-size: 18px;
+  font-size: 1rem;
   color: #1c87c9;
   background-color: #eee;
   border-radius: 5px;
   box-shadow: 4px 4px #ccc;
-  }
-
-  .products_items {
-    display: flex;
-    flex-wrap: wrap;
-	  /*max-width: 700px; /* макс ширина */
-	  margin: 0 auto; /* выровняем по центру */
   }

@@ -24,7 +24,7 @@ function ProductsProductItems({ product }) {
       <p>{product.product_img_path}</p>
       <p>{product.product_name}</p>
       <p>{product.Цена}</p>
-      <button onClick={() => dispatch(cartProductsAC(addProductInCart()))}>Купить</button> 
+      <button className={style.button} onClick={() => dispatch(cartProductsAC(addProductInCart()))}>Купить</button> 
     </div>
   );
 }

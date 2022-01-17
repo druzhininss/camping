@@ -19,8 +19,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/products/:categoryName" exact component={Products} />
-        <Route path="/products/:categoryName" exact component={Products} />
-        <Route path="/products/:categoryName" exact component={ProductPage} />
+        <Route path="/products/:categoryName/:productId" exact component={ProductPage} />
         <Route path="/cart" exact component={Cart} />
         <Route path="/registration" exact component={Registration} />
         <Route path="/admin" exact component={AdminPanel} />
