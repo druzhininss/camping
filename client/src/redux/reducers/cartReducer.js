@@ -24,6 +24,7 @@ export const cartReducer = (state = initialState, action) => {
       copiedCart.map((el) => {
         if (el.id === +action.payload.id) {
           el.quantity += 1;
+          el.totalForItem += +action.payload.price;
         }
       })
       copiedTotalPrice.totalPrice += +action.payload.price;
@@ -42,14 +43,25 @@ export const cartReducer = (state = initialState, action) => {
             alert ('Вы убрали все товары')
           } else {
             el.quantity -= 1;
+            el.totalForItem -= +action.payload.price;
             copiedTotalPrice.totalPrice -= +action.payload.price;
           }
         }
       })
-      
 
       return {
         ...state, stats: copiedTotalPrice, cart: copiedCart
+      }
+    }
+
+    case cartAT.DELETE_PRODUCT:{
+      const copiedCart = [...state.cart];
+      const copiedTotalPrice = {...state.stats};
+      const newCart = copiedCart.filter((el) => el.id !== +action.payload.id)
+      copiedTotalPrice.totalPrice -= +action.payload.price;
+    
+      return {
+        ...state, stats: copiedTotalPrice, cart: newCart
       }
     }
 

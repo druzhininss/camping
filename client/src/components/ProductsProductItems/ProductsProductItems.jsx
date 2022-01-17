@@ -15,6 +15,7 @@ function ProductsProductItems({ product }) {
       instruction: product.instruction,
       price: product.price,
       quantity: 1,
+      totalForItem: product.price,
     }
   }
   return (

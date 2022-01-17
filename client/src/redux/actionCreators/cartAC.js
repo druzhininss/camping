@@ -23,3 +23,11 @@ export function increaseProductsAC(payload) {
     payload
   };
 }
+
+export function deleteProductsAC(payload) {
+  
+  return {
+    type: cartAT.DELETE_PRODUCT,
+    payload
+  };
+}
