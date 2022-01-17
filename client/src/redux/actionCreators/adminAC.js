@@ -7,3 +7,11 @@ export function initAdmin(payload) {
     payload
   };
 }
+
+export function getAllProducts(payload) {
+  console.log(payload);
+  return {
+    type: adminAT.GET_ALL_PRODUCTS,
+    payload
+  };
+}

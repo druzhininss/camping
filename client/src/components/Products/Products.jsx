@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { initProductsAC } from '../../redux/actionCreators/productsAC';
 import ProductsProductList from '../ProductsProductList/ProductsProductList.jsx';
 import ProductsCatalog from '../ProductsCatalog/ProductsCatalog.jsx'
 
 function Products() {
   const dispatch = useDispatch();
+  const { categoryName } = useParams() 
+  console.log(categoryName);
   const listProduct = [
     {
       id: 1, name: 'Палатка зимняя', description: 'Теплая', instruction: 'растели', price: 10, 
@@ -20,9 +23,9 @@ function Products() {
       id: 4, name: 'Палатка всесезонка', description: 'Отличная', instruction: 'надуй', price: 40, 
     },
   ]
-
+  
   useEffect(() => {
-    dispatch(initProductsAC(listProduct))
+    dispatch(initProductsAC(categoryName))
   }, [dispatch])
   return (
     <>
