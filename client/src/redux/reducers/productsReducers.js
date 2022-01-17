@@ -6,7 +6,6 @@ const initialState = {
 };
 
 export const productsReducers = (state = initialState, action) => {
-
   switch (action.type) {
     case "GOODS_RECEIVED":
       return {

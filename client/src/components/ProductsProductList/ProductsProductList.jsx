@@ -6,9 +6,9 @@ import style from './ProductsProductList.module.css';
 import { sortPriceProductsAC } from '../../redux/actionCreators/productsAC';
 
 function ProductsProductList() {
-  const products = useSelector((state) => state.productsReducers.listProducts);
+  const  products  = useSelector((state) => state.productsReducers.listProducts);
   const dispatch = useDispatch();
-
+  console.log(products);
   return (
     <div>
       <div>
@@ -17,14 +17,14 @@ function ProductsProductList() {
           <option value="max" >По убыванию</option>
         </select>
       </div>
-      <div>
+      {/* <div>
         <ul className={style.products_items}>
           {products.length ? products.map((product) => <ProductsProductItems
             key={product.id} product={product} />) : <li>None!</li>
           }
           )
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 }
