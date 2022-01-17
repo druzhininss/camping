@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const { User } = require('../db/models');
 const passChecker = require('../functions/passwordCheck');
+const { User } = require('../db/models');
 
 router
   .route('/')
