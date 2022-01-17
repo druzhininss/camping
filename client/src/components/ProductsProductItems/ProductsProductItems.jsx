@@ -14,6 +14,7 @@ function ProductsProductItems({ product }) {
       description: product.description,
       instruction: product.instruction,
       price: product.price,
+      quantity: 1,
     }
   }
   return (
