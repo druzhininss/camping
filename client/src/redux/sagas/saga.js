@@ -43,6 +43,19 @@ function* getAllProductsInbase(action) {
     yield put({ type: "GOODS_RECEIVED", payload: getProductListAll });
   } catch (e) {
     yield put({ type: "THE_ITEM_IS_NOT_RECEIVED", payload: "Error, The item is not received" })
+
+function* getUser(action) {
+  console.log(action.payload)
+  try {
+    const newUser = yield call(fetchData, {
+      url: 'http://localhost:5000/registration',
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(action.payload)
+    });
+    yield put({ type: "NEW_USER", payload: newUser })
+  } catch (e) {
+    yield put({ type: "USER_NOT_REGISTERED", payload: "Error registration" })
   }
 }
 
@@ -50,6 +63,7 @@ export function* myWatcher() {
   yield takeEvery("LOGIN_ADMIN_SAGA", getAdmin);
   yield takeEvery("INIT_PRODUCTS", getProduct)
   yield takeEvery("GET_ALL_PRODUCTS", getAllProductsInbase)
+  yield takeEvery("REGISTER_USER", getUser)
 }
 
 export default myWatcher;

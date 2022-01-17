@@ -5,14 +5,12 @@ const passChecker = require('../functions/passwordCheck');
 
 router
   .route('/')
-  .get((req, res) => {
-    res.render('registration');
-  })
   .post(passChecker, async (req, res) => {
     const {
       username,
       password,
       email,
+      phone,
     } = req.body;
 
     try {
@@ -26,16 +24,15 @@ router
           username,
           password: hashedPass,
           email,
+          phone,
+          role: 'customer',
         });
 
         req.session.user = { username: user.username, id: user.id };
-        res.status(201).json({ registration: true, redirectPage: '/' });
+        res.status(201).json({ registration: true });
       }
     } catch (err) {
-      res.render('error', {
-        message: 'Ошибка занесения или получения данных из БД',
-        error: {},
-      });
+      res.status(500).json({ err, message: 'Ошибка занесения данных' });
     }
   });
 

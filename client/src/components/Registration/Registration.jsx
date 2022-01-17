@@ -1,29 +1,58 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { userRegistrationAC } from '../../redux/actionCreators/registrationAC';
+import {useDispatch} from 'react-redux';
 
 function Registration() {
+  const usernameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const repeatPasswordRef = useRef();
+  const phoneRef = useRef();
+  const dispatch = useDispatch();
+  
+
+  const registerUser = () => {
+    return {
+      username: usernameRef.current.value,
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+      phone: phoneRef.current.value,
+      password2: repeatPasswordRef.current.value,
+    }
+  }
+
+  function userAdd(event) {
+    event.preventDefault()
+    dispatch(userRegistrationAC(registerUser()))
+  }
   return (
     <div>
-      <htmlForm> 
+      <form onSubmit={userAdd} >
         <div>
           <h1>Регистрация</h1>
           <p>Пожалуйста, заполните эту форму, чтобы создать учетную запись.</p>
-          <hr/>
+          <hr />
+          <label htmlFor="username"><b>Username</b></label>
+          <input ref={usernameRef} type="text" placeholder="username" name="username" required />
+          <hr />
           <label htmlFor="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required />
-          <hr/>
-          <label htmlFor="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required />
-          <hr/> 
+          <input ref={emailRef} type="text" placeholder="Enter Email" name="email" required />
+          <hr />
+          <p><input ref={phoneRef}type="tel" name="phone_number" list="tel-list" placeholder="+7 (900) 123-45-67" /></p>
+          <hr />
           <label htmlFor="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required />
+          <input ref={passwordRef} type="password" placeholder="Enter Password" name="psw" required />
+          <hr />
+          <label htmlFor="psw2"><b>Repeat-Password</b></label>
+          <input ref={repeatPasswordRef} type="password" placeholder="Repeat Password" name="psw2" required />
           <hr />
           <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-          <button type="submit" >Register</button>
+          <button type='submit'>Register</button>
         </div>
-          <div >
-            <p>Already have an account? <a href="#">Sign in</a>.</p>
-          </div>
-      </htmlForm>
+        <div >
+          <p>Already have an account? <a href="login">Sign in</a>.</p>
+        </div>
+      </form>
     </div>
   );
 }
