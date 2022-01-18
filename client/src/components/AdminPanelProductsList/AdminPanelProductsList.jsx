@@ -4,7 +4,7 @@ import ProductsProductItems from '../ProductsProductItems/ProductsProductItems.j
 
 function  AdminPanelProductsList() {
   const cartProduct = useSelector((state) => state.productsReducerAdmin.listProductsAll);
-
+  console.log(cartProduct);
   return (
     <div>
       <p>ТУТ БУДУТ ВСЕ ПРОДУКТЫ ДЛЯ ИЗМЕНЕНИЯ И ДОБАВЛЕНИЯ</p>
