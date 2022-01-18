@@ -14,6 +14,7 @@ const registrationRouter = require('./routes/registration.router');
 const logoutRouter = require('./routes/logout.router');
 const loginRouter = require('./routes/login.router');
 const profileRouter = require('./routes/profile.router');
+const adminRouter = require('./routes/admin.router');
 
 const PORT = process.env.PORT ?? 5000;
 
@@ -54,6 +55,7 @@ app.use('/registration', registrationRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/profile', profileRouter);
+app.use('/admin', adminRouter);
 
 app.listen(PORT, () => {
   console.log(`*** Server started on port ${PORT} ***`);
