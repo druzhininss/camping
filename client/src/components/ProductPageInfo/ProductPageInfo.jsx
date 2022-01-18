@@ -1,7 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
-export default function ProductPageInfo({ product }) {
+export default function ProductPageInfo() {
+  const { listProductsAll } = useSelector((state) => state.productsReducers); // TODO: change reducer name
+  const { productId } = useParams();
+  const product = listProductsAll?.find(
+    (product) => product.product_id === +productId
+  );
   const arrPropertiesPairs = Object.entries(product);
   const arrInfoValid = arrPropertiesPairs.slice(4);
   return (
