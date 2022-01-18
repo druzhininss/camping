@@ -3,7 +3,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { cartProductsAC } from '../../redux/actionCreators/cartAC';
-import style from './ProductsProductItems.module.css'
+import style from './ProductsProductItems.module.css';
+import slide from "../../assets/DSCF2406.jpg";
 
 function ProductsProductItems({ product }) {
   const dispatch = useDispatch();
@@ -27,13 +28,31 @@ function ProductsProductItems({ product }) {
       <div onClick={() => {
         history.push(`/products/${categoryName}/${product.product_id}`);
       }}>
-      <p>{product.name}</p>
-      <p>{product.product_img_path}</p>
-      <p>{product.product_name}</p>
-      <p>{product.Цена}</p>
+        <div>
+          <div>
+            <p>{product.product_name}</p>
+          </div>
+          <div >
+            <img style={{ maxWidth: 200, height: 200, margin: "auto" }} src={slide}></img>
+          </div>
+          <ul>
+            <li>
+              <img src=""></img>
+              <span>{product.Вес}</span>
+            </li>
+            <li>
+              <img src=""></img>
+              <span>{product['Область применения']}</span>
+            </li>
+            <li>
+              <img src=""></img>
+              <span>{product.Цена}</span>
+            </li>
+          </ul>
+        </div>
       </div>
-      
-      <button className={style.button} onClick={() => dispatch(cartProductsAC(addProductInCart()))}>Купить</button> 
+
+      <button className={style.button} onClick={() => dispatch(cartProductsAC(addProductInCart()))}>Купить</button>
     </div>
   );
 }
