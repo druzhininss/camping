@@ -19,7 +19,7 @@ router
           req.session.user = { username: existingUser.username, id: existingUser.id };
           res.status(200).json({ login: true, message: 'Успешно' });
         }
-
+      } else {
         res.status(404).json({ login: false, message: 'Такого пользователя не существует, либо данные введены не корректно.' });
       }
     } catch (err) {

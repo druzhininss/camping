@@ -139,7 +139,7 @@ module.exports = {
       {
         spec_id: 27, // Цена
         product_id: 1,
-        specValue: '18 999',
+        specValue: '18999',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -281,7 +281,7 @@ module.exports = {
       {
         spec_id: 27, // Цена
         product_id: 2,
-        specValue: '13 299',
+        specValue: '13299',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -414,7 +414,7 @@ module.exports = {
       {
         spec_id: 27, // Цена
         product_id: 3,
-        specValue: '62 899',
+        specValue: '62899',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -506,7 +506,7 @@ module.exports = {
       {
         spec_id: 27, // Цена
         product_id: 4,
-        specValue: '5 399',
+        specValue: '5399',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -625,7 +625,7 @@ module.exports = {
       {
         spec_id: 27, // Цена
         product_id: 5,
-        specValue: '10 999',
+        specValue: '10999',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -736,7 +736,7 @@ module.exports = {
       {
         spec_id: 27, // Цена
         product_id: 6,
-        specValue: '8 599',
+        specValue: '8599',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -848,7 +848,7 @@ module.exports = {
       {
         spec_id: 27, // Цена
         product_id: 7,
-        specValue: '8 899',
+        specValue: '8899',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -971,7 +971,7 @@ module.exports = {
       {
         spec_id: 27, // Цена
         product_id: 8,
-        specValue: '12 499',
+        specValue: '12499',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -1081,7 +1081,7 @@ module.exports = {
       {
         spec_id: 27, // Цена
         product_id: 9,
-        specValue: '5 599',
+        specValue: '5599',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
