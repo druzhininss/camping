@@ -10,9 +10,8 @@ router
       password: pass,
     } = req.body;
 
-    // try {
+    try {
       const existingUser = await User.findOne({ where: { email } });
-      console.log(existingUser);
       if (existingUser) {
         const isSamePassword = await bcrypt.compare(pass, existingUser.password);
 
@@ -23,9 +22,9 @@ router
 
         res.status(404).json({ login: false, message: 'Такого пользователя не существует, либо данные введены не корректно.' });
       }
-    // } catch (err) {
-    //   res.status(500).json({ login: false, message: err.message });
-    // }
+    } catch (err) {
+      res.status(500).json({ login: false, message: err.message });
+    }
   });
 
 module.exports = router;
