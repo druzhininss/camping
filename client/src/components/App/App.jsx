@@ -6,10 +6,10 @@ import Products from '../Products/Products.jsx';
 import Footer from '../Footer/Footer.jsx';
 import Cart from '../Cart/Cart.jsx';
 import ProductPage from '../ProductPage/ProductPage.jsx';
-import AdminPanel from '../ AdminPanel/ AdminPanel.jsx';
-import Registration from '../Registration/Registration.jsx'
-import AdminPanelOrders from '../ AdminPanelOrders/ AdminPanelOrders.jsx';
-import AdminPanelProducts from '../ AdminPanelProducts/ AdminPanelProducts.jsx'
+import AdminPanel from '../AdminPanel/AdminPanel.jsx';
+import Registration from '../Registration/Registration.jsx';
+import AdminPanelOrders from '../AdminPanelOrdersList/AdminPanelOrdersList.jsx';
+import AdminPanelProductsList from '../AdminPanelProductsList/AdminPanelProductsList.jsx';
 import Login from '../Login/Login.jsx';
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
         <Route path="/registration" exact component={Registration} />
         <Route path="/admin" exact component={AdminPanel} />
         <Route path="/admin/order" exact component={AdminPanelOrders} />
-        <Route path="/admin/products" exact component={AdminPanelProducts} />
+        <Route path="/admin/products" exact component={AdminPanelProductsList} />
         <Route path="/login" exact component={Login} />
       </Switch>
       <Footer />

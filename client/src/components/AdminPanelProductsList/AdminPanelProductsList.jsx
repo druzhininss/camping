@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import ProductsProductItems from '../ProductsProductItems/ProductsProductItems.jsx';
 
-function  AdminPanelProducts() {
+function  AdminPanelProductsList() {
   const cartProduct = useSelector((state) => state.productsReducerAdmin.listProductsAll);
 
   return (
@@ -20,4 +20,4 @@ function  AdminPanelProducts() {
   );
 }
 
-export default  AdminPanelProducts;
+export default  AdminPanelProductsList;

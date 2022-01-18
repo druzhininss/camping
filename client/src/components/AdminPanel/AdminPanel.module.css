@@ -1,0 +1,20 @@
+.order_flex {
+  display: flex;
+}
+
+.order {
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+}
+.order:hover { background: rgb(53, 167, 110); }
+
+.order:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}

@@ -9,14 +9,16 @@ const fetchData = async ({
   return data;
 };
 
-function* getAdmin(action) {
+function* bodyLoginAdmin(action) {
+  console.log(action.payload);
   try {
     const getLoginAdmin = yield call(fetchData, {
-      url: 'http://localhost:5000/login',
+      url: 'http://localhost:5000/admin',
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(action.payload)
     });
+    console.log(getLoginAdmin);
     yield put({ type: "INIT_ADMIN_IN_SYSTEM", payload: getLoginAdmin })
   } catch (e) {
     yield put({ type: "DONT_INIT_ADMIN_IN_SYSTEM", payload: "Error login admin" })
@@ -92,7 +94,7 @@ function* logoutUser(action) {
 }
 
 export function* myWatcher() {
-  yield takeEvery("LOGIN_ADMIN_SAGA", getAdmin);
+  yield takeEvery("LOGIN_ADMIN_SAGA", bodyLoginAdmin);
   yield takeEvery("INIT_PRODUCTS", getProduct);
   yield takeEvery("GET_ALL_PRODUCTS", getAllProductsInbase);
   yield takeEvery("REGISTER_USER", getUser);
