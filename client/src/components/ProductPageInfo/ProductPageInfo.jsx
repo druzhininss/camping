@@ -13,7 +13,7 @@ export default function ProductPageInfo() {
   const arrInfoValid = arrPropertiesPairs.slice(4);
 
   return (
-    <table className={"table table-dark table-hover"}>
+    <table className={"table  table-hover"}>
       <tbody>
         <tr>
           <td>Наименование</td>

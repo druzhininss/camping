@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import { userRegistrationAC } from '../../redux/actionCreators/registrationAC';
 import {useDispatch} from 'react-redux';
+import style from './Registration.module.css';
+
 
 function Registration() {
   const usernameRef = useRef();
@@ -26,34 +28,39 @@ function Registration() {
     dispatch(userRegistrationAC(registerUser()))
   }
   return (
-    <div>
       <form onSubmit={userAdd} >
-        <div>
-          <h1>Регистрация</h1>
+         <h1>Регистрация</h1>
           <p>Пожалуйста, заполните эту форму, чтобы создать учетную запись.</p>
           <hr />
-          <label htmlFor="username"><b>Ник</b></label>
+        <div className={style.form} >
+         
+          <div className="mb-3 d-flex flex-column">
+          <label htmlFor="username"className="form-label">Ник</label>
           <input ref={usernameRef} type="text" placeholder="username" name="username" required />
-          <hr />
-          <label htmlFor="email"><b>Почта</b></label>
+          </div>
+          <div className="mb-3 d-flex flex-column">
+          <label htmlFor="email" className="form-label">Почта</label>
           <input ref={emailRef} type="text" placeholder="Enter Email" name="email" required />
-          <hr />
-          <label htmlFor="phone_number"><b>Телефон</b></label>
+          </div>
+          <div className="mb-3 d-flex flex-column">
+          <label htmlFor="phone_number" className="form-label">Телефон</label>
           <input ref={phoneRef} type="tel" name="phone_number" list="tel-list" placeholder="+7 (900) 123-45-67" />
-          <hr />
-          <label htmlFor="psw"><b>Пароль</b></label>
+          </div>
+          <div className="mb-3 d-flex flex-column">
+          <label htmlFor="psw" className="form-label">Пароль</label>
           <input ref={passwordRef} type="password" minLength={8} placeholder="Enter Password" name="psw" required />
-          <hr />
-          <label htmlFor="psw2"><b>Повторите пароль</b></label>
+          </div>
+          <div className="mb-3 d-flex flex-column">
+          <label htmlFor="psw2" className="form-label">Повторите пароль</label>
           <input ref={repeatPasswordRef} type="password" placeholder="Repeat Password" name="psw2" required />
-          <hr />
+          </div>
           <button type='submit'>Регистрация</button>
         </div>
+        <hr />
         <div >
           <p>Уже есть аккаунт? <a href="login">Войдите</a>.</p>
         </div>
       </form>
-    </div>
   );
 }
 

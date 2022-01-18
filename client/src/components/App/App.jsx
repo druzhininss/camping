@@ -11,9 +11,12 @@ import Registration from '../Registration/Registration.jsx';
 import AdminPanelOrders from '../AdminPanelOrdersList/AdminPanelOrdersList.jsx';
 import AdminPanelProductsList from '../AdminPanelProductsList/AdminPanelProductsList.jsx';
 import Login from '../Login/Login.jsx';
+import style from './App.module.css';
 
 function App() {
   return (
+    <div className={style.appFlex}>
+    <div className={style.app}>
     <Router>
       <Nav />
       <Switch>
@@ -29,6 +32,8 @@ function App() {
       </Switch>
       <Footer />
     </Router>
+    </div>
+    </div>
   );
 }
 
