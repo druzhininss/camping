@@ -31,7 +31,7 @@ function Login() {
           <input ref={emailRef} type="text" placeholder="Enter Email" name="email" required /> 
           <hr/>
           <label htmlFor="psw"><b>Password</b></label>
-          <input ref={passwordRef} type="password" placeholder="Enter Password" name="password" required />
+          <input ref={passwordRef} type="password" minLength={8} placeholder="Enter Password" name="password" required />
           <hr />
           <button>Войти</button>
         </div>
