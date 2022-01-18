@@ -11,7 +11,7 @@ function Products() {
 
   useEffect(() => {
     dispatch(initProductsAC(categoryName))
-  }, )
+  },) // Что положить в массив зависимостей ?
   return (
     <>
       <ProductsProductList />
