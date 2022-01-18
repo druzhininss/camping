@@ -1,15 +1,15 @@
 .container{
   max-width: auto;
   margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 5rem;
+  padding-top: 10rem;
 }
 
 .footer{
   background-color: #0D2C4A;
   color: #fff;
   padding: 68px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .foot{
@@ -18,12 +18,23 @@
   line-height: 1,5;
   max-width: 252px;
 }
+.logo{
+  width: 150px;
+}
 
 .social{
   list-style-type: none;
   padding-left: 0;
   display: flex;
   margin: 0;
+  flex-direction: column;
+}
+.socialPic{
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  margin: 0;
+  flex-direction: row;
 }
 
 .text{
@@ -36,10 +47,6 @@
 .item{
   margin-right: 18px;
 }
-/* 
-.link{
-
-} */
 
 .footer-list{
   list-style-type: none;
