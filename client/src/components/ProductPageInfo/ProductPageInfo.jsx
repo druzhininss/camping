@@ -11,6 +11,7 @@ export default function ProductPageInfo() {
   );
   const arrPropertiesPairs = Object.entries(product);
   const arrInfoValid = arrPropertiesPairs.slice(4);
+
   return (
     <table className={"table table-dark table-hover"}>
       <tbody>

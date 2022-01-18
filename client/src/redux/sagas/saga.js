@@ -60,7 +60,6 @@ function* getUser(action) {
 }
 
 function* sendLoginData(action) {
-  console.log(action.payload);
   try {
     const loginUser = yield call(fetchData, {
       url: 'http://localhost:5000/login',
@@ -71,7 +70,8 @@ function* sendLoginData(action) {
         password: action.payload.password,
       })
     });
-    yield put({ type: "LOGIN_USER", payload: loginUser })
+    console.log(loginUser);
+    yield put({ type: "LOGIN_SUCCESS", payload: loginUser })
   } catch (e) {
     yield put({ type: "LOGIN_FAILED", payload: "Login failed" })
   }

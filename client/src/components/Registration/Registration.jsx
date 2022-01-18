@@ -47,10 +47,10 @@ function Registration() {
           <label htmlFor="psw2"><b>Повторите пароль</b></label>
           <input ref={repeatPasswordRef} type="password" placeholder="Repeat Password" name="psw2" required />
           <hr />
-          <button type='submit'>Register</button>
+          <button type='submit'>Регистрация</button>
         </div>
         <div >
-          <p>Already have an account? <a href="login">Sign in</a>.</p>
+          <p>Уже есть аккаунт? <a href="login">Войдите</a>.</p>
         </div>
       </form>
     </div>
