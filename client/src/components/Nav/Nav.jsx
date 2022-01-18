@@ -1,11 +1,13 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import style from './Nav.module.css';
 import Logo from '../../assets/LogoCamping.png';
 import Cart from '../../assets/cart.png'
-
+import { userLogoutAC } from '../../redux/actionCreators/logoutAC';
 
 function Nav() {
+  const dispatch = useDispatch();
 
   return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,8 +34,10 @@ function Nav() {
                 <Link className="nav-link" to='/login'>Войти</Link>
               </li>
 
-              <li className="nav-item">
-                <Link className="nav-link" to='/logout'>Выйти</Link>
+              <li className="nav-item" onClick={() => {
+                dispatch(userLogoutAC());
+              }}>
+                <Link className="nav-link" to='/'>Выйти</Link>
               </li>
 
               

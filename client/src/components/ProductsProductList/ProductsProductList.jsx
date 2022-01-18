@@ -8,7 +8,7 @@ import style from './ProductsProductList.module.css';
 function ProductsProductList() {
   const products = useSelector((state) => state.productsReducers.listProducts);
   const dispatch = useDispatch();
-  console.log(products);
+ 
   return (
     <div>
       <div className={style.sort_div}>

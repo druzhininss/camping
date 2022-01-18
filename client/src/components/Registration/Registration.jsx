@@ -39,10 +39,10 @@ function Registration() {
           <input ref={emailRef} type="text" placeholder="Enter Email" name="email" required />
           <hr />
           <label htmlFor="phone_number"><b>Телефон</b></label>
-          <input ref={phoneRef}type="tel" name="phone_number" list="tel-list" placeholder="+7 (900) 123-45-67" />
+          <input ref={phoneRef} type="tel" name="phone_number" list="tel-list" placeholder="+7 (900) 123-45-67" />
           <hr />
           <label htmlFor="psw"><b>Пароль</b></label>
-          <input ref={passwordRef} type="password" placeholder="Enter Password" name="psw" required />
+          <input ref={passwordRef} type="password" minLength={8} placeholder="Enter Password" name="psw" required />
           <hr />
           <label htmlFor="psw2"><b>Повторите пароль</b></label>
           <input ref={repeatPasswordRef} type="password" placeholder="Repeat Password" name="psw2" required />
