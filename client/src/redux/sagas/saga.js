@@ -4,7 +4,7 @@ import { call, put, takeEvery, takeLeading } from 'redux-saga/effects';
 const fetchData = async ({
   url, method, headers, body,
 }) => {
-  const response = await fetch(url, { method, headers, body });
+  const response = await fetch(url, { method, headers, body, credentials: 'include' });
   const data = await response.json();
   return data;
 };
@@ -78,12 +78,10 @@ function* sendLoginData(action) {
 }
 
 function* logoutUser(action) {
+  console.log('LOGOUT');
   try {
     const logoutUserFetch = yield call(fetchData, {
       url: 'http://localhost:5000/logout',
-      method: 'GET',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({}), 
     });
     yield put({ type: "LOGOUT_SUCCESS", payload: logoutUserFetch })
   } catch (e) {
