@@ -32,21 +32,21 @@ function Registration() {
           <h1>Регистрация</h1>
           <p>Пожалуйста, заполните эту форму, чтобы создать учетную запись.</p>
           <hr />
-          <label htmlFor="username"><b>Username</b></label>
+          <label htmlFor="username"><b>Ник</b></label>
           <input ref={usernameRef} type="text" placeholder="username" name="username" required />
           <hr />
-          <label htmlFor="email"><b>Email</b></label>
+          <label htmlFor="email"><b>Почта</b></label>
           <input ref={emailRef} type="text" placeholder="Enter Email" name="email" required />
           <hr />
-          <p><input ref={phoneRef}type="tel" name="phone_number" list="tel-list" placeholder="+7 (900) 123-45-67" /></p>
+          <label htmlFor="phone_number"><b>Телефон</b></label>
+          <input ref={phoneRef}type="tel" name="phone_number" list="tel-list" placeholder="+7 (900) 123-45-67" />
           <hr />
-          <label htmlFor="psw"><b>Password</b></label>
+          <label htmlFor="psw"><b>Пароль</b></label>
           <input ref={passwordRef} type="password" placeholder="Enter Password" name="psw" required />
           <hr />
-          <label htmlFor="psw2"><b>Repeat-Password</b></label>
+          <label htmlFor="psw2"><b>Повторите пароль</b></label>
           <input ref={repeatPasswordRef} type="password" placeholder="Repeat Password" name="psw2" required />
           <hr />
-          <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
           <button type='submit'>Register</button>
         </div>
         <div >
