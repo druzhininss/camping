@@ -17,7 +17,7 @@ router
 
         if (isSamePassword) {
           req.session.user = { username: existingUser.username, id: existingUser.id };
-          res.status(200).json({ login: true, message: 'Login successful' });
+          res.status(200).json({ login: true, message: 'Успешно' });
         }
 
         res.status(404).json({ login: false, message: 'Такого пользователя не существует, либо данные введены не корректно.' });
