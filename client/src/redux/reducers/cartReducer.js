@@ -10,7 +10,7 @@ export const cartReducer = (state = initialState, action) => {
   
   switch (action.type) {
     case cartAT.INIT_PRODUCTS_IN_CART:
-      // eslint-disable-next-line no-case-declarations
+      // eslint-disable-next-line no-case-declarations 
       const copiedTotalPrice = {...state.stats};
       copiedTotalPrice.totalPrice += Number(action.payload.price)
       
