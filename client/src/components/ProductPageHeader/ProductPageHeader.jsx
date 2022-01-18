@@ -1,13 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 const ProductPageHeader = () => {
+  const { listProductsAll } = useSelector((state) => state.productsReducers); // TODO: change reducer name
+  const { productId } = useParams();
+  const product = listProductsAll?.find(
+    (product) => product.product_id === +productId
+  );
   return (
     <div className="d-flex justify-content-between align-items-center ms-3 me-3">
-      <div>Заголовок</div> {/* сюда тянем название товара */}
-      <div>Цена: 12 499 руб.</div> {/* сюда тянем цену */}
-      <div>
-        {/* <button>Купить</button> */} {/* раскомментировать после пула */}
-      </div>
+      <div>{product.product_name}</div>
+      <div>{product['Цена']} руб.</div>
     </div>
   );
 };
