@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import ProductPageCarousel from "../ProductPageCarousel/ProductPageCarousel";
 import ProductPageHeader from "../ProductPageHeader/ProductPageHeader";
 import ProductPageInfo from "../ProductPageInfo/ProductPageInfo";
-import ProductPageSelector from "../ProductPageSelector/ProductPageSelector";
 import ProductPageSlider from "../ProductPageSlider/ProductPageSlider";
+import style from './ProductPage.module.css';
 
 const ProductPage = () => {
   const { listProductsAll } = useSelector((state) => state.productsReducers); // TODO: change reducer name
@@ -18,15 +18,14 @@ const ProductPage = () => {
       <div>
         <ProductPageHeader />
       </div>
-      <div>
-        <ProductPageSelector />
-      </div>
+      <div className={style.product}>
       <div>
         <ProductPageSlider />
         <ProductPageCarousel />
       </div>
       <div>
         <ProductPageInfo />
+      </div>
       </div>
       <div>
         <h2>Описание</h2>

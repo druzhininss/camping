@@ -3,16 +3,13 @@ import style from './Footer.module.css';
 import Facebook from '../../assets/Facebook.svg';
 import Instagram from '../../assets/Instagram (filled).svg';
 import Youtube from '../../assets/YouTube.svg';
-import Logo from '../../assets/logo.jpg';
+
 
 function Footer() {
   return (
       <footer>
         <div className={style.container}>
           <div className={style.footer}>
-            <div className={style.foot}>
-                <img className={style.logo} src={Logo} alt='logo' />
-            </div>
                <div className={style.item}>
                 <ul className={style.social}>
                   <li className={style.title}>ПОДПИСЫВАЙТЕСЬ НА НАС</li>
