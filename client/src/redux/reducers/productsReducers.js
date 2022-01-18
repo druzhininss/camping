@@ -16,17 +16,13 @@ export const productsReducers = (state = initialState, action) => {
     case productsAT.SORT_PRICE_PRODUCT:
       // eslint-disable-next-line no-case-declarations
       const notSortedProducts = [...state.listProducts];
-      console.log(notSortedProducts);
-      notSortedProducts.sort((a, b) => {
-        Number(b.Цена)
-        console.log(typeof(b.Цена)
-        Number(b.Цена) - a.Цена
-      });
-      // if (action.payload == "min") {
-      //   notSortedProducts.sort((a, b) => a.Цена - b.Цена);
-      // } else if (action.payload == "max") {
-      //   notSortedProducts.sort((a, b) => b.Цена - a.Цена);
-      // }
+
+      if (action.payload == "min") {
+        notSortedProducts.sort((a, b) => Number(a.Цена.split(' ').join('')) - Number(b.Цена.split(' ').join('')));
+      } else if (action.payload == "max") {
+        console.log("max");
+        notSortedProducts.sort((a, b) => Number(b.Цена.split(' ').join('')) - Number(a.Цена.split(' ').join('')));
+      }
       return {
         ...state, listProducts: notSortedProducts
       }
