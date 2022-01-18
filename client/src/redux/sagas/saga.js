@@ -46,7 +46,6 @@ function* getAllProductsInbase(action) {
 }
 
 function* getUser(action) {
-  console.log(action.payload)
   try {
     const newUser = yield call(fetchData, {
       url: 'http://localhost:5000/registration',
@@ -60,11 +59,30 @@ function* getUser(action) {
   }
 }
 
+function* sendLoginData(action) {
+  console.log(action.payload);
+  try {
+    const loginUser = yield call(fetchData, {
+      url: 'http://localhost:5000/login',
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        email: action.payload.email,
+        password: action.payload.password,
+      })
+    });
+    yield put({ type: "LOGIN_USER", payload: loginUser })
+  } catch (e) {
+    yield put({ type: "LOGIN_FAILED", payload: "Login failed" })
+  }
+}
+
 export function* myWatcher() {
   yield takeEvery("LOGIN_ADMIN_SAGA", getAdmin);
-  yield takeEvery("INIT_PRODUCTS", getProduct)
-  yield takeEvery("GET_ALL_PRODUCTS", getAllProductsInbase)
-  yield takeEvery("REGISTER_USER", getUser)
+  yield takeEvery("INIT_PRODUCTS", getProduct);
+  yield takeEvery("GET_ALL_PRODUCTS", getAllProductsInbase);
+  yield takeEvery("REGISTER_USER", getUser);
+  yield takeEvery("LOGIN_USER", sendLoginData);
 }
 
 export default myWatcher;
