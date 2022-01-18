@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Logo from '../../assets/logo.jpg';
 
 function Nav() {
 
   return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <Link to='/' className="navbar-brand"><img style={{width: '7rem'}} src="https://www.alexika.ru/media/uploads/main/alexika_logo_web_1.png" alt="logo" /></Link>
+          <Link to='/' className="navbar-brand"><img style={{width: '7rem'}} src={Logo} alt="logo" /></Link>
           <Link className="navbar-brand" to='/products/palatki'>Палатки</Link>
           <Link className="navbar-brand" to='/products/spalniki'>Спальники</Link>
           <Link className="navbar-brand" to='/products/kovriki'>Коврики</Link>
