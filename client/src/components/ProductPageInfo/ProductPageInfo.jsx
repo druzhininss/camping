@@ -20,9 +20,8 @@ const kovrik = {
   Цена: "12 499",
 };
 
-export default function ProductPageInfo({ product }) {
-  // console.log(typeof product);
-  const arrProperties = Object.entries(product); // сюда подставить значение из useSelector, чтобы его превратить в массив и потом отрендерить
+export default function ProductPageInfo() {
+  const arrProperties = Object.entries(kovrik); // сюда подставить значение из useSelector, чтобы его превратить в массив и потом отрендерить
   console.log(arrProperties);
   return (
     <table className={"table table-dark table-hover"}>
