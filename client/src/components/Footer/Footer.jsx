@@ -7,7 +7,7 @@ import Youtube from '../../assets/YouTube.svg';
 
 function Footer() {
   return (
-      <footer>
+      <footer className={style.footerSize}>
         <div className={style.container}>
           <div className={style.footer}>
                <div className={style.item}>
