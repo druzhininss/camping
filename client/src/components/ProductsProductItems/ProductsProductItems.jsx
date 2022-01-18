@@ -7,19 +7,20 @@ import style from './ProductsProductItems.module.css';
 import slide from "../../assets/DSCF2406.jpg";
 
 function ProductsProductItems({ product }) {
+  
   const dispatch = useDispatch();
   const history = useHistory();
   const { categoryName } = useParams();
 
   const addProductInCart = () => {
     return {
-      id: product.id,
-      name: product.name,
-      description: product.description,
-      instruction: product.instruction,
-      price: product.price,
+      id: product.product_id,
+      name: product.product_name,
+      brand: product['Бренд'],
+      color: product['Цвет'],
+      price: product['Цена'],
       quantity: 1,
-      totalForItem: product.price,
+      totalForItem: product['Цена'],
     }
   }
 
