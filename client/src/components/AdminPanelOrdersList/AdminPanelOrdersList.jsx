@@ -1,13 +1,20 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import ProductsProductItems from '../ProductsProductItems/ProductsProductItems.jsx';
+import { getOrderProductsAC } from '../../redux/actionCreators/adminAC';
 
-function  AdminPanelOrdersList() {
-  const cartProduct = useSelector((state) => state.productsReducerAdmin.listProductsAll)
+function AdminPanelOrdersList() {
+  const dispatch = useDispatch();
+  const cartProduct = useSelector((state) => state.productsReducerAdmin.listProductsAll);
+
+  useEffect(() => {
+    dispatch(getOrderProductsAC());
+  }, [])
+
   console.log(cartProduct);
   return (
     <div>
-       <div>
+      <div>
         <ul>
           {cartProduct.length ? cartProduct.map((product) => <ProductsProductItems // Тут я использую тот же компонет что и с карточкой в общих товарах
             key={product.id} product={product} />) : <li>Заказов нет!</li>
@@ -19,4 +26,4 @@ function  AdminPanelOrdersList() {
   );
 }
 
-export default  AdminPanelOrdersList;
+export default AdminPanelOrdersList;

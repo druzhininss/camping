@@ -1,16 +1,9 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { getAllProducts } from '../../redux/actionCreators/adminAC';
 import AdminPanelLogin from '../AdminPanelLogin/AdminPanelLogin.jsx';
 import style from './AdminPanel.module.css';
 
 function AdminPanel() {
-  const dispatch = useDispatch();
-  
-  useEffect(() => {
-    dispatch(getAllProducts());
-  }, [])
 
   return (
     <div>

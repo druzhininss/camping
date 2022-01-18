@@ -9,14 +9,14 @@ const fetchData = async ({
   return data;
 };
 
-function* bodyLoginAdmin(action) {
+function* checkLoginAdmin(action) { // Логинизация админа
   console.log(action.payload);
   try {
     const getLoginAdmin = yield call(fetchData, {
       url: 'http://localhost:5000/admin',
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(action.payload)
+      body: JSON.stringify({email: action.payload.email, password: action.payload.password})
     });
     console.log(getLoginAdmin);
     yield put({ type: "INIT_ADMIN_IN_SYSTEM", payload: getLoginAdmin })
@@ -25,7 +25,7 @@ function* bodyLoginAdmin(action) {
   }
 }
 
-function* getProduct(action) {
+function* getProduct(action) { // Все продукты для сайта
   try {
     const getProductList = yield call(fetchData, {
       url: `http://localhost:5000/categories/${action.payload}`,
@@ -37,14 +37,15 @@ function* getProduct(action) {
   }
 }
 
-function* getAllProductsInbase(action) {
+function* getOrderProducts(action) { // Все заказы для админки 
+  console.log(action);
   try {
-    const getProductListAll = yield call(fetchData, {
-      url: 'http://localhost:5000/categories/products',
+    const getProductsOrdersFromCart = yield call(fetchData, {
+      url: 'http://localhost:5000/orders',
     });
-    yield put({ type: "GOODS_RECEIVED", payload: getProductListAll });
+    yield put({ type: "USER_ORDERS", payload: getProductsOrdersFromCart });
   } catch (e) {
-    yield put({ type: "THE_ITEM_IS_NOT_RECEIVED", payload: "Error, The item is not received" })
+    yield put({ type: "NO_USER_ORDERS", payload: "Error, The item is not received" })
   }
 }
 
@@ -92,9 +93,9 @@ function* logoutUser(action) {
 }
 
 export function* myWatcher() {
-  yield takeEvery("LOGIN_ADMIN_SAGA", bodyLoginAdmin);
+  yield takeEvery("LOGIN_ADMIN_SAGA", checkLoginAdmin);
   yield takeEvery("INIT_PRODUCTS", getProduct);
-  yield takeEvery("GET_ALL_PRODUCTS", getAllProductsInbase);
+  yield takeEvery("GET_ORDER_PRODUCT", getOrderProducts);
   yield takeEvery("REGISTER_USER", getUser);
   yield takeEvery("LOGIN_USER", sendLoginData);
   yield takeEvery("LOGOUT_USER", logoutUser);
