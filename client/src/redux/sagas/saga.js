@@ -29,6 +29,7 @@ function* getProduct(action) {
       url: `http://localhost:5000/categories/${action.payload}`,
     });
     yield put({ type: "GOODS_RECEIVED", payload: getProductList });
+    // localStorage
   } catch (e) {
     yield put({ type: "THE_ITEM_IS_NOT_RECEIVED", payload: "Error, The item is not received" })
   }
@@ -70,10 +71,23 @@ function* sendLoginData(action) {
         password: action.payload.password,
       })
     });
-    console.log(loginUser);
     yield put({ type: "LOGIN_SUCCESS", payload: loginUser })
   } catch (e) {
     yield put({ type: "LOGIN_FAILED", payload: "Login failed" })
+  }
+}
+
+function* logoutUser(action) {
+  try {
+    const logoutUserFetch = yield call(fetchData, {
+      url: 'http://localhost:5000/logout',
+      method: 'GET',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({}),
+    });
+    yield put({ type: "LOGOUT_SUCCESS", payload: logoutUserFetch })
+  } catch (e) {
+    yield put({ type: "LOGOUT_FAILED", payload: "Logout failed" })
   }
 }
 
@@ -83,6 +97,7 @@ export function* myWatcher() {
   yield takeEvery("GET_ALL_PRODUCTS", getAllProductsInbase);
   yield takeEvery("REGISTER_USER", getUser);
   yield takeEvery("LOGIN_USER", sendLoginData);
+  yield takeEvery("LOGOUT_USER", logoutUser);
 }
 
 export default myWatcher;
