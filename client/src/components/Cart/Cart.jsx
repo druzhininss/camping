@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { numRanks } from '../../helpers/functions.js';
 import CartItems from '../CartItems/CartItems.jsx';
 import style from './Cart.module.css';
 
@@ -8,6 +9,7 @@ function Cart() {
   const carts = useSelector(state => state.cartReducer.cart);
   const makeOrder = useSelector(state => state.cartReducer.makeOrder);
   const stats = useSelector(state => state.cartReducer.stats);
+  console.log(stats, 66);
   
   return (
     <div>
@@ -17,7 +19,7 @@ function Cart() {
         : "Вы ничего не добавили в корзину"
       }
       <div className={makeOrder ? style.visible : style.hidden} >
-          <h3>Итого к оплате: {stats.totalPrice}</h3>
+          <h3>Итого к оплате: {numRanks(stats.totalPrice)}</h3>
           <button>Оформить заказ</button>
         </div>
     </div>
