@@ -3,8 +3,8 @@ module.exports = {
     await queryInterface.bulkInsert('Users', [
       {
         username: 'Admin',
-        password: '123456',
-        email: 'admin@admin.com',
+        password: '$2b$10$82.jMSxOLiGcFohR/r/piOIYsgDgPAdk4F8zhm.dF2TUncsIydSkq',
+        email: 'admin@admin.ru',
         phone: '89221112233',
         role: 'admin',
         createdAt: new Date(),
@@ -12,8 +12,8 @@ module.exports = {
       },
       {
         username: 'Customer',
-        password: '123456',
-        email: 'customer@customer.com',
+        password: '$2b$10$82.jMSxOLiGcFohR/r/piOIYsgDgPAdk4F8zhm.dF2TUncsIydSkq',
+        email: 'customer@customer.ru',
         phone: '89223334455',
         role: 'customer',
         createdAt: new Date(),

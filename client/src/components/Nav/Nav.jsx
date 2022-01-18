@@ -34,8 +34,8 @@ function Nav() {
                 <Link className="nav-link" to='/login'>Войти</Link>
               </li>
 
-              <li className="nav-item" onClick={() => dispatch(userLogoutAC())}>
-                <Link className="nav-link" to='/'>Выйти</Link>
+              <li className="nav-item">
+                <Link className="nav-link" to='/' onClick={() => dispatch(userLogoutAC())}>Выйти</Link>
               </li>
 
               
