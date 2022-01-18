@@ -83,7 +83,7 @@ function* logoutUser(action) {
       url: 'http://localhost:5000/logout',
       method: 'GET',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({}),
+      body: JSON.stringify({}), 
     });
     yield put({ type: "LOGOUT_SUCCESS", payload: logoutUserFetch })
   } catch (e) {
