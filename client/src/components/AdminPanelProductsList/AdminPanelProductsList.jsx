@@ -1,10 +1,14 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import ProductsProductItems from '../ProductsProductItems/ProductsProductItems.jsx';
+import { getAllProductsAC } from '../../redux/actionCreators/adminAC';
 
 function  AdminPanelProductsList() {
-  const cartProduct = useSelector((state) => state.productsReducerAdmin.listProductsAll);
-  console.log(cartProduct);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllProductsAC())
+  }, [dispatch]);
+
   return (
     <div>
       <p>ТУТ БУДУТ ВСЕ ПРОДУКТЫ ДЛЯ ИЗМЕНЕНИЯ И ДОБАВЛЕНИЯ</p>
