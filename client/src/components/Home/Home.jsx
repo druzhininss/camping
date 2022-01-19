@@ -1,5 +1,5 @@
 import React from 'react';
-import Video from './video.mp4';
+import Video from './newvideo.mp4';
 import style from './Home.module.css';
 function Home() {
   return (
