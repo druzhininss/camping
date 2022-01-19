@@ -1,3 +1,5 @@
+const pathToPicture = '../../assets/picturesForProject';
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('Products', [
@@ -5,7 +7,7 @@ module.exports = {
       {
         productName: 'Палатка1 Кемпинговая',
         category_id: 4,
-        imagePath: null,
+        imagePath: `${pathToPicture}/tents/camping/Indiana 4.jpg`,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
