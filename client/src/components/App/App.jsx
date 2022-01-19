@@ -17,7 +17,7 @@ import style from './App.module.css';
 function App() {
   return (
     <Router>
-      <Nav />
+      {window.location.pathname !== ('/admin' || '/admin/order' || '/admin/products') && <Nav />}
       <div className={style.appFlex}>
         <div className={style.app}>
           <Switch>
@@ -34,7 +34,8 @@ function App() {
           </Switch>
         </div>
       </div>
-      <Footer />
+      {window.location.pathname !== ('/admin' || '/admin/order' || '/admin/products') && <Footer />}
+
     </Router>
 
   );
