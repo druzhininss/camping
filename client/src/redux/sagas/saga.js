@@ -38,6 +38,7 @@ function* getProducts(action) { // Все продукты для сайта
 }
 
 function* getAllProducts(action) {
+  console.log(action);
   try {
     const getListAllProduct = yield call(fetchData, {
       url: `http://localhost:5000/products`,

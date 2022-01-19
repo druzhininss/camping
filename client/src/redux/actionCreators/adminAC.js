@@ -15,9 +15,8 @@ export function getOrderProductsAC(payload) {
   };
 }
 
-export function getAllProductsAC(payload) {
+export function getAllProductsAC() {
   return {
     type: adminAT.GET_ALL_PRODUCTS,
-    payload
   };
 }

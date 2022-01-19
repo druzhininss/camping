@@ -4,17 +4,21 @@ import ProductsProductItems from '../ProductsProductItems/ProductsProductItems.j
 import { getAllProductsAC } from '../../redux/actionCreators/adminAC';
 
 function  AdminPanelProductsList() {
-  const dispatch = useDispatch();
+
+  const allProducts = useSelector((state) => state.productsReducers.listProductsAll);
+  const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(getAllProductsAC())
   }, [dispatch]);
+
 
   return (
     <div>
       <p>ТУТ БУДУТ ВСЕ ПРОДУКТЫ ДЛЯ ИЗМЕНЕНИЯ И ДОБАВЛЕНИЯ</p>
       <div>
         <ul>
-          {cartProduct.length ? cartProduct.map((product) => <ProductsProductItems // Тут я использую тот же компонет что и с карточкой в общих товарах
+          {allProducts.length ? allProducts.map((product) => <ProductsProductItems // Тут я использую тот же компонет что и с карточкой в общих товарах
             key={product.product_id} product={product} />) : <li>Заказов нет!</li>
           }
           )
