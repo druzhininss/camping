@@ -16,26 +16,27 @@ import style from './App.module.css';
 
 function App() {
   return (
-    <div className={style.appFlex}>
-    <div className={style.app}>
     <Router>
       <Nav />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/products/:categoryName" exact component={Products} />
-        <Route path="/products/:categoryName/:productId" exact component={ProductPage} />
-        <Route path="/cart" exact component={Cart} />
-        <Route path="/registration" exact component={Registration} />
-        <Route path="/admin" exact component={AdminPanel} />
-        <Route path="/admin/order" exact component={AdminPanelOrders} />
-        <Route path="/admin/products" exact component={AdminPanelProductsList} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/profile" exact component={UserProfile} />
-      </Switch>
+      <div className={style.appFlex}>
+        <div className={style.app}>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/products/:categoryName" exact component={Products} />
+            <Route path="/products/:categoryName/:productId" exact component={ProductPage} />
+            <Route path="/cart" exact component={Cart} />
+            <Route path="/registration" exact component={Registration} />
+            <Route path="/admin" exact component={AdminPanel} />
+            <Route path="/admin/order" exact component={AdminPanelOrders} />
+            <Route path="/admin/products" exact component={AdminPanelProductsList} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/profile" exact component={UserProfile} />
+          </Switch>
+        </div>
+      </div>
       <Footer />
     </Router>
-    </div>
-    </div>
+
   );
 }
 

@@ -1,18 +1,24 @@
 
 .logoImg{
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
+  width: 80%;
+  height: 80%;
+
 }
 .logo{
   max-width: 150px;
+  background-color:#D2B48C;
 }
 .cart{
-  width: 60px;
-  height: 60px;
+  max-width: 50px;
+  max-height: 50px;
 }
 .logoFlex{
   width: 100%;
   display: flex;
   flex-direction: column;
+  background-color:#D2B48C;
+}
+li{
+  display: flex;
+  align-items: center;
 }
