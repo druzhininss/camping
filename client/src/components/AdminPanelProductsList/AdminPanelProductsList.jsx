@@ -7,7 +7,8 @@ function  AdminPanelProductsList() {
 
   const allProducts = useSelector((state) => state.productsReducers.listProductsAll);
   const dispatch = useDispatch()
-
+  const cardAdmin = useSelector((state) => state.productsReducers.cardAdmin);
+  
   useEffect(() => {
     dispatch(getAllProductsAC())
   }, [dispatch]);
@@ -18,7 +19,7 @@ function  AdminPanelProductsList() {
       <p>ТУТ БУДУТ ВСЕ ПРОДУКТЫ ДЛЯ ИЗМЕНЕНИЯ И ДОБАВЛЕНИЯ</p>
       <div>
         <ul>
-          {allProducts.length ? allProducts.map((product) => <ProductsProductItems // Тут я использую тот же компонет что и с карточкой в общих товарах
+          {allProducts.length ? allProducts.map((product) => <ProductsProductItems cardAdmin={cardAdmin}// Тут я использую тот же компонет что и с карточкой в общих товарах
             key={product.product_id} product={product} />) : <li>Заказов нет!</li>
           }
           )

@@ -17,7 +17,7 @@ export const productsReducers = (state = initialState, action) => {
     case "LIST_OF_ALL_PRODUCTS":
       return {
         ...state,
-        listProductsAll: action.payload, // Используем для отображения конкретного продукта (не трогать)
+        listProductsAll: action.payload.products, // Используем для отображения конкретного продукта (не трогать)
       };
 
     case productsAT.SORT_PRICE_PRODUCT:
