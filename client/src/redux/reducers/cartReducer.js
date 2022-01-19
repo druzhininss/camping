@@ -12,28 +12,10 @@ export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case cartAT.INIT_PRODUCTS_IN_CART:
       // eslint-disable-next-line no-case-declarations 
-      const copiedTotalPrice = {...state.stats};
-
-      // eslint-disable-next-line no-case-declarations
-      const addItemToCart = (cart, cartItemToAdd) => {
-      const existingCartItem = cart.find(
-        cartItem => cartItem.id === cartItemToAdd.id
-        );
-      
-      if (existingCartItem) {
-        return cart.map(cartItem =>
-          cartItem.id === cartItemToAdd.id
-          ? { ...cartItem, quantity: cartItem.quantity + 1, totalForItem: cartItem.quantity * Number(cartItem.price)}
-          : cartItem
-          );
-        }
-      
-        return [...cart, { ...cartItemToAdd, quantity: 1 }];
-      };
-      copiedTotalPrice.totalPrice += Number(action.payload.totalForItem) 
+      const copiedTotalPrice = {...state.stats}; 
       
       return {
-        ...state, cart: addItemToCart(state.cart, action.payload), makeOrder: true, stats: copiedTotalPrice
+        ...state, cart: , makeOrder: true, stats: copiedTotalPrice
       };
       
     case cartAT.INCREASE_PRODUCT: {
