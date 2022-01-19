@@ -22,9 +22,10 @@ function Cart() {
           : "Вы ничего не добавили в корзину"
       }
       <div className={makeOrder ? style.visible : style.hidden} >
-        <h3>Итого к оплате: {numRanks(stats.totalPrice)}</h3>
-        <button onClick={() => dispatch(makeOrderAC({ carts, userId }))}>Оформить заказ</button>
-      </div>
+          <h3>Итого к оплате: {numRanks(stats.totalPrice)}</h3>
+          <button className={style.button}>Оформить заказ</button>
+        </div>
+
     </div>
   );
 }
