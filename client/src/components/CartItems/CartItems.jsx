@@ -7,8 +7,6 @@ import style from './CartItems.module.css'
 function CartItems({ cart }) {
   
   const dispatch = useDispatch();
-  console.log(cart.price)
-  console.log(typeof cart.price)
   return (
     <div>
       <div>

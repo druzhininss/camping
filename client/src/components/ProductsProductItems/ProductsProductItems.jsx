@@ -3,6 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { cartProductsAC } from '../../redux/actionCreators/cartAC';
+import { numRanks } from '../../helpers/functions';
 import style from './ProductsProductItems.module.css';
 import  {numRanks}  from '../../helpers/functions';
 import slide from "../../assets/DSCF2406.jpg";
@@ -57,6 +58,7 @@ console.log(product,'kkk');
             </li>
             <li>
               <img src={Ruble}/>&nbsp;&nbsp;
+
               <span>{numRanks(product.Цена)}</span>
             </li>
           </ul>

@@ -4,6 +4,28 @@ module.exports = {
       {
         product_id: 1,
         order_id: 1,
+        quantity: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        product_id: 2,
+        order_id: 1,
+        quantity: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        product_id: 6,
+        order_id: 1,
+        quantity: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        product_id: 8,
+        order_id: 1,
+        quantity: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
       },

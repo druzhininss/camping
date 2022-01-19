@@ -32,6 +32,10 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   }, {
     sequelize,
     modelName: 'OrderProduct',
