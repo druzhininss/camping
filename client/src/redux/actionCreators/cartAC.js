@@ -31,3 +31,11 @@ export function deleteProductsAC(payload) {
     payload
   };
 }
+
+export function makeOrderAC(payload) {
+  
+  return {
+    type: cartAT.MAKE_ORDER,
+    payload
+  };
+}

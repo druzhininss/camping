@@ -118,6 +118,20 @@ function* logoutUser(action) {
   }
 }
 
+function* makeOrderFromCart(action) {
+  try {
+    const newOrder = yield call(fetchData, {
+      url: 'http://localhost:5000/orders/makeorder',
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ cart: action.payload.carts, userId: action.payload.userId })
+    });
+    yield put({ type: "ORDER_SUCCESS", payload: newOrder })
+  } catch (e) {
+    yield put({ type: "ORDER_FAILED", payload: "ORDER" })
+  }
+}
+
 export function* myWatcher() {
   yield takeEvery("LOGIN_ADMIN_SAGA", checkLoginAdmin);
   yield takeEvery("INIT_PRODUCTS", getProducts);
@@ -126,6 +140,8 @@ export function* myWatcher() {
   yield takeEvery("REGISTER_USER", getUser);
   yield takeEvery("LOGIN_USER", sendLoginData);
   yield takeEvery("LOGOUT_USER", logoutUser);
+  yield takeEvery("MAKE_ORDER", makeOrderFromCart);
+
 }
 
 export default myWatcher;
