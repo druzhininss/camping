@@ -61,24 +61,18 @@ function* getOrderProducts(action) { // Все заказы всех users дл�
   }
 }
 
-function* saveChangeItemsProduct(action) {
+function* saveChangeItemsProduct(action) {   // изменение в карточки база
+  console.log(action.payload.id);
   try {
     const newUser = yield call(fetchData, {
-      url: `http://localhost:5000/admin/${action.payload}`,
+      url: `http://localhost:5000/admin/${action.payload.id}`,
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(action.payload)
     });
-    if (newUser.login) {
-      yield put({ type: "NEW_USER", payload: newUser })
-    }
-
-    if (newUser.message) {
-      yield put({ type: "REGISTRATION_FAILED", payload: newUser })
-    }
-
+    yield put({ type: "ITEM_CHANGED", payload: newUser })
   } catch (e) {
-    yield put({ type: "USER_NOT_REGISTERED", payload: "Error registration" })
+    yield put({ type: "NOT_ITEM_CHANGED", payload: "Error item_changed" })
   }
 }
 
@@ -93,7 +87,7 @@ function* geleteItemsProduct(action) { // Удалить карточку тов
   } catch (e) {
     yield put({ type: "NO_USER_ORDERS", payload: "Error, The item is not received" })
   }
-} 
+}
 
 function* getUser(action) {
   try {
