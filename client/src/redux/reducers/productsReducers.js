@@ -20,11 +20,17 @@ export const productsReducers = (state = initialState, action) => {
         listProductsAll: action.payload.products, // Используем для отображения конкретного продукта (не трогать)
       };
 
-      case "CHANGE_ITEMS_PRODUCT":  // изменение карточки
-      console.log(action.payload);
+      case "CHANGE_ITEMS_PRODUCT":  // изменение карточки доавление флага для условного рендеринга
         return {
-          ...state,
-          change: action.payload,
+          ...state, listProductsAll: state.listProductsAll.map((item) => {
+            if(item.product_id == action.payload) {
+              return {
+                ...item,
+                change: true,
+              }
+            } 
+            return item
+          })
         };   
 
     case productsAT.SORT_PRICE_PRODUCT:

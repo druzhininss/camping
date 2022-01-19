@@ -7,7 +7,7 @@ function AdminPanelProductsList() {
 
   const allProducts = useSelector((state) => state.productsReducers.listProductsAll);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(getAllProductsAC());
   }, []);

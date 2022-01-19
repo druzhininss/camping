@@ -34,3 +34,10 @@ export function deleteItemsProductAC(payload) {
     payload
   };
 }
+
+export function saveChangeItemsProductAC(payload) {
+  return {
+    type: adminAT.SAVE_CHANGE_ITEMS_PRODUCT,
+    payload
+  }
+}

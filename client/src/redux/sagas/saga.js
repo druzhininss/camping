@@ -61,6 +61,27 @@ function* getOrderProducts(action) { // Все заказы всех users дл�
   }
 }
 
+function* saveChangeItemsProduct(action) {
+  try {
+    const newUser = yield call(fetchData, {
+      url: `http://localhost:5000/admin/${action.payload}`,
+      method: 'PUT',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(action.payload)
+    });
+    if (newUser.login) {
+      yield put({ type: "NEW_USER", payload: newUser })
+    }
+
+    if (newUser.message) {
+      yield put({ type: "REGISTRATION_FAILED", payload: newUser })
+    }
+
+  } catch (e) {
+    yield put({ type: "USER_NOT_REGISTERED", payload: "Error registration" })
+  }
+}
+
 function* geleteItemsProduct(action) { // Удалить карточку товара из базы
   try {
     const geleteItems = yield call(fetchData, {
@@ -135,6 +156,7 @@ export function* myWatcher() {
   yield takeEvery("LOGIN_ADMIN_SAGA", checkLoginAdmin);
   yield takeEvery("INIT_PRODUCTS", getProducts);
   yield takeEvery("GET_ALL_PRODUCTS", getAllProducts);
+  yield takeEvery("SAVE_CHANGE_ITEMS_PRODUCT", saveChangeItemsProduct);
   yield takeEvery("DELETE_ITEMS_PRODUCT", geleteItemsProduct);
   yield takeEvery("GET_ORDER_PRODUCT", getOrderProducts);
   yield takeEvery("REGISTER_USER", getUser);
