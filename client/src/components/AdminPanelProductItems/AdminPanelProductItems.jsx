@@ -1,11 +1,12 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { changeItemsProduct } from '../../redux/actionCreators/adminAC';
-import { deleteItemsProduct } from '../../redux/actionCreators/adminAC';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeItemsProductAC } from '../../redux/actionCreators/adminAC';
+import { deleteItemsProductAC } from '../../redux/actionCreators/adminAC';
 
 function AdminPanelProductItems(product) {
   const dispatch = useDispatch();
-
+  const change = useSelector((state) => state.productsReducers.change);
+  console.log(change);
   return (
     <div>
       <div>
@@ -21,15 +22,15 @@ function AdminPanelProductItems(product) {
         </li>
         <li>
           <img src=""></img>
-          <span>{product.product['Область применения']}</span>
+          {change ?  <input value="gjgj"></input> : <span>{product.product['Область применения']}</span>}
         </li>
         <li>
           <img src=""></img>
           <span>{product.product.Цена}</span>
         </li>
       </ul>
-      <button onClick={() => dispatch(changeItemsProduct())}>Изменить</button>
-      <button onClick={() => dispatch(deleteItemsProduct())}>Удалить</button>
+      <button onClick={() => dispatch(changeItemsProductAC(product.product.product_id))}>Изменить</button>
+      <button onClick={() => dispatch(deleteItemsProductAC(product.product.product_id))}>Удалить</button>
     </div>
   );
 }

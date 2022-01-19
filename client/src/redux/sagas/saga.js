@@ -9,7 +9,7 @@ const fetchData = async ({
   return data;
 };
 
-function* checkLoginAdmin(action) { // Логинизация админа
+function* checkLoginAdmin(action) { // Логинизация админа проерка есть ли в базе
   console.log(action.payload);
   try {
     const getLoginAdmin = yield call(fetchData, {
@@ -25,7 +25,7 @@ function* checkLoginAdmin(action) { // Логинизация админа
   }
 }
 
-function* getProducts(action) { // Все продукты для сайта
+function* getProducts(action) { // получаем все продукты для сайта
   try {
     const getProductList = yield call(fetchData, {
       url: `http://localhost:5000/categories/${action.payload}`,
@@ -37,7 +37,7 @@ function* getProducts(action) { // Все продукты для сайта
   }
 }
 
-function* getAllProducts(action) {
+function* getAllProducts(action) {  // получаем все товары для админки
   try {
     const getListAllProduct = yield call(fetchData, {
       url: 'http://localhost:5000/categories/products',
@@ -49,7 +49,7 @@ function* getAllProducts(action) {
   }
 }
 
-function* getOrderProducts(action) { // Все заказы для админки 
+function* getOrderProducts(action) { // Все заказы всех users для админки 
   console.log(action);
   try {
     const getProductsOrdersFromCart = yield call(fetchData, {
@@ -60,6 +60,19 @@ function* getOrderProducts(action) { // Все заказы для админк�
     yield put({ type: "NO_USER_ORDERS", payload: "Error, The item is not received" })
   }
 }
+
+function* geleteItemsProduct(action) { // Удалить карточку товара из базы
+  try {
+    const geleteItems = yield call(fetchData, {
+      url: `http://localhost:5000/admin/${action.payload}`,
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json' },
+    });
+    yield put({ type: "USER_ORDERS", payload: geleteItems });
+  } catch (e) {
+    yield put({ type: "NO_USER_ORDERS", payload: "Error, The item is not received" })
+  }
+} 
 
 function* getUser(action) {
   try {
@@ -122,6 +135,7 @@ export function* myWatcher() {
   yield takeEvery("LOGIN_ADMIN_SAGA", checkLoginAdmin);
   yield takeEvery("INIT_PRODUCTS", getProducts);
   yield takeEvery("GET_ALL_PRODUCTS", getAllProducts);
+  yield takeEvery("DELETE_ITEMS_PRODUCT", geleteItemsProduct);
   yield takeEvery("GET_ORDER_PRODUCT", getOrderProducts);
   yield takeEvery("REGISTER_USER", getUser);
   yield takeEvery("LOGIN_USER", sendLoginData);

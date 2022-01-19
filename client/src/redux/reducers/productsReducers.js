@@ -15,11 +15,17 @@ export const productsReducers = (state = initialState, action) => {
       };
 
     case "LIST_OF_ALL_PRODUCTS":
-      console.log(action.payload);
       return {
         ...state,
         listProductsAll: action.payload.products, // Используем для отображения конкретного продукта (не трогать)
       };
+
+      case "CHANGE_ITEMS_PRODUCT":  // изменение карточки
+      console.log(action.payload);
+        return {
+          ...state,
+          change: action.payload,
+        };   
 
     case productsAT.SORT_PRICE_PRODUCT:
       // eslint-disable-next-line no-case-declarations 
