@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useRef } from 'react';
+import { Redirect, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { userLoginAC } from '../../redux/actionCreators/loginAC'
 import style from './Login.module.css';
@@ -10,6 +10,7 @@ function Login() {
   const passwordRef = useRef();
   const history = useHistory();
   const userStatus = useSelector(state => state.userReducer);
+  const { login } = useSelector(state => state.userReducer)
 
   const getLoginData = () => {
     return {
@@ -18,14 +19,15 @@ function Login() {
     }
   }
 
+  useEffect(() => {
+    history.push('/');
+  }, [login, dispatch])
+
   return (
     <div>
       <form onSubmit={(event) => {
         event.preventDefault();
-        dispatch(userLoginAC(getLoginData())); // useHistory
-        if (userStatus?.login) {
-          history.push('/');
-        }
+        dispatch(userLoginAC(getLoginData()));
       }}>
         <h1>Вход</h1>
         <hr />
@@ -41,8 +43,10 @@ function Login() {
 
           {
             userStatus?.message
-            &&
-            <p style={{ fontSize: '0.7rem', color: 'red' }}>{userStatus.message}</p>
+              ?
+              <p style={{ fontSize: '0.7rem', color: 'red' }}>{userStatus.message}</p>
+              :
+              userStatus?.login && <Redirect to='/' />
           }
 
           <button>Войти</button>
