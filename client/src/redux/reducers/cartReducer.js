@@ -5,7 +5,7 @@ const initialState = {
   cart: [],
   makeOrder: false,
   totalPrice: 0,
-  orderDone: false,
+  
 };
 
 export const cartReducer = (state = initialState, action) => {
@@ -99,7 +99,7 @@ export const cartReducer = (state = initialState, action) => {
 
     case cartAT.ORDER_SUCCESS: {
       return {
-        ...state, cart: [], totalPrice: 0, orderDone: true
+        ...state, cart: [], totalPrice: 0,
       }
     }
     default:
