@@ -2,18 +2,17 @@ import React, { useRef } from 'react';
 import { userRegistrationAC } from '../../redux/actionCreators/registrationAC';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './Registration.module.css';
-import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 
 function Registration() {
+  const registrationStatus = useSelector(state => state.userReducer);
   const usernameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const repeatPasswordRef = useRef();
   const phoneRef = useRef();
   const dispatch = useDispatch();
-  const registrationStatus = useSelector(state => state.userReducer);
-  const history = useHistory();
 
   const registerUser = () => {
     return {
@@ -56,13 +55,14 @@ function Registration() {
           <label htmlFor="psw2" className="form-label">Повторите пароль</label>
           <input ref={repeatPasswordRef} type="password" placeholder="Repeat Password" name="psw2" required />
         </div>
+
         {registrationStatus?.message
           ?
           <p style={{ fontSize: '0.7rem', color: 'red' }}>{registrationStatus.message}</p>
           :
-          registrationStatus?.login && history.push('/')
-
+          registrationStatus?.login && <Redirect to='/' />
         }
+
         <button type='submit'>Регистрация</button>
       </div>
       <hr />
