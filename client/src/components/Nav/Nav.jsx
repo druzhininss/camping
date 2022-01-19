@@ -7,7 +7,7 @@ import Cart from '../../assets/cart.png'
 import { userLogoutAC } from '../../redux/actionCreators/logoutAC';
 
 function Nav() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
   const { login } = useSelector(state => state.userReducer);
 
   return (
