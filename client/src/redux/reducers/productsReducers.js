@@ -15,6 +15,7 @@ export const productsReducers = (state = initialState, action) => {
       };
 
     case "LIST_OF_ALL_PRODUCTS":
+      console.log(action.payload);
       return {
         ...state,
         listProductsAll: action.payload.products, // Используем для отображения конкретного продукта (не трогать)
