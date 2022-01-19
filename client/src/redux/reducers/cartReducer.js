@@ -10,13 +10,13 @@ const initialState = {
 export const cartReducer = (state = initialState, action) => {
   
   switch (action.type) {
-    case cartAT.INIT_PRODUCTS_IN_CART:
-      // eslint-disable-next-line no-case-declarations 
-      const copiedTotalPrice = {...state.stats}; 
+    // case cartAT.INIT_PRODUCTS_IN_CART:
+    //   // eslint-disable-next-line no-case-declarations 
+    //   const copiedTotalPrice = {...state.stats}; 
       
-      return {
-        ...state, cart: , makeOrder: true, stats: copiedTotalPrice
-      };
+    //   return {
+    //     ...state, cart: [...state.cart], makeOrder: true, stats: copiedTotalPrice
+    //   };
       
     case cartAT.INCREASE_PRODUCT: {
       const copiedTotalPrice = {...state.stats};
