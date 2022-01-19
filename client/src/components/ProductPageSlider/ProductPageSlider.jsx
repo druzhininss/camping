@@ -6,15 +6,19 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const ProductPageSlider = () => {
-  const pathToPicture = '../../assets/picturesForProject';
   const { listProducts } = useSelector((state) => state.productsReducers); // TODO: change reducer name
-
   const { productId } = useParams();
+  const pathToPicture = "/img/picturesForProject";
+  
   const product = listProducts?.find(
     (product) => product.product_id === +productId
   );
-  // console.log(product);
-  const listPhoto = [`${pathToPicture}${product.product_img_path}`];
+
+  const listPhoto = [
+    `${pathToPicture}${product.product_img_path}`,
+    `${pathToPicture}${product.product_img_path}`,
+    `${pathToPicture}${product.product_img_path}`,
+  ];
 
   const settings = {
     dots: true,
@@ -34,8 +38,6 @@ const ProductPageSlider = () => {
           </div>
         ))}
       </Slider>
-
-      {/* <img src="/img/home.jpeg" alt='alt img'/> */}
     </div>
   );
 };
