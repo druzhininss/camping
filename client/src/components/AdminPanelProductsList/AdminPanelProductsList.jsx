@@ -6,10 +6,10 @@ import { getAllProductsAC } from '../../redux/actionCreators/adminAC';
 function AdminPanelProductsList() {
 
   const allProducts = useSelector((state) => state.productsReducers.listProductsAll);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   console.log(allProducts);
   useEffect(() => {
-    dispatch(getAllProductsAC())
+    dispatch(getAllProductsAC());
   }, []);
 
 

@@ -1,7 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { changeItemsProduct } from '../../redux/actionCreators/adminAC';
+import { deleteItemsProduct } from '../../redux/actionCreators/adminAC';
 
 function AdminPanelProductItems(product) {
-  console.log(product.product);
+  const dispatch = useDispatch();
+
   return (
     <div>
       <div>
@@ -24,6 +28,8 @@ function AdminPanelProductItems(product) {
           <span>{product.product.Цена}</span>
         </li>
       </ul>
+      <button onClick={() => dispatch(changeItemsProduct())}>Изменить</button>
+      <button onClick={() => dispatch(deleteItemsProduct())}>Удалить</button>
     </div>
   );
 }
