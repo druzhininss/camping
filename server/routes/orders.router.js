@@ -27,6 +27,13 @@ router
       userId,
       cart,
     } = req.body;
+    console.log(cart);
+
+    // const createOrder = await Order.create({
+    //   user_id: userId,
+
+    // })
+
     try {
       res.status(201).json({ message: 'Order created successfully' });
     } catch (err) {
