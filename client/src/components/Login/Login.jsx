@@ -23,7 +23,7 @@ function Login() {
       <form onSubmit={(event) => {
         event.preventDefault();
         dispatch(userLoginAC(getLoginData())); // useHistory
-        if (userStatus.login) {
+        if (userStatus?.login) {
           history.push('/');
         }
       }}>
