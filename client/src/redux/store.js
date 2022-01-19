@@ -4,6 +4,7 @@ import { rootReducer } from './reducers/rootReducer';
 import { myWatcher } from './sagas/saga';
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const persistConfig = {
   key: 'root',
@@ -12,7 +13,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 const sagaMiddleware = createSagaMiddleware();
-let store = createStore(persistedReducer, applyMiddleware(sagaMiddleware));
+let store = createStore(persistedReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 let persistor = persistStore(store);
 export { store, persistor, sagaMiddleware };
 
