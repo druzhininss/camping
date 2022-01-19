@@ -14,6 +14,7 @@ export const cartReducer = (state = initialState, action) => {
       // eslint-disable-next-line no-case-declarations 
       const copiedTotalPrice = {...state.stats};
 
+      // eslint-disable-next-line no-case-declarations
       const addItemToCart = (cart, cartItemToAdd) => {
       const existingCartItem = cart.find(
         cartItem => cartItem.id === cartItemToAdd.id

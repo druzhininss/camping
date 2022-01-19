@@ -13,7 +13,7 @@ const ProductPageSlider = () => {
   const product = listProducts?.find(
     (product) => product.product_id === +productId
   );
-  
+
   const listPhoto = [
     `${pathToPicture}${product.product_img_path}`,
     `${pathToPicture}${product.product_img_path}`,
@@ -34,7 +34,7 @@ const ProductPageSlider = () => {
       <Slider {...settings}>
         {listPhoto.map((slide, index) => (
           <div key={index}>
-            <img src={slide} alt="true" />
+            <img src={slide} alt="slider pictures" />
           </div>
         ))}
       </Slider>

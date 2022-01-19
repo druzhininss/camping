@@ -9,7 +9,7 @@ const dotenv = require('dotenv');
 const helmet = require('helmet');
 // const bcrypt = require('bcrypt');
 
-const categoriesRouter = require('./routes/categories.router');
+const productsRouter = require('./routes/products.router');
 const registrationRouter = require('./routes/registration.router');
 const logoutRouter = require('./routes/logout.router');
 const loginRouter = require('./routes/login.router');
@@ -50,7 +50,7 @@ app.use(cors(corsOptions)); // cors init
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/categories', categoriesRouter); // Products router
+app.use('/categories', productsRouter); // Products router
 app.use('/registration', registrationRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
