@@ -29,7 +29,7 @@ router
         });
 
         req.session.user = { username: user.username, id: user.id };
-        res.status(201).json({ login: true });
+        res.status(201).json({ login: true, userId: user.id });
       }
     } catch (err) {
       res.status(500).json({ err, message: 'Ошибка занесения данных' });

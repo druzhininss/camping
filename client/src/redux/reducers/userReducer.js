@@ -4,6 +4,7 @@ import { loginAT } from '../actionTypes/loginAT';
 const initialState = {
   login: false,
   message: '', // Для отображения ошибок логин, рега
+  userId: '',
 };
 
 export const userReducer = (state = initialState, action) => {
@@ -14,6 +15,7 @@ export const userReducer = (state = initialState, action) => {
         ...state,
         login: action.payload.login,
         message: '',
+        userId: action.payload.userId,
       };
 
     case loginAT.REGISTRATION_FAILED:
@@ -27,6 +29,7 @@ export const userReducer = (state = initialState, action) => {
         ...state,
         login: action.payload.login,
         message: '',
+        userId: action.payload.userId,
       };
 
     case loginAT.LOGIN_FAILED:
@@ -39,6 +42,7 @@ export const userReducer = (state = initialState, action) => {
       return {
         ...state,
         login: false,
+        userId: '',
       };
 
     default:

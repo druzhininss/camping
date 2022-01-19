@@ -9,9 +9,15 @@ export const productsReducers = (state = initialState, action) => {
   switch (action.type) {
     case "GOODS_RECEIVED":
       return {
-        ...state, 
-        listProducts: action.payload.products,
-        listProductsAll: action.payload.products, // Используем для отображения конкретного продукта (не трогать)
+        ...state,
+        listProducts: action.payload.products, // Используем для отображения конкретного продукта (не трогать)
+        //listProductsAll: action.payload.products, // Используем для отображения конкретного продукта (не трогать)
+      };
+
+    case "LIST_OF_ALL_PRODUCTS":
+      return {
+        ...state,
+        listProductsAll: action.payload, // Используем для отображения конкретного продукта (не трогать)
       };
 
     case productsAT.SORT_PRICE_PRODUCT:
@@ -25,9 +31,16 @@ export const productsReducers = (state = initialState, action) => {
         notSortedProducts.sort((a, b) => Number(b.Цена.split(' ').join('')) - Number(a.Цена.split(' ').join('')));
       }
       return {
-        ...state, 
+        ...state,
         listProducts: notSortedProducts
       }
+
+    case "USER_ORDERS":
+      console.log(action.payload.products);
+      return {
+        ...state,
+        listProductsOrders: action.payload,
+      };
 
     default:
       return state;

@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import { cartAT } from '../actionTypes/cartAT';
 
 const initialState = {
@@ -11,11 +12,7 @@ export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case cartAT.INIT_PRODUCTS_IN_CART:
       // eslint-disable-next-line no-case-declarations 
-      const copiedTotalPrice = {...state.stats};
-      const copiedCart = [...state.cart];
-      
-      
-        
+      const copiedTotalPrice = {...state.stats}; 
       
       return {
         ...state, cart: , makeOrder: true, stats: copiedTotalPrice
