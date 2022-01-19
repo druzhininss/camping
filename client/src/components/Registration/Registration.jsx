@@ -6,13 +6,13 @@ import { Redirect } from 'react-router-dom';
 
 
 function Registration() {
+  const registrationStatus = useSelector(state => state.userReducer);
   const usernameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const repeatPasswordRef = useRef();
   const phoneRef = useRef();
   const dispatch = useDispatch();
-  const registrationStatus = useSelector(state => state.userReducer);
 
   const registerUser = () => {
     return {
