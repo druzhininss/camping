@@ -20,4 +20,18 @@ router
     }
   });
 
+router
+  .route('/makeorder')
+  .post(async (req, res) => {
+    const {
+      userId,
+      cart,
+    } = req.body;
+    try {
+      res.status(201).json({ message: 'Order created successfully' });
+    } catch (err) {
+      res.status(500).json({ login: false, message: err.message });
+    }
+  });
+
 module.exports = router;
