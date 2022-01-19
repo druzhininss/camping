@@ -57,7 +57,14 @@ function* getUser(action) {
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(action.payload)
     });
-    yield put({ type: "NEW_USER", payload: newUser })
+    if (newUser.login) {
+      yield put({ type: "NEW_USER", payload: newUser })
+    } 
+
+    if (newUser.message) {
+      yield put({ type: "REGISTRATION_FAILED", payload: newUser })
+    }
+
   } catch (e) {
     yield put({ type: "USER_NOT_REGISTERED", payload: "Error registration" })
   }
@@ -74,14 +81,21 @@ function* sendLoginData(action) {
         password: action.payload.password,
       })
     });
-    yield put({ type: "LOGIN_SUCCESS", payload: loginUser })
+
+    if (loginUser.login) {
+      yield put({ type: "LOGIN_SUCCESS", payload: loginUser })
+    }
+    
+    if (loginUser.message) {
+      yield put({ type: "LOGIN_FAILED", payload: loginUser })
+    }
+
   } catch (e) {
     yield put({ type: "LOGIN_FAILED", payload: "Login failed" })
   }
 }
 
 function* logoutUser(action) {
-  console.log('LOGOUT');
   try {
     const logoutUserFetch = yield call(fetchData, {
       url: 'http://localhost:5000/logout',
