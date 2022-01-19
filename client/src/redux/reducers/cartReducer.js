@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import { cartAT } from '../actionTypes/cartAT';
 
 const initialState = {
