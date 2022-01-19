@@ -29,7 +29,7 @@ function Cart() {
         <button onClick={() => {
           dispatch(makeOrderAC({ carts, userId }));
           history.push('/');
-      }}>Оформить заказ</button>
+        }}>Оформить заказ</button>
       </div>
     </div>
   );
