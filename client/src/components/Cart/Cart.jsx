@@ -10,7 +10,7 @@ function Cart() {
   const carts = useSelector(state => state.cartReducer.cart);
   const { userId } = useSelector(state => state.userReducer);
   const makeOrder = useSelector(state => state.cartReducer.makeOrder);
-  const stats = useSelector(state => state.cartReducer.stats);
+  const { totalPrice } = useSelector(state => state.cartReducer);
   const dispatch = useDispatch();
 
 
@@ -22,7 +22,7 @@ function Cart() {
           : "Вы ничего не добавили в корзину"
       }
       <div className={makeOrder ? style.visible : style.hidden} >
-        <h3>Итого к оплате: {numRanks(stats.totalPrice)}</h3>
+        <h3>Итого к оплате: {numRanks(totalPrice)}</h3>
         <button onClick={() => dispatch(makeOrderAC({ carts, userId }))}>Оформить заказ</button>
       </div>
     </div>
