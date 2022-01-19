@@ -7,11 +7,11 @@ import ProductsCatalog from '../ProductsCatalog/ProductsCatalog.jsx';
 
 function Products() {
   const dispatch = useDispatch();
-  const { categoryName } = useParams() 
+  const { categoryName } = useParams();
 
   useEffect(() => {
     dispatch(initProductsAC(categoryName))
-  }, [dispatch, categoryName]) // Что положить в массив зависимостей ?
+  }, [dispatch, categoryName]);
   return (
     <>
       <ProductsProductList />

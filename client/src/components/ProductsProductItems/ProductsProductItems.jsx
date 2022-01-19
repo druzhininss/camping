@@ -1,16 +1,17 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { cartProductsAC } from '../../redux/actionCreators/cartAC';
 import style from './ProductsProductItems.module.css';
 import slide from "../../assets/DSCF2406.jpg";
 
 function ProductsProductItems({ product }) {
-  
+
   const dispatch = useDispatch();
   const history = useHistory();
   const { categoryName } = useParams();
+  const { login } = useSelector(state => state.userReducer);
 
   const addProductInCart = () => {
     return {
@@ -53,7 +54,13 @@ function ProductsProductItems({ product }) {
         </div>
       </div>
 
-      <button className={style.button} onClick={() => dispatch(cartProductsAC(addProductInCart()))}>Купить</button>
+      {login
+        ?
+        <button className={style.button} onClick={() => dispatch(cartProductsAC(addProductInCart()))}>Купить</button>
+        :
+        <p style={{ color: '#ff00f1', fontSize: '0.8rem' }}>Покупка доступна только для авторизованных пользователей</p>
+      }
+      
     </div>
   );
 }

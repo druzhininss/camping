@@ -17,7 +17,7 @@ router
       const existingUser = await User.findOne({ where: { email } });
 
       if (existingUser) {
-        res.status(403).json({ registration: false, message: 'Такой пользователь уже существует.' });
+        res.status(403).json({ login: false, message: 'Такой пользователь уже существует.' });
       } else {
         const hashedPass = await bcrypt.hash(password, 10);
         const user = await User.create({
@@ -29,7 +29,7 @@ router
         });
 
         req.session.user = { username: user.username, id: user.id };
-        res.status(201).json({ registration: true });
+        res.status(201).json({ login: true });
       }
     } catch (err) {
       res.status(500).json({ err, message: 'Ошибка занесения данных' });
