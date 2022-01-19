@@ -6,8 +6,7 @@
 }
 
 .footer{
-  background-color: #0D2C4A;
-  color: #fff;
+  background-color:#D2B48C;
   padding: 20px 20px;
   display: flex;
   justify-content: space-between;
@@ -60,7 +59,6 @@
 
 .title{
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 24px;
 }
 
@@ -69,6 +67,5 @@
 }
 
 .footer-list__link{
-  color: #fff;
   text-decoration: none;
 }

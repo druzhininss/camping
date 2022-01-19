@@ -4,10 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { cartProductsAC } from '../../redux/actionCreators/cartAC';
 import style from './ProductsProductItems.module.css';
+import  {numRanks}  from '../../helpers/functions';
 import slide from "../../assets/DSCF2406.jpg";
+import Scales from '../../assets/scales.png';
+import Ruble from '../../assets/ruble.png';
+import Tent from '../../assets/tent.png'
+import Size from '../../assets/size.png'
 
 function ProductsProductItems({ product }) {
-
+console.log(product,'kkk');
   const dispatch = useDispatch();
   const history = useHistory();
   const { categoryName } = useParams();
@@ -38,17 +43,21 @@ function ProductsProductItems({ product }) {
             <img style={{ maxWidth: 200, height: 200, margin: "auto" }} src={slide}></img>
           </div>
           <ul>
-            <li>
-              <img src=""></img>
-              <span>{product.Вес}</span>
-            </li>
-            <li>
-              <img src=""></img>
+          <li>
+              <img src={Tent}/>&nbsp;&nbsp;
               <span>{product['Область применения']}</span>
             </li>
             <li>
-              <img src=""></img>
-              <span>{product.Цена}</span>
+              <img src={Scales}/>&nbsp;&nbsp;
+              <span>{product.Вес}</span>
+            </li>
+            <li>
+              <img src={Size}/>&nbsp;&nbsp;
+              <span>{product.Размер}</span>
+            </li>
+            <li>
+              <img src={Ruble}/>&nbsp;&nbsp;
+              <span>{numRanks(product.Цена)}</span>
             </li>
           </ul>
         </div>

@@ -19,7 +19,7 @@ function Cart() {
       }
       <div className={makeOrder ? style.visible : style.hidden} >
           <h3>Итого к оплате: {numRanks(stats.totalPrice)}</h3>
-          <button>Оформить заказ</button>
+          <button className={style.button}>Оформить заказ</button>
         </div>
     </div>
   );
