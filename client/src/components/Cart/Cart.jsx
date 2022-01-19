@@ -9,7 +9,6 @@ function Cart() {
   const carts = useSelector(state => state.cartReducer.cart);
   const makeOrder = useSelector(state => state.cartReducer.makeOrder);
   const stats = useSelector(state => state.cartReducer.stats);
-  console.log(stats, 66);
   
   return (
     <div>
