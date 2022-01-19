@@ -16,7 +16,7 @@ function* checkLoginAdmin(action) { // Логинизация админа
       url: 'http://localhost:5000/admin',
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({email: action.payload.email, password: action.payload.password})
+      body: JSON.stringify({ email: action.payload.email, password: action.payload.password })
     });
     console.log(getLoginAdmin);
     yield put({ type: "INIT_ADMIN_IN_SYSTEM", payload: getLoginAdmin })
@@ -25,7 +25,7 @@ function* checkLoginAdmin(action) { // Логинизация админа
   }
 }
 
-function* getProduct(action) { // Все продукты для сайта
+function* getProducts(action) { // Все продукты для сайта
   try {
     const getProductList = yield call(fetchData, {
       url: `http://localhost:5000/categories/${action.payload}`,
@@ -34,6 +34,19 @@ function* getProduct(action) { // Все продукты для сайта
     // localStorage
   } catch (e) {
     yield put({ type: "THE_ITEM_IS_NOT_RECEIVED", payload: "Error, The item is not received" })
+  }
+}
+
+function* getAllProducts(action) {
+  console.log(action);
+  try {
+    const getListAllProduct = yield call(fetchData, {
+      url: `http://localhost:5000/products`,
+    });
+    yield put({ type: "LIST_OF_ALL_PRODUCTS", payload: getListAllProduct });
+    // localStorage
+  } catch (e) {
+    yield put({ type: "NO_LIST_OF_ALL_PRODUCTS", payload: "Error, The item is not received" })
   }
 }
 
@@ -57,7 +70,14 @@ function* getUser(action) {
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(action.payload)
     });
-    yield put({ type: "NEW_USER", payload: newUser })
+    if (newUser.login) {
+      yield put({ type: "NEW_USER", payload: newUser })
+    }
+
+    if (newUser.message) {
+      yield put({ type: "REGISTRATION_FAILED", payload: newUser })
+    }
+
   } catch (e) {
     yield put({ type: "USER_NOT_REGISTERED", payload: "Error registration" })
   }
@@ -74,14 +94,21 @@ function* sendLoginData(action) {
         password: action.payload.password,
       })
     });
-    yield put({ type: "LOGIN_SUCCESS", payload: loginUser })
+
+    if (loginUser.login) {
+      yield put({ type: "LOGIN_SUCCESS", payload: loginUser })
+    }
+
+    if (loginUser.message) {
+      yield put({ type: "LOGIN_FAILED", payload: loginUser })
+    }
+
   } catch (e) {
     yield put({ type: "LOGIN_FAILED", payload: "Login failed" })
   }
 }
 
 function* logoutUser(action) {
-  console.log('LOGOUT');
   try {
     const logoutUserFetch = yield call(fetchData, {
       url: 'http://localhost:5000/logout',
@@ -94,7 +121,8 @@ function* logoutUser(action) {
 
 export function* myWatcher() {
   yield takeEvery("LOGIN_ADMIN_SAGA", checkLoginAdmin);
-  yield takeEvery("INIT_PRODUCTS", getProduct);
+  yield takeEvery("INIT_PRODUCTS", getProducts);
+  yield takeEvery("GET_ALL_PRODUCTS", getAllProducts);
   yield takeEvery("GET_ORDER_PRODUCT", getOrderProducts);
   yield takeEvery("REGISTER_USER", getUser);
   yield takeEvery("LOGIN_USER", sendLoginData);
