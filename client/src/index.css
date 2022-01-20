@@ -3,6 +3,8 @@
 
 body {
   height: 100%;
-  background-color: #eeeeeeef;
   font-family: 'Comfortaa', cursive;
+  /* background: linear-gradient(0deg, rgb(195, 223, 205) 2%, rgb(140, 144, 138) 69%, rgb(48, 49, 46)); */
+  /* background-repeat: no-repeat; */
+  /* background-size: auto; */
 }
