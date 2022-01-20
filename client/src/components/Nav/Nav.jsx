@@ -45,7 +45,7 @@ function Nav() {
                     className={styleNav.cart} src={Cart} alt="logo" /></Link>
                 </li>
                 <li className={styleNav.nav_link_style}>
-                  <Link style={{ color: '#e0e0e0ea (tg://search_hashtag?hashtag=e0e0e0ea)' }} className="nav-link" to='/profile' >Личный кабинет</Link>
+                  <Link style={{ color: '#e0e0e0ea (tg://search_hashtag?hashtag=e0e0e0ea)' }} className="nav-link" to='/profile' >Мои заказы</Link>
                 </li>
                 <li className={styleNav.nav_link_style}>
                   <Link style={{ color: '#e0e0e0ea (tg://search_hashtag?hashtag=e0e0e0ea)' }} className="nav-link" to='/' onClick={() => dispatch(userLogoutAC())}>Выйти</Link>
