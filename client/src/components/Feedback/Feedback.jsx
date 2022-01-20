@@ -12,7 +12,7 @@ function Feedback() {
           <div className={style.sagestim_lonials}>
             <div className={style.vemotau_vokusipol}>
               <div className={style.testimonial}>
-                <img src="http://zornet.ru/_fr/83/7890600.jpg" alt=""></img>
+                <img src="http://zornet.ru/_fr/93/3806974.jpg" alt=""></img>
                 <div className={style.gecedanam}>Лена</div>
                 <div className={style.apogered_gselected}>
                   <i className={style.fas} ></i>
@@ -56,7 +56,7 @@ function Feedback() {
           <div className={style.sagestim_lonials}>
             <div className={style.vemotau_vokusipol}>
               <div className={style.testimonial}>
-                <img src="http://zornet.ru/_fr/83/7890600.jpg" alt=""></img>
+                <img src="http://zornet.ru/_fr/93/7140380.jpg" alt=""></img>
                 <div className={style.gecedanam}>Юра</div>
                 <div className={style.apogered_gselected}>
                   <i className={style.fas}></i>
@@ -78,8 +78,8 @@ function Feedback() {
           <div className={style.sagestim_lonials}>
             <div className={style.vemotau_vokusipol}>
               <div className={style.testimonial}>
-                <img src="http://zornet.ru/_fr/83/7890600.jpg" alt=""></img>
-                <div className={style.gecedanam}>Надежда</div>
+                <img src="http://zornet.ru/_fr/93/4298253.jpg" alt=""></img>
+                <div className={style.gecedanam}>Аня</div>
                 <div className={style.apogered_gselected}>
                   <i className={style.fas}></i>
                   <i className="fas fa-star"></i>
@@ -88,7 +88,7 @@ function Feedback() {
                   <i className="fas fa-star"></i>
                 </div>
 
-                <p>Здесь первое описание. Продолжение.</p>
+                <p>Звоню вам на лифчик, не кто не отвечает!</p>
               </div>
             </div>
           </div>
