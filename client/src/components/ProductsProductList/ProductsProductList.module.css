@@ -1,9 +1,9 @@
-.sort_div{
+.sort_div {
   display: flex;
   justify-content: flex-end;
 }
 
-.cards_div{
+.cards_div {
   display: flex;
   flex-wrap: wrap;
   margin-left: 1rem;
@@ -11,13 +11,9 @@
 }
 
 .sort_select {
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  width: 10rem;
-  border: 1px solid #999;
-  font-size: 1rem;
-  color: #1c87c9;
-  background-color: #eee;
+  background-color: #1f472fea;
+  border: solid white 1px;
   border-radius: 5px;
-  box-shadow: 4px 4px #ccc;
-  }
+  color: aliceblue;
+  padding: 5px 10px 5px 10px;
+}
