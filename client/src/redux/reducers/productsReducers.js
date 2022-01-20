@@ -67,7 +67,6 @@ export const productsReducers = (state = initialState, action) => {
       return { ...state, listProducts: [], listProductsAll: [] }
     }
 
-
     case adminLogoutAT.ADMIN_LOGOUT:
       return {
         ...state,
@@ -76,6 +75,9 @@ export const productsReducers = (state = initialState, action) => {
         listProductsAll: [],
         listProductsOrders: [],
       };
+
+    case "ORDERS_ALL_USER":
+      return { ...state, listProductsOrders: action.payload }
 
     default:
       return state;
