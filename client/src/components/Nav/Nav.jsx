@@ -21,9 +21,9 @@ function Nav() {
         <div className="container-fluid d-flex justify-content-between">
           <div className='container-fluid d-flex justify-content-around'>
             <div className="d-flex justify-content-between align-items-center">
-              <Link className="navbar-brand" to='/products/palatki'>Палатки</Link>
-              <Link className="navbar-brand" to='/products/spalniki'>Спальники</Link>
-              <Link className="navbar-brand" to='/products/kovriki'>Коврики</Link>
+              <Link className={styleNav.product_links} to='/products/palatki'>Палатки</Link>
+              <Link className={styleNav.product_links} to='/products/spalniki'>Спальники</Link>
+              <Link className={styleNav.product_links} to='/products/kovriki'>Коврики</Link>
             </div>
             <div className="navbar" id="navbarSupportedContent">
               <form className="d-flex">
@@ -41,7 +41,10 @@ function Nav() {
                   <Link className="nav-link" to='/cart'><img className={styleNav.cart} src={Cart} alt="logo" /></Link>
                 </li> */}
                 <li className={styleNav.nav_link_style}>
-                  <Link style={{ color: '#e0e0e0ea' }} className="nav-link" to='/cart'><img className={styleNav.cart} src={Cart} alt="logo" /></Link>
+                  <Link style={{ color: '#e0e0e0ea' }} className="nav-link" to='/cart'><img
+                    className={styleNav.cart} src={Cart} alt="logo" /></Link>
+                </li>
+                <li className={styleNav.nav_link_style}>
                   <Link style={{ color: '#e0e0e0ea' }} className="nav-link" to='/profile' >Личный кабинет</Link>
                 </li>
                 <li className={styleNav.nav_link_style}>

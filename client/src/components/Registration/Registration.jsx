@@ -15,7 +15,7 @@ function Registration() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    
+
   })
 
   const registerUser = () => {
@@ -33,7 +33,7 @@ function Registration() {
     dispatch(userRegistrationAC(registerUser()));
   }
   return (
-    <form onSubmit={userAdd} >
+    <form onSubmit={userAdd} className={style.formHeight}>
       <h1>Регистрация</h1>
       <p>Пожалуйста, заполните эту форму, чтобы создать учетную запись.</p>
       <hr />
@@ -41,23 +41,23 @@ function Registration() {
 
         <div className="mb-3 d-flex flex-column">
           <label htmlFor="username" className="form-label">Ник</label>
-          <input ref={usernameRef} type="text" placeholder="username" name="username" required />
+          <input className={style.form_input} ref={usernameRef} type="text" placeholder="username" name="username" required />
         </div>
         <div className="mb-3 d-flex flex-column">
           <label htmlFor="email" className="form-label">Почта</label>
-          <input ref={emailRef} type="text" placeholder="Enter Email" name="email" required />
+          <input className={style.form_input} ref={emailRef} type="text" placeholder="Enter Email" name="email" required />
         </div>
         <div className="mb-3 d-flex flex-column">
           <label htmlFor="phone_number" className="form-label">Телефон</label>
-          <input ref={phoneRef} type="tel" name="phone_number" list="tel-list" placeholder="+7 (900) 123-45-67" />
+          <input className={style.form_input} ref={phoneRef} type="tel" name="phone_number" list="tel-list" placeholder="+7 (900) 123-45-67" />
         </div>
         <div className="mb-3 d-flex flex-column">
           <label htmlFor="psw" className="form-label">Пароль</label>
-          <input ref={passwordRef} type="password" minLength={8} placeholder="Enter Password" name="psw" required />
+          <input className={style.form_input} ref={passwordRef} type="password" minLength={8} placeholder="Enter Password" name="psw" required />
         </div>
         <div className="mb-3 d-flex flex-column">
           <label htmlFor="psw2" className="form-label">Повторите пароль</label>
-          <input ref={repeatPasswordRef} type="password" placeholder="Repeat Password" name="psw2" required />
+          <input className={style.form_input} ref={repeatPasswordRef} type="password" placeholder="Repeat Password" name="psw2" required />
         </div>
 
         {registrationStatus?.message

@@ -43,7 +43,16 @@ li {
   margin-left: 20px;
 }
 
-/* 
-.hello { 
-  color: red;
-} */
+.product_links {
+  text-decoration: none;
+  color: #0d0e0df1;
+  margin: 10px;
+  padding-left: 30px;
+  font-size: 15pt;
+}
+
+.product_links:hover {
+  color: #151a15a4;
+  font-weight: 700;
+  /* font-size: 17pt; */
+}

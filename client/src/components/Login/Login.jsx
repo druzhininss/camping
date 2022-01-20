@@ -18,7 +18,7 @@ function Login() {
   }
 
   return (
-    <div>
+    <div className={style.formHeight}>
       <form onSubmit={(event) => {
         event.preventDefault();
         dispatch(userLoginAC(getLoginData()));
@@ -28,11 +28,11 @@ function Login() {
         <div className={style.form} >
           <div className="mb-3 d-flex flex-column">
             <label className="form-label">Email</label>
-            <input ref={emailRef} type="text" placeholder="Enter Email" name="email" required />
+            <input className={style.form_input} ref={emailRef} type="text" placeholder="Enter Email" name="email" required />
           </div>
           <div className="mb-3 d-flex flex-column">
             <label className="form-label">Password</label>
-            <input ref={passwordRef} type="password" minLength={8} placeholder="Enter Password" name="password" required />
+            <input className={style.form_input} ref={passwordRef} type="password" minLength={8} placeholder="Enter Password" name="password" required />
           </div>
 
           {
