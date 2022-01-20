@@ -9,7 +9,7 @@ import ProductPage from '../ProductPage/ProductPage.jsx';
 import AdminPanel from '../AdminPanel/AdminPanel.jsx';
 import Registration from '../Registration/Registration.jsx';
 import AdminPanelOrders from '../AdminPanelOrdersList/AdminPanelOrdersList.jsx';
-import AdminPanelProductsList from '../AdminPanelProductsList/AdminPanelProductsList.jsx';
+import AdminPanelProductsList from '../AdminPanel/AdminPanel.jsx';
 import Login from '../Login/Login.jsx';
 import UserProfile from '../UserProfile/UserProfile.jsx';
 import style from './App.module.css';

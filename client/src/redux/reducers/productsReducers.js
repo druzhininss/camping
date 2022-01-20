@@ -3,6 +3,7 @@ import { productsAT } from '../actionTypes/productsAT';
 const initialState = {
   listProducts: [],
   listProductsAll: [],
+  chechAdmin: false,
 };
 
 export const productsReducers = (state = initialState, action) => {
@@ -56,10 +57,10 @@ export const productsReducers = (state = initialState, action) => {
       };
 
     case "INIT_ADMIN_IN_SYSTEM":
-      console.log(action.payload);
+      console.log(action.payload.isAdmin);
       return {
         ...state,
-        
+        chechAdmin: action.payload.isAdmin,
       };
 
     default:

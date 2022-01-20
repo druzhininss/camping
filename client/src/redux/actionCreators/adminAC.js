@@ -10,7 +10,7 @@ export function initAdmin(payload) {
 
 export function getOrdersProductsAC(payload) {
   return {
-    type: adminAT.GET_ORDERS_PRODUCTS,
+    type: adminAT.GET_ALL_ORDERS_USERS,
     payload
   };
 }
