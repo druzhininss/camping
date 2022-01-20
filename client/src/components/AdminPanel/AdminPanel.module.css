@@ -1,20 +1,15 @@
-.order_flex {
-  display: flex;
-}
-
-.order {
-  font-weight: 700;
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  padding: .8em 1em calc(.8em + 3px);
-  border-radius: 3px;
-  background: #d8a158;
-  box-shadow: 0 -3px rgb(238, 214, 119) inset;
-  transition: 0.2s;
-}
-.order:hover { background: #e6c269 }
-
-.order:active {
-  background: #DEB887;
-  box-shadow: 0 3px rgb(238, 214, 119) inset;
+.container {
+  height: 200px;
+  width: 400px;
+  border: 4px solid teal; 
+  border-radius: 15px;
+  margin: 0 auto;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -100px;
+  margin-left: -200px;
+  padding-top: 40px;
+  background-color:cornsilk;
 }
