@@ -17,7 +17,7 @@ router
         const orders = order.Products.map((product) => {
           const obj = {};
 
-          obj.id = product.id;
+          obj.id = product.id; 
           obj.productName = product.productName;
           obj.imagePath = product.imagePath;
           obj.quantity = product.OrderProduct.quantity;
