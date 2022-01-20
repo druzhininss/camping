@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 const nodemailer = require('nodemailer');
 
-const sendConfirmMail = (to, link) => {
+function sendConfirmMail(to, orderNumber) {
   try {
     const transporter = nodemailer.createTransport({
       host: 'smtp.mail.ru',
@@ -20,17 +20,14 @@ const sendConfirmMail = (to, link) => {
       text: '',
       html: `
                 <div>
-                  <h1>Для подтверждения заказа перейдите по ссылке</h1>
-                  <a href=${link}>${link}</a>
+                  <h1>Ваш заказ №${orderNumber} подтверждён</h1>
+                  <div>Коврик, Палатка, Спальный мешок</div>
                 </div>
             `,
     });
-
-    // res.status(200).json({ message: 'success' });
   } catch (error) {
-    // res.status(404).json({ error: 'Письмо не было отправлено' });
     console.log(error);
   }
-};
+}
 
 module.exports = { sendConfirmMail };
