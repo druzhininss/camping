@@ -15,4 +15,6 @@
   border: solid white 1px;
   border-radius: 5px;
   box-shadow: 4px 4px #ccc;
+  color: white;
+  padding: 10px;
 }
