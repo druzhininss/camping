@@ -1,13 +1,13 @@
-.sort_div{
+.sort_div {
   display: flex;
   justify-content: flex-end;
 }
 
-.cards_div{
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 1rem;
-  margin-right: 1rem;
+.cards_div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 1em;
 }
 
 .sort_select {
@@ -20,4 +20,4 @@
   background-color: #eee;
   border-radius: 5px;
   box-shadow: 4px 4px #ccc;
-  }
+}
