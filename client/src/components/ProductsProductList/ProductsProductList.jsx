@@ -7,6 +7,7 @@ import style from './ProductsProductList.module.css';
 
 function ProductsProductList() {
   const products = useSelector((state) => state.productsReducers.listProducts);
+  
   const dispatch = useDispatch();
 
   return (
@@ -18,7 +19,7 @@ function ProductsProductList() {
         </select>
       </div>
       <div className={style.cards_div}>
-        {products.length
+        {products?.length
           ?
           products.map((product) => {
             return <ProductsProductItems key={product.product_id} product={product} />

@@ -1,9 +1,11 @@
 import { productsAT } from '../actionTypes/productsAT';
 import { logoutAT } from '../actionTypes/logoutAT';
+import { adminLogoutAT } from '../actionTypes/adminLogoutAT';
 
 const initialState = {
   listProducts: [],
   listProductsAll: [],
+  listProductsOrders: [],
   isAdmin: false,
 };
 
@@ -51,14 +53,12 @@ export const productsReducers = (state = initialState, action) => {
       }
 
     case "ORDERS_ALL_USER":
-      console.log(action.payload);
       return {
         ...state,
         listProductsOrders: action.payload,
       };
 
     case "INIT_ADMIN_IN_SYSTEM":
-      console.log(action.payload.isAdmin);
       return {
         ...state,
         isAdmin: action.payload.isAdmin,
@@ -67,6 +67,16 @@ export const productsReducers = (state = initialState, action) => {
     case logoutAT.LOGOUT_USER: {
       return { ...state, listProducts: [], listProductsAll: [] }
     }
+
+
+    case adminLogoutAT.ADMIN_LOGOUT:
+      return {
+        ...state,
+        isAdmin: false,
+        listProducts: [],
+        listProductsAll: [],
+        listProductsOrders: [],
+      };
 
     default:
       return state;

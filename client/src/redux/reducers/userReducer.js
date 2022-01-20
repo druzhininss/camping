@@ -45,6 +45,12 @@ export const userReducer = (state = initialState, action) => {
         userId: '',
       };
 
+    case loginAT.CLEAR_ERRORS:
+      return {
+        ...state,
+        message: '',
+      }
+
     default:
       return state;
   }

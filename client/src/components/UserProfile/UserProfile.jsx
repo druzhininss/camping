@@ -10,15 +10,16 @@ function UserProfile() {
   const { userId } = useSelector(state => state.userReducer);
   const { orders } = useSelector(state => state.profileReducer);
   const { userOrder }  = orders;
+  const { userName } = orders;
 
   useEffect(() => {
     dispatch(initOrdersInProfileAC({ userId }));
   }, [dispatch, initOrdersInProfileAC])
 
-
   return (
     <>
-      <h1>Мои заказы <img src={OrderList} /></h1>
+      <h1>Здравствуйте {userName}! <br/>
+      Здесь вы можете посмотреть ваши заказы <img src={OrderList} /></h1>
       <div>
 
         {

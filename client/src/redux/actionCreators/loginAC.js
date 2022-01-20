@@ -7,3 +7,10 @@ export function userLoginAC(payload) {
   };
 }
 
+export function clearErrorsAC(payload) {
+  return {
+    type: loginAT.CLEAR_ERRORS,
+    payload
+  };
+}
+
