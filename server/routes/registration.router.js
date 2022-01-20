@@ -28,7 +28,7 @@ router
           role: 'customer',
         });
 
-        req.session.user = { username: user.username, id: user.id };
+        req.session.user = { username: user.username, id: user.id, email: user.email };
         res.status(201).json({ login: true, userId: user.id });
       }
     } catch (err) {

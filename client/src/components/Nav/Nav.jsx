@@ -7,11 +7,11 @@ import Cart from '../../assets/cart.png'
 import { userLogoutAC } from '../../redux/actionCreators/logoutAC';
 
 function Nav() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
   const { login } = useSelector(state => state.userReducer);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light" >
+    <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor:'#D2B48C'}}>
       <div className={styleNav.logo}>
         <Link to='/' className="navbar-brand"><img className={styleNav.logoImg} src={Logo} alt="logo" /></Link>
       </div>
@@ -25,10 +25,10 @@ function Nav() {
                 <li className="nav-item">
                   <Link className="nav-link" to='/cart'><img className={styleNav.cart} src={Cart} alt="logo" /></Link>
                 </li>
-                <li className="nav-item">
+                <li >
                   <Link className="nav-link" to='/profile'>Личный кабинет</Link>
                 </li>
-                <li className="nav-item">
+                <li >
                   <Link className="nav-link" to='/' onClick={() => dispatch(userLogoutAC())}>Выйти</Link>
                 </li>
               </>
@@ -53,9 +53,9 @@ function Nav() {
           <div className="navbar" id="navbarSupportedContent">
             <form className="d-flex">
               <input className="form-control me-2" type="search" placeholder="Поиск" aria-label="Search" />
-              <button className="btn btn-outline-success" type="submit">Поиск</button>
+              <button className="btn btn-outline-dark" type="submit">Поиск</button>
             </form>
-          </div>
+          </div> 
         </div>
       </div>
     </nav>

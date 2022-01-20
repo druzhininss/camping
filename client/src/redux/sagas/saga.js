@@ -9,7 +9,7 @@ const fetchData = async ({
   return data;
 };
 
-function* checkLoginAdmin(action) { // Логинизация админа
+function* checkLoginAdmin(action) { // Логинизация админа проерка есть ли в базе
   console.log(action.payload);
   try {
     const getLoginAdmin = yield call(fetchData, {
@@ -25,7 +25,7 @@ function* checkLoginAdmin(action) { // Логинизация админа
   }
 }
 
-function* getProducts(action) { // Все продукты для сайта
+function* getProducts(action) { // получаем все продукты для сайта
   try {
     const getProductList = yield call(fetchData, {
       url: `http://localhost:5000/categories/${action.payload}`,
@@ -37,11 +37,10 @@ function* getProducts(action) { // Все продукты для сайта
   }
 }
 
-function* getAllProducts(action) {
-  console.log(action);
+function* getAllProducts(action) {  // получаем все товары для админки
   try {
     const getListAllProduct = yield call(fetchData, {
-      url: `http://localhost:5000/products`,
+      url: 'http://localhost:5000/categories/products',
     });
     yield put({ type: "LIST_OF_ALL_PRODUCTS", payload: getListAllProduct });
     // localStorage
@@ -50,13 +49,40 @@ function* getAllProducts(action) {
   }
 }
 
-function* getOrderProducts(action) { // Все заказы для админки 
+function* getOrderProducts(action) { // Все заказы всех users для админки 
   console.log(action);
   try {
     const getProductsOrdersFromCart = yield call(fetchData, {
       url: 'http://localhost:5000/orders',
     });
     yield put({ type: "USER_ORDERS", payload: getProductsOrdersFromCart });
+  } catch (e) {
+    yield put({ type: "NO_USER_ORDERS", payload: "Error, The item is not received" })
+  }
+}
+
+function* saveChangeItemsProduct(action) {   // изменение в карточки база
+  try {
+    const newUser = yield call(fetchData, {
+      url: `http://localhost:5000/admin/edit/${action.payload.id}`,
+      method: 'PUT',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(action.payload)
+    });
+    yield put({ type: "ITEM_CHANGED", payload: newUser })
+  } catch (e) {
+    yield put({ type: "NOT_ITEM_CHANGED", payload: "Error item_changed" })
+  }
+}
+
+function* deleteItemsProduct(action) { // Удалить карточку товара из базы
+  try {
+    const deleteItems = yield call(fetchData, {
+      url: `http://localhost:5000/admin/delete/${action.payload}`,
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json' },
+    });
+    yield put({ type: "USER_ORDERS", payload: deleteItems });
   } catch (e) {
     yield put({ type: "NO_USER_ORDERS", payload: "Error, The item is not received" })
   }
@@ -119,14 +145,43 @@ function* logoutUser(action) {
   }
 }
 
+function* makeOrderFromCart(action) {
+  try {
+    const newOrder = yield call(fetchData, {
+      url: 'http://localhost:5000/orders/makeorder',
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ cart: action.payload.carts, userId: action.payload.userId })
+    });
+    yield put({ type: "ORDER_SUCCESS", payload: newOrder })
+  } catch (e) {
+    yield put({ type: "ORDER_FAILED", payload: "ORDER" })
+  }
+}
+
+function* showOrdersInProfile(action) {
+  try {
+    const newOrders = yield call(fetchData, {
+      url: `http://localhost:5000/orders/${action.payload.userId}`,
+    });
+    yield put({ type: "ORDERS_IN_PROFILE", payload: newOrders })
+  } catch (e) {
+    yield put({ type: "ORDER_IN_PROFILE_FAILED", payload: "Profile orders failed" })
+  }
+}
+
 export function* myWatcher() {
   yield takeEvery("LOGIN_ADMIN_SAGA", checkLoginAdmin);
   yield takeEvery("INIT_PRODUCTS", getProducts);
   yield takeEvery("GET_ALL_PRODUCTS", getAllProducts);
+  yield takeEvery("SAVE_CHANGE_ITEMS_PRODUCT", saveChangeItemsProduct);
+  yield takeEvery("DELETE_ITEMS_PRODUCT", deleteItemsProduct);
   yield takeEvery("GET_ORDER_PRODUCT", getOrderProducts);
   yield takeEvery("REGISTER_USER", getUser);
   yield takeEvery("LOGIN_USER", sendLoginData);
   yield takeEvery("LOGOUT_USER", logoutUser);
+  yield takeEvery("MAKE_ORDER", makeOrderFromCart);
+  yield takeEvery("USER_PROFILE", showOrdersInProfile);
 }
 
 export default myWatcher;

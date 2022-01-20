@@ -8,9 +8,10 @@
 	margin:5px;
 	box-sizing:border-box; /* чтобы внутренний отступ не влиял когда там будет текст... */
 	min-width:170px; /* мин. ширина блока, чтобы переносились на другой ряд */
-	padding:50px 20px; font-size:400%; text-align:center; background:#b5ced8; /* для к*/
+	padding:50px 20px; font-size:400%; text-align:center; background:#DEB887; /* для к*/
   font-size: 1rem;
   box-shadow: 5px 9px 20px 0px rgba(0, 0, 0, 0.459);
+  border-radius: 10px;
 
  }
 
@@ -19,25 +20,49 @@
   margin:5px;
   box-sizing:border-box; /* чтобы внутренний отступ не влиял когда там будет текст... */
   min-width:170px; /* мин. ширина блока, чтобы переносились на другой ряд */
-  padding:50px 20px; font-size:400%; text-align:center; background:#b5ced8; /* для к*/
+  padding:50px 20px; font-size:400%; text-align:center; background:#FFE4C4; /* для к*/
   font-size: 1rem;
-  box-shadow: 5px 9px 20px 0px rgba(216, 19, 19, 0.459);
-
+  box-shadow: 5px 9px 20px 0px rgba(139, 69, 19, 0.459);
+  border-radius: 10px;
   cursor: pointer;
 
 }
  
-.button {
+/* .button {
   border-radius: 10px;
-  background-color: rgb(74, 187, 240);
   display: block;
   width: 100%;
   border: none;
-  background-color: #04AA6D;
+  background-color: #D2B48C;
   padding: 14px 28px;
   font-size: 1rem;
   text-align: center;
+} */
+
+.button {
+  padding: 15px 25px;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #bd8a48;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
 }
+
+.button:hover {background-color: #eb9524}
+
+.button:active {
+  background-color: #b37019;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 ul{
   list-style: none;
+}
+span{
+  font-size: 1.2rem;
 }

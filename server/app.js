@@ -16,6 +16,7 @@ const loginRouter = require('./routes/login.router');
 const profileRouter = require('./routes/profile.router');
 const adminRouter = require('./routes/admin.router');
 const mailServiceRouter = require('./routes/mailService.router');
+const ordersRouter = require('./routes/orders.router');
 
 const PORT = process.env.PORT ?? 5000;
 
@@ -58,6 +59,7 @@ app.use('/logout', logoutRouter);
 app.use('/profile', profileRouter);
 app.use('/admin', adminRouter);
 app.use('/mail', mailServiceRouter);
+app.use('/orders', ordersRouter);
 
 app.listen(PORT, () => {
   console.log(`*** Server started on port ${PORT} ***`);

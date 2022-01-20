@@ -1,8 +1,29 @@
 .cartCard{
-  border: 2px solid brown;
+  background:#DEB887;
+  display:flex;
+  margin: 20px;
+  border-radius: 10px;
 }
-
+.button {
+  border-radius: 10px;
+  display: block;
+  border: none;
+  background-color: #D2B48C;
+  padding: 14px 28px;
+  font-size: 1rem;
+  text-align: center;
+}
+.cartP{
+  width:210px;
+  padding:10px;
+}
 .btn{
-  display: flex;
+  padding:10px;
+  display:flex;
+  width:210px;
 }
-
+.cartB{
+  height:25px;
+  width: 30px;
+  text-align: center;
+}
