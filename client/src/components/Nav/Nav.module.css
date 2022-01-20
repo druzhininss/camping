@@ -56,3 +56,8 @@ li {
   font-weight: 700;
   /* font-size: 17pt; */
 }
+
+nav {
+  background: linear-gradient(#16181a98, #50525400);
+  padding: 60px 20px 0 0;
+}

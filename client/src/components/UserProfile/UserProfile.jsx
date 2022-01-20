@@ -9,7 +9,7 @@ function UserProfile() {
   const dispatch = useDispatch();
   const { userId } = useSelector(state => state.userReducer);
   const { orders } = useSelector(state => state.profileReducer);
-  const { userOrder }  = orders;
+  const { userOrder } = orders;
   const { userName } = orders;
 
   useEffect(() => {
@@ -18,22 +18,22 @@ function UserProfile() {
 
   return (
     <>
-      <h1>Здравствуйте {userName}! <br/>
-      Здесь вы можете посмотреть ваши заказы <img src={OrderList} /></h1>
+      <h1>Здравствуйте, {userName}! <br />
+        Здесь вы можете посмотреть ваши заказы <img src={OrderList} /></h1>
       <div>
 
         {
           userOrder?.length
-          ?
-          userOrder.map((array) => {
-            let thisOrder
-            array.forEach((order) => {
-              thisOrder = order
-            });
-            return <UserProfileOrders key={uuidv4()} order={thisOrder} />
-          })
-          :
-          'Вы ещё ничего не купили'
+            ?
+            userOrder.map((array) => {
+              let thisOrder
+              array.forEach((order) => {
+                thisOrder = order
+              });
+              return <UserProfileOrders key={uuidv4()} order={thisOrder} />
+            })
+            :
+            'Вы ещё ничего не купили'
         }
 
       </div>
