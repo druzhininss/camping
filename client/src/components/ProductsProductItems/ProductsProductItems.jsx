@@ -42,20 +42,20 @@ function ProductsProductItems({ product }) {
             <img style={{ maxWidth: 200, height: 200, margin: "auto" }} src={pathToPicture}></img>
           </div>
           <ul>
-          <li>
-              <img src={Tent}/>&nbsp;&nbsp;
+            <li>
+              <img src={Tent} />&nbsp;&nbsp;
               <span>{product['Область применения']}</span>
             </li>
             <li>
-              <img src={Scales}/>&nbsp;&nbsp;
+              <img src={Scales} />&nbsp;&nbsp;
               <span>{product.Вес}</span>
             </li>
             <li>
-              <img src={Size}/>&nbsp;&nbsp;
+              <img src={Size} />&nbsp;&nbsp;
               <span>{product.Размер}</span>
             </li>
             <li>
-              <img src={Ruble}/>&nbsp;&nbsp;
+              <img src={Ruble} />&nbsp;&nbsp;
 
               <span>{numRanks(product.Цена)}</span>
             </li>
@@ -69,7 +69,7 @@ function ProductsProductItems({ product }) {
         :
         <p style={{ color: '#ff00f1', fontSize: '0.8rem' }}>Покупка доступна только для авторизованных пользователей</p>
       }
-      
+
     </div>
   );
 }

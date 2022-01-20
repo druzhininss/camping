@@ -7,7 +7,7 @@ import { saveChangeItemsProductAC } from '../../redux/actionCreators/adminAC';
 function AdminPanelProductItems(product) {
   const dispatch = useDispatch();
   const { change } = product.product
-  
+
   const weight = useRef();
   const use = useRef();
   const price = useRef();

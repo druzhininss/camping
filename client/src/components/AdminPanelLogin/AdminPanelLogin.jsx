@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
+import style from './AdminPanelLogin.module.css';
 
 function AdminPanelLogin() {
   const dispatch = useDispatch();
@@ -14,29 +15,24 @@ function AdminPanelLogin() {
     }
   }
 
+
+
   return (
-    <div>
-      <form>
-        <div>
-          <h1>Войдите как админ</h1>
-          <p>Пожалуйста, заполните эту форму, чтобы войти под учетной записью админимтратора.</p>
-          <hr />
-          <label htmlFor="email"><b>Email</b></label>
-          <input ref={email} type="text" placeholder="Enter Email" name="email" required />
-          <label htmlFor="psw"><b>Password</b></label>
-          <input ref={password} type="password" placeholder="Enter Password" name="psword" required />
-          <hr />
-          <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-          <div>
-            <button type="submit" onClick={(event) => {
-              event.preventDefault();
-              dispatch({ type: "LOGIN_ADMIN_SAGA", payload: loginAdminObj() });
-            }
-            } >Login</button>
+    <>
+        <form className={style.transparent}>
+          <div className={style.form_inner}>
+            <h3>Вход</h3>
+            <input ref={email} type="text" id="username" placeholder='e-mail'></input>
+            <input id="password" type="password" placeholder='Password'></input>
+            <input ref={password} type="checkbox" id={style.custom_checkbox}></input>
+            <input type="submit" value="Отправить"
+              onClick={(event) => {
+                event.preventDefault()
+                dispatch({ type: "LOGIN_ADMIN_SAGA", payload: loginAdminObj() })}
+                }></input>
           </div>
-        </div>
-      </form>
-    </div>
+        </ form>
+    </>
   );
 }
 
