@@ -21,7 +21,6 @@ function AdminPanelProductsList() {
           {allProducts.length > 0 ? allProducts.map((product) => <AdminPanelProductItems key={product.product_id} product={product}
           />) : <li>Заказов нет!</li>
           }
-          )
         </ul>
       </div>
     </div>

@@ -62,10 +62,9 @@ function* getOrderProducts(action) { // Все заказы всех users дл�
 }
 
 function* saveChangeItemsProduct(action) {   // изменение в карточки база
-  console.log(action.payload.id);
   try {
     const newUser = yield call(fetchData, {
-      url: `http://localhost:5000/admin/${action.payload.id}`,
+      url: `http://localhost:5000/admin/edit/${action.payload.id}`,
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(action.payload)
@@ -76,14 +75,14 @@ function* saveChangeItemsProduct(action) {   // изменение в карто
   }
 }
 
-function* geleteItemsProduct(action) { // Удалить карточку товара из базы
+function* deleteItemsProduct(action) { // Удалить карточку товара из базы
   try {
-    const geleteItems = yield call(fetchData, {
-      url: `http://localhost:5000/admin/${action.payload}`,
+    const deleteItems = yield call(fetchData, {
+      url: `http://localhost:5000/admin/delete/${action.payload}`,
       method: 'DELETE',
       headers: { 'content-type': 'application/json' },
     });
-    yield put({ type: "USER_ORDERS", payload: geleteItems });
+    yield put({ type: "USER_ORDERS", payload: deleteItems });
   } catch (e) {
     yield put({ type: "NO_USER_ORDERS", payload: "Error, The item is not received" })
   }
@@ -176,7 +175,7 @@ export function* myWatcher() {
   yield takeEvery("INIT_PRODUCTS", getProducts);
   yield takeEvery("GET_ALL_PRODUCTS", getAllProducts);
   yield takeEvery("SAVE_CHANGE_ITEMS_PRODUCT", saveChangeItemsProduct);
-  yield takeEvery("DELETE_ITEMS_PRODUCT", geleteItemsProduct);
+  yield takeEvery("DELETE_ITEMS_PRODUCT", deleteItemsProduct);
   yield takeEvery("GET_ORDER_PRODUCT", getOrderProducts);
   yield takeEvery("REGISTER_USER", getUser);
   yield takeEvery("LOGIN_USER", sendLoginData);

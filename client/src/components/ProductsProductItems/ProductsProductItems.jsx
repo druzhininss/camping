@@ -5,18 +5,17 @@ import { useHistory, useParams } from 'react-router-dom';
 import { cartProductsAC } from '../../redux/actionCreators/cartAC';
 import { numRanks } from '../../helpers/functions';
 import style from './ProductsProductItems.module.css';
-import slide from "../../assets/DSCF2406.jpg";
 import Scales from '../../assets/scales.png';
 import Ruble from '../../assets/ruble.png';
 import Tent from '../../assets/tent.png'
 import Size from '../../assets/size.png'
 
 function ProductsProductItems({ product }) {
-
   const dispatch = useDispatch();
   const history = useHistory();
   const { categoryName } = useParams();
   const { login } = useSelector(state => state.userReducer);
+  const pathToPicture = `/img/picturesForProject${product.product_img_path}`;
 
   const addProductInCart = () => {
     return {
@@ -28,7 +27,7 @@ function ProductsProductItems({ product }) {
       quantity: 1,
       totalForItem: product['Цена'],
     }
-  }
+  };
 
   return (
     <div className={style.items_card}>
@@ -40,7 +39,7 @@ function ProductsProductItems({ product }) {
             <p>{product.product_name}</p>
           </div>
           <div >
-            <img style={{ maxWidth: 200, height: 200, margin: "auto" }} src={slide}></img>
+            <img style={{ maxWidth: 200, height: 200, margin: "auto" }} src={pathToPicture}></img>
           </div>
           <ul>
           <li>
