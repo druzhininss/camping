@@ -5,6 +5,7 @@ import UserProfileOrders from '../UserProfileOrders/UserProfileOrders.jsx';
 
 function UserProfile() {
   const { orders } = useSelector(state => state.profileReducer);
+  console.log(orders);
 
   return (
     <>

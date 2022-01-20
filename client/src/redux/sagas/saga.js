@@ -175,7 +175,7 @@ export function* myWatcher() {
   yield takeEvery("INIT_PRODUCTS", getProducts);
   yield takeEvery("GET_ALL_PRODUCTS", getAllProducts);
   yield takeEvery("SAVE_CHANGE_ITEMS_PRODUCT", saveChangeItemsProduct);
-  yield takeEvery("DELETE_ITEMS_PRODUCT", geleteItemsProduct);
+  yield takeEvery("DELETE_ITEMS_PRODUCT", deleteItemsProduct);
   yield takeEvery("GET_ORDERS_PRODUCTS", getOrdersProducts);
   yield takeEvery("REGISTER_USER", getUser);
   yield takeEvery("LOGIN_USER", sendLoginData);
