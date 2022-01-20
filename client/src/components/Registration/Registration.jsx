@@ -3,6 +3,7 @@ import { userRegistrationAC } from '../../redux/actionCreators/registrationAC';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './Registration.module.css';
 import { Redirect } from 'react-router-dom';
+import { clearErrorsAC } from '../../redux/actionCreators/loginAC';
 
 
 function Registration() {
@@ -15,8 +16,8 @@ function Registration() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    
-  })
+    dispatch(clearErrorsAC())
+  }, [])
 
   const registerUser = () => {
     return {

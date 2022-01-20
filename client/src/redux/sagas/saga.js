@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { call, put, takeEvery, takeLeading } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 
 const fetchData = async ({
   url, method, headers, body,
@@ -10,7 +10,6 @@ const fetchData = async ({
 };
 
 function* checkLoginAdmin(action) { // Логинизация админа проерка есть ли в базе
-  console.log(action.payload);
   try {
     const getLoginAdmin = yield call(fetchData, {
       url: 'http://localhost:5000/admin',
@@ -18,7 +17,6 @@ function* checkLoginAdmin(action) { // Логинизация админа пр�
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ email: action.payload.email, password: action.payload.password })
     });
-    console.log(getLoginAdmin);
     yield put({ type: "INIT_ADMIN_IN_SYSTEM", payload: getLoginAdmin })
   } catch (e) {
     yield put({ type: "DONT_INIT_ADMIN_IN_SYSTEM", payload: "Error login admin" })
@@ -52,7 +50,7 @@ function* getAllProducts(action) {  // получаем все товары дл
 function* getAllOrdersUsers(action) { // Все заказы всех users для админки 
   try {
     const getProductsOrdersFromAdmin = yield call(fetchData, {
-      url: 'http://localhost:5000/admin/orders',  // какой путь будет на все заказы ? вижу только на конкретный заказ 
+      url: 'http://localhost:5000/admin/orders', 
     });
     yield put({ type: "ORDERS_ALL_USER", payload: getProductsOrdersFromAdmin });
   } catch (e) {
@@ -144,6 +142,17 @@ function* logoutUser(action) {
   }
 }
 
+function* adminLogout(action) {
+  try {
+    const logoutUserFetch = yield call(fetchData, {
+      url: 'http://localhost:5000/admin/logout',
+    });
+    yield put({ type: "LOGOUT_SUCCESS", payload: logoutUserFetch })
+  } catch (e) {
+    yield put({ type: "LOGOUT_FAILED", payload: "Logout failed" })
+  }
+}
+
 function* makeOrderFromCart(action) {
   try {
     const newOrder = yield call(fetchData, {
@@ -179,6 +188,7 @@ export function* myWatcher() {
   yield takeEvery("REGISTER_USER", getUser);
   yield takeEvery("LOGIN_USER", sendLoginData);
   yield takeEvery("LOGOUT_USER", logoutUser);
+  yield takeEvery("ADMIN_LOGOUT", adminLogout);
   yield takeEvery("MAKE_ORDER", makeOrderFromCart);
   yield takeEvery("USER_PROFILE", showOrdersInProfile);
 }
