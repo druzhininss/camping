@@ -12,7 +12,7 @@ import Tent from '../../assets/tent.png'
 import Size from '../../assets/size.png'
 
 function ProductsProductItems({ product }) {
-console.log(product,'kkk');
+
   const dispatch = useDispatch();
   const history = useHistory();
   const { categoryName } = useParams();

@@ -1,3 +1,4 @@
+// TODO: УДАЛИТЬ
 // import { cartAT } from '../actionTypes/cartAT';
 
 // const initialState = {
