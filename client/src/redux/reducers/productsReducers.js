@@ -4,6 +4,7 @@ import { logoutAT } from '../actionTypes/logoutAT';
 const initialState = {
   listProducts: [],
   listProductsAll: [],
+  isAdmin: false,
 };
 
 export const productsReducers = (state = initialState, action) => {
@@ -57,10 +58,10 @@ export const productsReducers = (state = initialState, action) => {
       };
 
     case "INIT_ADMIN_IN_SYSTEM":
-      console.log(action.payload);
+      console.log(action.payload.isAdmin);
       return {
         ...state,
-
+        isAdmin: action.payload.isAdmin,
       };
 
     case logoutAT.LOGOUT_USER: {

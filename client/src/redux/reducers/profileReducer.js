@@ -3,6 +3,7 @@ import { logoutAT } from '../actionTypes/logoutAT';
 
 const initialState = {
   orders: [],
+  ordersAll: [],
 };
 export const profileReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -10,10 +11,9 @@ export const profileReducer = (state = initialState, action) => {
     case profileAT.ORDERS_IN_PROFILE:
       return { ...state, orders: action.payload }
 
-
-    case logoutAT.LOGOUT_USER: {
-      return { ...state, orders: [] }
-    }
+    case profileAT.ORDERS_ALL_USER:
+      console.log(action.payload);
+      return { ...state, ordersAll: action.payload }
 
     default:
       return state;

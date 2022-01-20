@@ -1,26 +1,31 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import ProductsProductItems from '../ProductsProductItems/ProductsProductItems.jsx';
+import UserProfileOrders from '../UserProfileOrders/UserProfileOrders.jsx';
 import { getOrdersProductsAC } from '../../redux/actionCreators/adminAC';
 
 function AdminPanelOrdersList() {
   const dispatch = useDispatch();
-  const cartProduct = useSelector((state) => state.productsReducerAdmin.listProductsAll);
-
+  //const cartOrders = useSelector((state) => state.productsReducer.listProductsAll);
+  const cardOrders = [
+    { id: 1, productName: "Заказ1", quantity: 2, order: 55 },
+    { id: 2, productName: "Заказ2", quantity: 5, order: 245 },
+    { id: 3, productName: "Заказ3", quantity: 100 , order: 345 },
+  ]
   useEffect(() => {
     dispatch(getOrdersProductsAC());
   }, [])
-
+  console.log(cardOrders);
   return (
-    <div>
-      { <div>
+    <>
+      {<div>
         <ul>
-          {cartProduct.length ? cartProduct.map((product) => <ProductsProductItems // Компонент Дениса для карточик
-            key={product.id} product={product} />) : <li>Заказов нет!</li>
+          {cardOrders.length ? cardOrders.map((adminUser) => <UserProfileOrders // Компонент Дениса для карточка
+            key={adminUser.id} order={adminUser} />) : <li>Заказов нет!</li>
           }
         </ul>
-      </div> }
-    </div>
+      </div>
+      }
+    </>
   );
 }
 
