@@ -5,11 +5,11 @@ import AdminPanelLogin from '../AdminPanelLogin/AdminPanelLogin.jsx';
 import style from './AdminPanel.module.css';
 
 function AdminPanel() {
-  const { chechAdmin } = useSelector((state) => state.productsReducers);
+  const { isAdmin } = useSelector((state) => state.productsReducers);
   
   return (
     <>
-      {chechAdmin ?
+      {isAdmin ?
         <div>
           <AdminPanelLogin />  {/*когда будет готов isAdmin то этот див с компонетом поменять местами с кнопками */}
         </div> :

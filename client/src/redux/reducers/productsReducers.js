@@ -28,7 +28,7 @@ export const productsReducers = (state = initialState, action) => {
           if (item.product_id == action.payload) {
             return {
               ...item,
-              change: true,
+              isAdmin: true,
             }
           }
           return item
