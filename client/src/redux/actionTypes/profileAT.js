@@ -1,0 +1,4 @@
+export const profileAT = {
+  USER_PROFILE: "USER_PROFILE",
+  ORDERS_IN_PROFILE: "ORDERS_IN_PROFILE",
+}
