@@ -16,14 +16,12 @@ function AdminPanelOrdersList() {
   return (
     <>
       <div>
-        
           {
           userOrders?.length
           ? 
           userOrders.map((array) => {
             let thisOrder
             array.forEach((order) => {
-              console.log(order);
               thisOrder = order
             });
             return <UserProfileOrders key={uuidv4()} order={thisOrder} />
@@ -31,7 +29,6 @@ function AdminPanelOrdersList() {
           : 
           'Заказов нет!'
           }
-        
       </div>
 
     </>
