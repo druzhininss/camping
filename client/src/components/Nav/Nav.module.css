@@ -13,6 +13,7 @@
   max-height: 50px;
 }
 
+
 .logoFlex {
   width: 100%;
   display: flex;
@@ -26,6 +27,20 @@ li {
 
 .button {
   color: #e0e0e0ea;
+}
+
+.nav_link_style {
+  background-color: #1f472ff9;
+  border: solid white 1px;
+  border-radius: 5px;
+}
+
+.nav_link_style:hover {
+  background-color: #21382aa4;
+}
+
+li {
+  margin-left: 20px;
 }
 
 /* 
