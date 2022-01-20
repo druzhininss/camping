@@ -1,12 +1,15 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+// import { useSelector } from 'react-redux';
 
 function UserProfileOrders({order}) {
   const pathToPicture = "/img/picturesForProject";
+ // Вывод данных для админа и юзера
+//  const { isAdmin } = useSelector((state) => state.productsReducers);
 
   return (
     <div>
-      <div>
+      <div> 
           <div>
             <p>{order.productName}</p>
           </div>
