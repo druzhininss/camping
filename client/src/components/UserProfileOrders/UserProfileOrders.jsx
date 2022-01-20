@@ -1,16 +1,8 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { initOrdersInProfileAC } from '../../redux/actionCreators/profileAC';
+import React from 'react';
 
 function UserProfileOrders({order}) {
-
-  const dispatch = useDispatch();
-  const { userId } = useSelector(state => state.userReducer)
-
-  useEffect(() => {
-    dispatch(initOrdersInProfileAC({userId}));
-  }, [dispatch])
+  const pathToPicture = "/img/picturesForProject";
 
   return (
     <div>
@@ -19,7 +11,7 @@ function UserProfileOrders({order}) {
             <p>{order.productName}</p>
           </div>
           <div >
-            <img style={{ maxWidth: 200, height: 200, margin: "auto" }} src={order.imagePath}></img>
+            <img style={{ maxWidth: 200, height: 200, margin: "auto" }} src={`${pathToPicture}${order.imagePath}`}></img>
           </div>
           <ul>
             <li>

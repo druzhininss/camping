@@ -1,22 +1,37 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import OrderList from '../../assets/list.png';
+import { initOrdersInProfileAC } from '../../redux/actionCreators/profileAC';
 import UserProfileOrders from '../UserProfileOrders/UserProfileOrders.jsx';
 
 function UserProfile() {
+  const dispatch = useDispatch();
+  const { userId } = useSelector(state => state.userReducer);
   const { orders } = useSelector(state => state.profileReducer);
-  console.log(orders);
+  const { userOrder }  = orders;
+
+  useEffect(() => {
+    dispatch(initOrdersInProfileAC({ userId }));
+  }, [dispatch, initOrdersInProfileAC])
+
 
   return (
     <>
-      <h1>Мои заказы <img src={OrderList}/></h1>
-      <div> 
+      <h1>Мои заказы <img src={OrderList} /></h1>
+      <div>
+
         {
-          orders.length 
-          && orders.map((order) => {
-            return <UserProfileOrders key={order.id} order={order} />
+          userOrder.length
+          &&
+          userOrder.map((array) => {
+            let thisOrder
+            array.forEach((order) => {
+              thisOrder = order
+            });
+            return <UserProfileOrders key={thisOrder.id} order={thisOrder} />
           })
         }
+
       </div>
     </>
   );
