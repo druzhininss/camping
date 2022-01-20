@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const { Product, Order, OrderProduct } = require('../db/models');
+const {
+  Product, Order, OrderProduct, User,
+} = require('../db/models');
 
 router
   .route('/:id') // Все заказы на /products, здесь конкр customer
@@ -12,6 +14,8 @@ router
           model: Product,
         },
       });
+
+      const user = await User.findOne({ where: { id } });
 
       const userOrder = userOrdersRaw.map((order) => {
         const orders = order.Products.map((product) => {
@@ -28,7 +32,7 @@ router
         return orders;
       });
 
-      res.status(201).json({ userOrder, message: 'Ok' });
+      res.status(201).json({ userOrder, userName: user.username, message: 'Ok' });
     } catch (err) {
       res.status(500).json({ login: false, message: err.message });
     }
