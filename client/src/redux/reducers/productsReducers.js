@@ -1,4 +1,5 @@
 import { productsAT } from '../actionTypes/productsAT';
+import { logoutAT } from '../actionTypes/logoutAT';
 
 const initialState = {
   listProducts: [],
@@ -59,8 +60,12 @@ export const productsReducers = (state = initialState, action) => {
       console.log(action.payload);
       return {
         ...state,
-        
+
       };
+
+    case logoutAT.LOGOUT_USER: {
+      return { ...state, listProducts: [], listProductsAll: [] }
+    }
 
     default:
       return state;
