@@ -13,7 +13,6 @@ function AdminPanelProductsList() {
     dispatch(getAllProductsAC());
   }, []);
 
-
   return (
     <div>
       <div>

@@ -8,7 +8,7 @@ const classes = ['d-flex flex-column border border-5 rounded-2 bg-light shadow']
 
 function AdminPanelProductItems(product) {
   const dispatch = useDispatch();
-  const { change } = product.product;
+  const change = product.product.isAdmin;
 
   const weight = useRef();
   const use = useRef();
