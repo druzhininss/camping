@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { userRegistrationAC } from '../../redux/actionCreators/registrationAC';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './Registration.module.css';
@@ -13,6 +13,10 @@ function Registration() {
   const repeatPasswordRef = useRef();
   const phoneRef = useRef();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    
+  })
 
   const registerUser = () => {
     return {
