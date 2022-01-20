@@ -160,6 +160,17 @@ function* makeOrderFromCart(action) {
   }
 }
 
+function* showOrdersInProfile(action) {
+  try {
+    const newOrders = yield call(fetchData, {
+      url: `http://localhost:5000/orders/${action.payload.userId}`,
+    });
+    yield put({ type: "ORDERS_IN_PROFILE", payload: newOrders })
+  } catch (e) {
+    yield put({ type: "ORDER_IN_PROFILE_FAILED", payload: "Profile orders failed" })
+  }
+}
+
 export function* myWatcher() {
   yield takeEvery("LOGIN_ADMIN_SAGA", checkLoginAdmin);
   yield takeEvery("INIT_PRODUCTS", getProducts);
@@ -171,7 +182,7 @@ export function* myWatcher() {
   yield takeEvery("LOGIN_USER", sendLoginData);
   yield takeEvery("LOGOUT_USER", logoutUser);
   yield takeEvery("MAKE_ORDER", makeOrderFromCart);
-
+  yield takeEvery("USER_PROFILE", showOrdersInProfile);
 }
 
 export default myWatcher;
