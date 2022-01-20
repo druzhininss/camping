@@ -10,7 +10,7 @@ const fetchData = async ({
 };
 
 function* checkLoginAdmin(action) { // Логинизация админа проерка есть ли в базе
-  console.log(action.payload);  //  {email: 'Log', password: 'on'} на бек летит
+  console.log(action.payload);
   try {
     const getLoginAdmin = yield call(fetchData, {
       url: 'http://localhost:5000/admin',
@@ -49,7 +49,7 @@ function* getAllProducts(action) {  // получаем все товары дл
   }
 }
 
-function* getOrdersProducts(action) { // Все заказы всех users для админки 
+function* getAllOrdersUsers(action) { // Все заказы всех users для админки 
   console.log(action);
   try {
     const getProductsOrdersFromAdmin = yield call(fetchData, {
@@ -176,7 +176,7 @@ export function* myWatcher() {
   yield takeEvery("GET_ALL_PRODUCTS", getAllProducts);
   yield takeEvery("SAVE_CHANGE_ITEMS_PRODUCT", saveChangeItemsProduct);
   yield takeEvery("DELETE_ITEMS_PRODUCT", deleteItemsProduct);
-  yield takeEvery("GET_ORDERS_PRODUCTS", getOrdersProducts);
+  yield takeEvery("GET_ALL_ORDERS_USERS", getAllOrdersUsers);
   yield takeEvery("REGISTER_USER", getUser);
   yield takeEvery("LOGIN_USER", sendLoginData);
   yield takeEvery("LOGOUT_USER", logoutUser);

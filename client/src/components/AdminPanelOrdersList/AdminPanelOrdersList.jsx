@@ -5,7 +5,7 @@ import { getOrdersProductsAC } from '../../redux/actionCreators/adminAC';
 
 function AdminPanelOrdersList() {
   const dispatch = useDispatch();
-  const cartProduct = useSelector((state) => state.productsReducerAdmin.listProductsAll);
+  const cartOrder = useSelector((state) => state.productsReducer.listProductsAll);
 
   useEffect(() => {
     dispatch(getOrdersProductsAC());
@@ -13,13 +13,13 @@ function AdminPanelOrdersList() {
 
   return (
     <div>
-      { <div>
+      {<div>
         <ul>
-          {cartProduct.length ? cartProduct.map((product) => <ProductsProductItems // Компонент Дениса для карточик
-            key={product.id} product={product} />) : <li>Заказов нет!</li>
+          {cartOrder.length ? cartOrder.map((orderUser) => <ProductsProductItems // Компонент Дениса для карточик
+            key={orderUser.id} orderUser={orderUser} />) : <li>Заказов нет!</li>
           }
         </ul>
-      </div> }
+      </div>}
     </div>
   );
 }
