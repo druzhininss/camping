@@ -24,6 +24,10 @@ li {
   align-items: center;
 }
 
+.button {
+  color: #e0e0e0ea;
+}
+
 /* 
 .hello { 
   color: red;

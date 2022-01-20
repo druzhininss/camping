@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import UserProfileOrders from '../UserProfileOrders/UserProfileOrders.jsx';
 import { getOrdersProductsAC } from '../../redux/actionCreators/adminAC';
 
 function AdminPanelOrdersList() {
   const dispatch = useDispatch();
-  //const cartOrders = useSelector((state) => state.productsReducer.listProductsAll);
+  //const cartOrders = useSelector((state) => state.productsReducer.listProductsAll); // ДОБАВЬ USESELECTOR В ИМПОРТ
   const cardOrders = [
     { id: 1, productName: "Заказ1", quantity: 2, order: 55 },
     { id: 2, productName: "Заказ2", quantity: 5, order: 245 },
