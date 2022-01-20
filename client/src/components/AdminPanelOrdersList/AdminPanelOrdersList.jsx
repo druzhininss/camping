@@ -1,30 +1,36 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import UserProfileOrders from '../UserProfileOrders/UserProfileOrders.jsx';
 import { getOrdersProductsAC } from '../../redux/actionCreators/adminAC';
+import { v4 as uuidv4 } from 'uuid';
 
 function AdminPanelOrdersList() {
   const dispatch = useDispatch();
-  //const cartOrders = useSelector((state) => state.productsReducer.listProductsAll); // ДОБАВЬ USESELECTOR В ИМПОРТ
-  const cardOrders = [
-    { id: 1, productName: "Заказ1", quantity: 2, order: 55 },
-    { id: 2, productName: "Заказ2", quantity: 5, order: 245 },
-    { id: 3, productName: "Заказ3", quantity: 100 , order: 345 },
-  ]
+  const { listProductsOrders } = useSelector((state) => state.productsReducers);
+  const { userOrders }  = listProductsOrders;
+  
   useEffect(() => {
     dispatch(getOrdersProductsAC());
-  }, [])
-  console.log(cardOrders);
+  }, [dispatch, getOrdersProductsAC])
+
   return (
     <>
-      {<div>
-        <ul>
-          {cardOrders.length ? cardOrders.map((adminUser) => <UserProfileOrders // Компонент Дениса для карточка
-            key={adminUser.id} order={adminUser} />) : <li>Заказов нет!</li>
+      <div>
+          {
+          userOrders?.length
+          ? 
+          userOrders.map((array) => {
+            let thisOrder
+            array.forEach((order) => {
+              thisOrder = order
+            });
+            return <UserProfileOrders key={uuidv4()} order={thisOrder} />
+          })
+          : 
+          'Заказов нет!'
           }
-        </ul>
       </div>
-      }
+
     </>
   );
 }

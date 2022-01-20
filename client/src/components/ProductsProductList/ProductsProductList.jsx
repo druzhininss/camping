@@ -18,7 +18,7 @@ function ProductsProductList() {
         </select>
       </div>
       <div className={style.cards_div}>
-        {products.length
+        {products?.length
           ?
           products.map((product) => {
             return <ProductsProductItems key={product.product_id} product={product} />

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const { User } = require('../db/models');
+const { User, Order, Product } = require('../db/models');
 
 router
   .route('/')
@@ -22,13 +22,55 @@ router
             email: existingUser.email,
             isAdmin: true,
           };
-          res.status(200).json({ login: true, isAdmin: true, message: 'Успешно' });
+          res.status(200).json({ isAdmin: true, message: 'Успешно' });
         }
       } else {
-        res.status(404).json({ login: false, isAdmin: false, message: 'Такого пользователя не существует, либо данные введены не корректно.' });
+        res.status(404).json({ isAdmin: false, message: 'Такого пользователя не существует, либо данные введены не корректно.' });
       }
     } catch (err) {
-      res.status(500).json({ login: false, message: err.message });
+      res.status(500).json({ isAdmin: false, message: err.message });
+    }
+  });
+
+router
+  .route('/logout')
+  .get((req, res) => {
+    req.session.destroy((error) => {
+      if (error) {
+        res.status(500).json({ isAdmin: false, message: 'Ошибка при удалении сессии.' });
+      }
+      res.clearCookie('user_sid').json({ isAdmin: false });
+    });
+  });
+
+router
+  .route('/orders')
+  .get(async (req, res) => {
+    try {
+      const ordersRaw = await Order.findAll({
+        include: {
+          model: Product,
+        },
+      });
+
+      const userOrders = ordersRaw.map((order) => {
+        const orders = order.Products.map((product) => {
+          const obj = {};
+
+          obj.id = product.OrderProduct.order_id;
+          obj.productName = product.productName;
+          obj.imagePath = product.imagePath;
+          obj.quantity = product.OrderProduct.quantity;
+          obj.date = product.createdAt.toLocaleDateString();
+
+          return obj;
+        });
+        return orders;
+      });
+
+      res.status(201).json({ userOrders });
+    } catch (err) {
+      res.status(500).json({ isAdmin: false, message: err.message });
     }
   });
 
@@ -39,7 +81,7 @@ router
 
 //     try {} catch(err) {}
 //   });
- 
+
 // router
 //   .route('/delete/:id')
 //   .delete(async (req, res) => {
