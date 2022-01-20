@@ -19,9 +19,12 @@ router
           req.session.user = {
             id: existingUser.id, username: existingUser.username, email: existingUser.email,
           };
+          // TODO: обработка на неверный пароль
+
           res.status(200).json({ login: true, userId: existingUser.id });
         }
       } else {
+        // TODO: обработка на неверный пароль
         res.status(404).json({ login: false, message: 'Такого пользователя не существует, либо данные введены не корректно.' });
       }
     } catch (err) {

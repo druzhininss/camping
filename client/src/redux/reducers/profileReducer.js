@@ -1,4 +1,5 @@
 import { profileAT } from '../actionTypes/profileAT';
+import { logoutAT } from '../actionTypes/logoutAT';
 
 const initialState = {
   orders: [],

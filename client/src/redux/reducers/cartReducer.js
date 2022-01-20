@@ -105,7 +105,7 @@ export const cartReducer = (state = initialState, action) => {
     }
 
     case logoutAT.LOGOUT_USER: {
-      return { ...state, cart: [], totalPrice: 0 }
+      return { ...state, cart: [], totalPrice: 0, makeOrder: false }
     }
 
     default:

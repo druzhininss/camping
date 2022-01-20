@@ -1,9 +1,10 @@
 import { productsAT } from '../actionTypes/productsAT';
+import { logoutAT } from '../actionTypes/logoutAT';
 
 const initialState = {
   listProducts: [],
   listProductsAll: [],
-  chechAdmin: false,
+  isAdmin: false,
 };
 
 export const productsReducers = (state = initialState, action) => {
@@ -60,8 +61,12 @@ export const productsReducers = (state = initialState, action) => {
       console.log(action.payload.isAdmin);
       return {
         ...state,
-        chechAdmin: action.payload.isAdmin,
+        isAdmin: action.payload.isAdmin,
       };
+
+    case logoutAT.LOGOUT_USER: {
+      return { ...state, listProducts: [], listProductsAll: [] }
+    }
 
     default:
       return state;

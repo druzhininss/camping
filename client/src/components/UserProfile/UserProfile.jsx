@@ -22,8 +22,8 @@ function UserProfile() {
       <div>
 
         {
-          userOrder.length
-          &&
+          userOrder?.length
+          ?
           userOrder.map((array) => {
             let thisOrder
             array.forEach((order) => {
@@ -31,6 +31,8 @@ function UserProfile() {
             });
             return <UserProfileOrders key={uuidv4()} order={thisOrder} />
           })
+          :
+          'Вы ещё ничего не купили'
         }
 
       </div>
