@@ -12,7 +12,6 @@ function AdminPanelProductsList() {
     dispatch(getAllProductsAC());
   }, []);
 
-
   return (
     <div>
       <p>ТУТ БУДУТ ВСЕ ПРОДУКТЫ ДЛЯ ИЗМЕНЕНИЯ И ДОБАВЛЕНИЯ</p>
