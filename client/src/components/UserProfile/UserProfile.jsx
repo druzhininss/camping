@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import OrderList from '../../assets/list.png';
 import { initOrdersInProfileAC } from '../../redux/actionCreators/profileAC';
 import UserProfileOrders from '../UserProfileOrders/UserProfileOrders.jsx';
+import { v4 as uuidv4 } from 'uuid';
 
 function UserProfile() {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ function UserProfile() {
             array.forEach((order) => {
               thisOrder = order
             });
-            return <UserProfileOrders key={thisOrder.id} order={thisOrder} />
+            return <UserProfileOrders key={uuidv4()} order={thisOrder} />
           })
         }
 
