@@ -22,6 +22,7 @@ export function getAllProductsAC() {
 }
 
 export function changeItemsProductAC(payload) {
+  console.log(payload);
   return {
     type: adminAT.CHANGE_ITEMS_PRODUCT,
     payload

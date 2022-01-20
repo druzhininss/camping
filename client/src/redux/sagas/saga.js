@@ -52,7 +52,7 @@ function* getAllProducts(action) {  // получаем все товары дл
 function* getAllOrdersUsers(action) { // Все заказы всех users для админки 
   try {
     const getProductsOrdersFromAdmin = yield call(fetchData, {
-      url: 'http://localhost:5000/orders',  // какой путь будет на все заказы ? вижу только на конкретный заказ 
+      url: 'http://localhost:5000/admin/orders',  // какой путь будет на все заказы ? вижу только на конкретный заказ 
     });
     yield put({ type: "ORDERS_ALL_USER", payload: getProductsOrdersFromAdmin });
   } catch (e) {
