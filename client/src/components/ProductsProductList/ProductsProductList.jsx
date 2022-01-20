@@ -7,6 +7,7 @@ import style from './ProductsProductList.module.css';
 
 function ProductsProductList() {
   const products = useSelector((state) => state.productsReducers.listProducts);
+  
   const dispatch = useDispatch();
 
   return (
