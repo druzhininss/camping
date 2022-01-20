@@ -15,7 +15,7 @@ function AdminPanel() {
         </div> :
         <div className='order_flex'>
           <button className={style.order} ><Link to='/admin/order'>Заказы</Link></button>
-          <button className={style.order} ><Link c to='/admin/products'>Товары</Link></button>
+          <button className={style.order} ><Link to='/admin/products'>Товары</Link></button>
         </div>
       }
     </>

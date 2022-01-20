@@ -21,7 +21,11 @@ router
           };
           // TODO: обработка на неверный пароль
 
-          res.status(200).json({ login: true, userId: existingUser.id });
+          res.status(200).json({
+            login: true,
+            userId: existingUser.id,
+            userName: existingUser.username,
+          });
         }
       } else {
         // TODO: обработка на неверный пароль
