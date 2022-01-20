@@ -27,7 +27,7 @@ function Nav() {
                   <Link className="nav-link" to='/cart'><img className={styleNav.cart} src={Cart} alt="logo" /></Link>
                 </li>
                 <li >
-                  <Link className="nav-link" to='/profile'>Личный кабинет</Link>
+                  <Link className="nav-link" to='/profile' >Личный кабинет</Link>
                 </li>
                 <li >
                   <Link className="nav-link" to='/' onClick={() => dispatch(userLogoutAC())}>Выйти</Link>
@@ -35,11 +35,11 @@ function Nav() {
               </>
               :
               <>
-                <li className="nav-item">
-                  <Link className="nav-link" to='/registration'>Регистрация</Link>
+                <li className="nav-item" style={{ backgroundColor: '#1f472ff9', border: 'solid white 1px', borderRadius: '10px' }}>
+                  <Link className="nav-link" style={{ color: '#e0e0e0ea' }} to='/registration' >Регистрация</Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to='/login'>Войти</Link>
+                <li className="nav-item" style={{ backgroundColor: '#1f472ff9', border: 'solid white 1px', borderRadius: '10px' }}>
+                  <Link style={{ color: '#e0e0e0ea' }} className="nav-link" to='/login' >Войти</Link>
                 </li>
               </>
             }
@@ -47,7 +47,7 @@ function Nav() {
           </ul>
         </div>
         <div className="container-fluid d-flex justify-content-between">
-          <Link className="navbar-brand" to='/products/palatki'>Палатки</Link>
+          <Link className="navbar-brand" to='/products/palatki' >Палатки</Link>
           <Link className="navbar-brand" to='/products/spalniki'>Спальники</Link>
           <Link className="navbar-brand" to='/products/kovriki'>Коврики</Link>
 
