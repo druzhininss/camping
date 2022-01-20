@@ -62,10 +62,9 @@ function* getOrdersProducts(action) { // Все заказы всех users дл
 }
 
 function* saveChangeItemsProduct(action) {   // изменение в карточки база
-  console.log(action.payload);
   try {
     const newUser = yield call(fetchData, {
-      url: `http://localhost:5000/admin/${action.payload.id}`,  // {id: 1, weight: '50', use: 'Область применения', price: '50'}
+      url: `http://localhost:5000/admin/edit/${action.payload.id}`,  // {id: 1, weight: '50', use: 'Область применения', price: '50'}
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(action.payload)
@@ -76,14 +75,14 @@ function* saveChangeItemsProduct(action) {   // изменение в карто
   }
 }
 
-function* geleteItemsProduct(action) { // Удалить карточку товара из базы
+function* deleteItemsProduct(action) { // Удалить карточку товара из базы
   try {
-    const geleteItems = yield call(fetchData, {
-      url: `http://localhost:5000/admin/${action.payload}`,
+    const deleteItems = yield call(fetchData, {
+      url: `http://localhost:5000/admin/delete/${action.payload}`,
       method: 'DELETE',
       headers: { 'content-type': 'application/json' },
     });
-    yield put({ type: "USER_ORDERS", payload: geleteItems });
+    yield put({ type: "USER_ORDERS", payload: deleteItems });
   } catch (e) {
     yield put({ type: "NO_USER_ORDERS", payload: "Error, The item is not received" })
   }
@@ -160,6 +159,17 @@ function* makeOrderFromCart(action) {
   }
 }
 
+function* showOrdersInProfile(action) {
+  try {
+    const newOrders = yield call(fetchData, {
+      url: `http://localhost:5000/orders/${action.payload.userId}`,
+    });
+    yield put({ type: "ORDERS_IN_PROFILE", payload: newOrders })
+  } catch (e) {
+    yield put({ type: "ORDER_IN_PROFILE_FAILED", payload: "Profile orders failed" })
+  }
+}
+
 export function* myWatcher() {
   yield takeEvery("LOGIN_ADMIN_SAGA", checkLoginAdmin);
   yield takeEvery("INIT_PRODUCTS", getProducts);
@@ -171,7 +181,7 @@ export function* myWatcher() {
   yield takeEvery("LOGIN_USER", sendLoginData);
   yield takeEvery("LOGOUT_USER", logoutUser);
   yield takeEvery("MAKE_ORDER", makeOrderFromCart);
-
+  yield takeEvery("USER_PROFILE", showOrdersInProfile);
 }
 
 export default myWatcher;

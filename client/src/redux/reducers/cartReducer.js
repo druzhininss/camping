@@ -29,7 +29,7 @@ export const cartReducer = (state = initialState, action) => {
         return [...cart, { ...cartItemToAdd, quantity: 1 }];
       };
       copiedTotalPrice += Number(action.payload.totalForItem)
-      console.log(copiedTotalPrice, 44);
+      
       return {
         ...state, cart: addItemToCart(state.cart, action.payload), makeOrder: true, totalPrice: copiedTotalPrice
       };
