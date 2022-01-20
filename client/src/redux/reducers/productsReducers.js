@@ -20,18 +20,18 @@ export const productsReducers = (state = initialState, action) => {
         listProductsAll: action.payload.products, // Используем для отображения конкретного продукта (не трогать)
       };
 
-      case "CHANGE_ITEMS_PRODUCT":  // изменение карточки доавление флага для условного рендеринга
-        return {
-          ...state, listProductsAll: state.listProductsAll.map((item) => {
-            if(item.product_id == action.payload) {
-              return {
-                ...item,
-                change: true,
-              }
-            } 
-            return item
-          })
-        };   
+    case "CHANGE_ITEMS_PRODUCT":  // изменение карточки доавление флага для условного рендеринга
+      return {
+        ...state, listProductsAll: state.listProductsAll.map((item) => {
+          if (item.product_id == action.payload) {
+            return {
+              ...item,
+              change: true,
+            }
+          }
+          return item
+        })
+      };
 
     case productsAT.SORT_PRICE_PRODUCT:
       // eslint-disable-next-line no-case-declarations 
@@ -48,11 +48,18 @@ export const productsReducers = (state = initialState, action) => {
         listProducts: notSortedProducts
       }
 
-    case "USER_ORDERS":
-      console.log(action.payload.products);
+    case "ORDERS_ALL_USER":
+      console.log(action.payload);
       return {
         ...state,
         listProductsOrders: action.payload,
+      };
+
+    case "INIT_ADMIN_IN_SYSTEM":
+      console.log(action.payload);
+      return {
+        ...state,
+        
       };
 
     default:

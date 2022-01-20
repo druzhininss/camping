@@ -8,9 +8,9 @@ export function initAdmin(payload) {
   };
 }
 
-export function getOrderProductsAC(payload) {
+export function getOrdersProductsAC(payload) {
   return {
-    type: adminAT.GET_ORDER_PRODUCT,
+    type: adminAT.GET_ORDERS_PRODUCTS,
     payload
   };
 }

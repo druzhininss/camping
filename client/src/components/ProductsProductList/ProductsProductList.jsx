@@ -8,7 +8,7 @@ import style from './ProductsProductList.module.css';
 function ProductsProductList() {
   const products = useSelector((state) => state.productsReducers.listProducts);
   const dispatch = useDispatch();
- 
+
   return (
     <div>
       <div className={style.sort_div}>
@@ -18,14 +18,14 @@ function ProductsProductList() {
         </select>
       </div>
       <div className={style.cards_div}>
-          {products.length
-            ?
-            products.map((product) => {
-              return <ProductsProductItems key={product.product_id} product={product} />
-            })
-            :
-            <p>Товары отсутствуют</p>
-          }
+        {products.length
+          ?
+          products.map((product) => {
+            return <ProductsProductItems key={product.product_id} product={product} />
+          })
+          :
+          <p>Товары отсутствуют</p>
+        }
       </div>
     </div>
   );
