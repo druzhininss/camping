@@ -1,38 +1,35 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import UserProfileOrders from '../UserProfileOrders/UserProfileOrders.jsx';
-import { getOrdersProductsAC } from '../../redux/actionCreators/adminAC';
-import { v4 as uuidv4 } from 'uuid';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom";
+import AdminPanelProductItems from '../AdminPanelProductItems/AdminPanelProductItems';
+import { getAllProductsAC } from '../../redux/actionCreators/adminAC';
 
-function AdminPanelOrdersList() {
+function AdminPanelProductsList() {
+
+  const allProducts = useSelector((state) => state.productsReducers.listProductsAll);
   const dispatch = useDispatch();
-  const { listProductsOrders } = useSelector((state) => state.productsReducers);
-  const { userOrders }  = listProductsOrders;
-  
+  const history = useHistory();
+
   useEffect(() => {
-    dispatch(getOrdersProductsAC());
-  }, [dispatch, getOrdersProductsAC])
+    dispatch(getAllProductsAC());
+  }, []);
+
 
   return (
-    <>
+    <div>
+      <p>Список всех товаров на сайте:</p>
+      <button onClick={() => {
+        history.goBack()
+      }}>Назад</button>
       <div>
-          {
-          userOrders?.length
-          ? 
-          userOrders.map((array) => {
-            let thisOrder
-            array.forEach((order) => {
-              thisOrder = order
-            });
-            return <UserProfileOrders key={uuidv4()} order={thisOrder} />
-          })
-          : 
-          'Заказов нет!'
+        <ul>
+          {allProducts.length > 0 ? allProducts.map((product) => <AdminPanelProductItems key={product.product_id} product={product}
+          />) : <li>Заказов нет!</li>
           }
+        </ul>
       </div>
-
-    </>
+    </div>
   );
 }
 
-export default AdminPanelOrdersList;
+export default AdminPanelProductsList;
