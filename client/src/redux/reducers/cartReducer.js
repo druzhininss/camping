@@ -1,5 +1,7 @@
 /* eslint-disable no-case-declarations */
 import { cartAT } from '../actionTypes/cartAT';
+import { logoutAT } from '../actionTypes/logoutAT';
+
 
 const initialState = {
   cart: [],
@@ -29,7 +31,7 @@ export const cartReducer = (state = initialState, action) => {
         return [...cart, { ...cartItemToAdd, quantity: 1 }];
       };
       copiedTotalPrice += Number(action.payload.totalForItem)
-      
+
       return {
         ...state, cart: addItemToCart(state.cart, action.payload), makeOrder: true, totalPrice: copiedTotalPrice
       };
@@ -101,6 +103,11 @@ export const cartReducer = (state = initialState, action) => {
         ...state, cart: [], totalPrice: 0,
       }
     }
+
+    case logoutAT.LOGOUT_USER: {
+      return { ...state, cart: [], totalPrice: 0 }
+    }
+
     default:
       return state;
   }
