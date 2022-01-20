@@ -10,41 +10,37 @@ function AdminPanel() {
   const dispatch = useDispatch();
 
   return (
-    <div className={style.container}>
+    <div>
       {!isAdmin ? (
         <div>
           <AdminPanelLogin />{" "}
           {/*когда будет готов isAdmin то этот див с компонетом поменять местами с кнопками */}
         </div>
       ) : (
-        <div>
+        <div className={style.container}>
           <div className="d-flex justify-content-around mb-5">
-            <button className="btn btn-success btn-lg">
-              <Link
-                style={{ textDecoration: "none", color: "white" }}
-                to="/admin/orders"
-              >
-                Заказы
-              </Link>
-            </button>
-            <button className="btn btn-success btn-lg">
-              <Link
-                style={{ textDecoration: "none", color: "white" }}
-                to="/admin/products"
-              >
-                Товары
-              </Link>
-            </button>
-          </div>
-          <button className="btn btn-danger btn-sm">
             <Link
               style={{ textDecoration: "none", color: "white" }}
-              to="/admin/"
-              onClick={() => dispatch(adminLogoutAC())}
+              to="/admin/orders"
             >
-              Выход
+              <button className="btn btn-success btn-lg">Заказы</button>
             </Link>
-          </button>
+
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to="/admin/products"
+            >
+              <button className="btn btn-success btn-lg">Товары</button>
+            </Link>
+          </div>
+
+          <Link
+            style={{ textDecoration: "none", color: "white" }}
+            to="/admin/"
+            onClick={() => dispatch(adminLogoutAC())}
+          >
+            <button className="btn btn-danger btn-sm">Выход</button>
+          </Link>
         </div>
       )}
     </div>
