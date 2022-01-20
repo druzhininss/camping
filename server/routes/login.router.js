@@ -24,7 +24,6 @@ router
           res.status(200).json({
             login: true,
             userId: existingUser.id,
-            userName: existingUser.username,
           });
         }
       } else {
