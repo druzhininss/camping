@@ -4,11 +4,11 @@ import { changeItemsProductAC } from '../../redux/actionCreators/adminAC';
 import { deleteItemsProductAC } from '../../redux/actionCreators/adminAC';
 import { saveChangeItemsProductAC } from '../../redux/actionCreators/adminAC';
 
-const classes = ['mt-3 pe-3 ps-3 d-flex flex-column border border-5 rounded-2 bg-light shadow']
+const classes = ['d-flex flex-column border border-5 rounded-2 bg-light shadow']
 
 function AdminPanelProductItems(product) {
   const dispatch = useDispatch();
-  const { change } = product.product;
+  const change = product.product.isAdmin;
 
   const weight = useRef();
   const use = useRef();
@@ -24,13 +24,13 @@ function AdminPanelProductItems(product) {
   }
   return (
     <div className={classes}>
-      <div>
+      <div className='ms-3 mt-3'>
         <p>{product.product.product_name}</p>
       </div>
-      <div >
-        <img></img>
-      </div>
-      <ul>
+      {/* <div>
+        <div>здесь должно быть изображение товара</div>
+      </div> */}
+      <ul className='mb-3'>
         <li>
           <img src=""></img>
           {change ? <input type="text" ref={weight} placeholder="Вес"></input> : <span>Вес: {product.product.Вес}</span>}
@@ -46,9 +46,9 @@ function AdminPanelProductItems(product) {
       </ul>
       {change ?
         <button onClick={() => dispatch(saveChangeItemsProductAC(changeItemsProduct()))}>Сохранить</button> :
-        <div>
-          <button className='btn btn-success' onClick={() => dispatch(changeItemsProductAC(product.product.product_id))}>Изменить</button>
-          <button className='btn btn-warning ms-1' onClick={() => dispatch(deleteItemsProductAC(product.product.product_id))}>Удалить</button>
+        <div className='ms-3 mb-3'>
+          <button className='btn btn-success btn-sm' onClick={() => dispatch(changeItemsProductAC(product.product.product_id))}>Изменить</button>
+          <button className='btn btn-danger btn-sm ms-1' onClick={() => dispatch(deleteItemsProductAC(product.product.product_id))}>Удалить</button>
         </div>
       }
     </div>
