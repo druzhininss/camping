@@ -27,7 +27,7 @@ function Nav() {
                   <Link className="nav-link" to='/cart'><img className={styleNav.cart} src={Cart} alt="logo" /></Link>
                 </li>
                 <li >
-                  <Link className="nav-link" to='/profile' >Личный кабинет</Link>
+                  <Link className="nav-link" to='/profile' >Мои заказы</Link>
                 </li>
                 <li >
                   <Link className="nav-link" to='/' onClick={() => dispatch(userLogoutAC())}>Выйти</Link>
