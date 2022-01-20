@@ -11,7 +11,6 @@ function AdminPanelOrdersList() {
     dispatch(getOrderProductsAC());
   }, [])
 
-  console.log(cartProduct);
   return (
     <div>
       <div>
@@ -19,7 +18,6 @@ function AdminPanelOrdersList() {
           {cartProduct.length ? cartProduct.map((product) => <ProductsProductItems // Тут я использую тот же компонет что и с карточкой в общих товарах
             key={product.id} product={product} />) : <li>Заказов нет!</li>
           }
-          )
         </ul>
       </div>
     </div>

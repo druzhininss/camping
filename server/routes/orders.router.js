@@ -4,17 +4,30 @@ const { Product, Order, OrderProduct } = require('../db/models');
 router
   .route('/:id') // Все заказы на /products, здесь конкр customer
   .get(async (req, res) => {
-    // const {} = req.body; // TODO: if it would be GET, there's no body
     const { id } = req.params;
     try {
-      const userOrders = await Order.findAll({
+      const userOrdersRaw = await Order.findAll({
         where: { user_id: id },
         include: {
           model: Product,
         },
       });
 
-      res.status(201).json({ userOrders, message: 'Ok' });
+      const userOrder = userOrdersRaw.map((order) => {
+        const orders = order.Products.map((product) => {
+          const obj = {};
+
+          obj.productName = product.productName;
+          obj.imagePath = product.imagePath;
+          obj.quantity = product.OrderProduct.quantity;
+          obj.date = product.createdAt.toDateString();
+
+          return obj;
+        });
+        return orders;
+      });
+
+      res.status(201).json({ userOrder, message: 'Ok' });
     } catch (err) {
       res.status(500).json({ login: false, message: err.message });
     }

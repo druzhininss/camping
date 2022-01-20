@@ -32,4 +32,18 @@ router
     }
   });
 
+// router
+//   .route('/edit/:id')
+//   .put(async (req, res) => {
+//     const {} = req.body;
+
+//     try {} catch(err) {}
+//   });
+
+// router
+//   .route('/delete/:id')
+//   .delete(async (req, res) => {
+
+//   });
+
 module.exports = router;
