@@ -1,25 +1,30 @@
-
-.logoImg{
+.logoImg {
   width: 80%;
   height: 80%;
   border-radius: 20%;
+}
 
+.logo {
+  max-width: 100px;
 }
-.logo{
-  max-width: 150px;
-  background-color:#D2B48C;
-}
-.cart{
+
+.cart {
   max-width: 50px;
   max-height: 50px;
 }
-.logoFlex{
+
+.logoFlex {
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color:#D2B48C;
 }
-li{
+
+li {
   display: flex;
   align-items: center;
 }
+
+/* 
+.hello {
+  color: red;
+} */

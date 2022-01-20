@@ -7,11 +7,12 @@ import Cart from '../../assets/cart.png'
 import { userLogoutAC } from '../../redux/actionCreators/logoutAC';
 
 function Nav() {
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
   const { login } = useSelector(state => state.userReducer);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor:'#D2B48C'}}>
+    // <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: '#D2B48C' }}>
+    <nav className="navbar navbar-expand-lg navbar-light" style={{ background: 'linear-gradient(#28292bce, #50525400)', paddingBottom: "30px" }}>
       <div className={styleNav.logo}>
         <Link to='/' className="navbar-brand"><img className={styleNav.logoImg} src={Logo} alt="logo" /></Link>
       </div>
@@ -50,15 +51,15 @@ function Nav() {
           <Link className="navbar-brand" to='/products/spalniki'>Спальники</Link>
           <Link className="navbar-brand" to='/products/kovriki'>Коврики</Link>
 
-          <div className="navbar" id="navbarSupportedContent">
+          {/* <div className="navbar" id="navbarSupportedContent">
             <form className="d-flex">
-              <input className="form-control me-2" type="search" placeholder="Поиск" aria-label="Search" />
-              <button className="btn btn-outline-dark" type="submit">Поиск</button>
+              <input className="form-control me-2 alert-light" type="search" placeholder="Поиск" aria-label="Search" style={{ backgroundColor: '#1f472fc6', color: '#e0e0e0f2' }} />
+              <button className="btn btn-outline-light" type="submit" style={{ backgroundColor: '#1f472fc6' }}>Поиск</button>
             </form>
-          </div> 
+          </div> */}
         </div>
       </div>
-    </nav>
+    </nav >
   );
 }
 
