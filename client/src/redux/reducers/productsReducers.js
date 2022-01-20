@@ -44,7 +44,6 @@ export const productsReducers = (state = initialState, action) => {
       if (action.payload == "min") {
         notSortedProducts.sort((a, b) => Number(a.Цена.split(' ').join('')) - Number(b.Цена.split(' ').join('')));
       } else if (action.payload == "max") {
-        console.log("max");
         notSortedProducts.sort((a, b) => Number(b.Цена.split(' ').join('')) - Number(a.Цена.split(' ').join('')));
       }
       return {
@@ -52,7 +51,7 @@ export const productsReducers = (state = initialState, action) => {
         listProducts: notSortedProducts
       }
 
-    case "ORDERS_ALL_USER":
+    case "PRODUCTS_ALL_USER":
       return {
         ...state,
         listProductsOrders: action.payload,

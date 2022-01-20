@@ -41,7 +41,6 @@ function* getAllProducts(action) {  // получаем все товары дл
       url: 'http://localhost:5000/categories/products',
     });
     yield put({ type: "LIST_OF_ALL_PRODUCTS", payload: getListAllProduct });
-    // localStorage
   } catch (e) {
     yield put({ type: "NO_LIST_OF_ALL_PRODUCTS", payload: "Error, The item is not received" })
   }
