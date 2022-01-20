@@ -2,6 +2,7 @@ import { profileAT } from '../actionTypes/profileAT';
 
 const initialState = {
   orders: [],
+  ordersAll: [],
 };
 export const profileReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -11,7 +12,7 @@ export const profileReducer = (state = initialState, action) => {
 
     case profileAT.ORDERS_ALL_USER:
       console.log(action.payload);
-      return { ...state, orders: action.payload }
+      return { ...state, ordersAll: action.payload }
 
     default:
       return state;

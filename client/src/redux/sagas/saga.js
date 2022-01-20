@@ -50,7 +50,6 @@ function* getAllProducts(action) {  // получаем все товары дл
 }
 
 function* getAllOrdersUsers(action) { // Все заказы всех users для админки 
-  console.log(action.payload);
   try {
     const getProductsOrdersFromAdmin = yield call(fetchData, {
       url: 'http://localhost:5000/orders',  // какой путь будет на все заказы ? вижу только на конкретный заказ 
