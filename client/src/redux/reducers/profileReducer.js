@@ -11,7 +11,7 @@ export const profileReducer = (state = initialState, action) => {
     case profileAT.ORDERS_IN_PROFILE:
       return { ...state, orders: action.payload }
 
-    case profileAT.ORDERS_ALL_USER: // TODO: FIX it
+    case "LIST_OF_ALL_PRODUCTS":
       return { ...state, ordersAll: action.payload }
 
     case logoutAT.LOGOUT_USER: {
