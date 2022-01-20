@@ -12,8 +12,11 @@ export const profileReducer = (state = initialState, action) => {
       return { ...state, orders: action.payload }
 
     case profileAT.ORDERS_ALL_USER:
-      console.log(action.payload);
       return { ...state, ordersAll: action.payload }
+
+    case logoutAT.LOGOUT_USER: {
+      return { ...state, orders: [], ordersAll: [] }
+    }
 
     default:
       return state;
