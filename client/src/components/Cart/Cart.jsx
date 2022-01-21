@@ -28,6 +28,7 @@ function Cart() {
         <h3>Итого к оплате: {numRanks(totalPrice)}</h3>
         <button onClick={() => {
           dispatch(makeOrderAC({ carts, userId }));
+          console.log(carts);
           history.push('/');
         }}>Оформить заказ</button>
       </div>

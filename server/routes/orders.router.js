@@ -23,7 +23,7 @@ router
 
           obj.id = product.id;
           obj.productName = product.productName;
-          obj.imagePath = product.imagePath;
+          obj.product_img_path = product.imagePath;
           obj.quantity = product.OrderProduct.quantity;
           obj.date = product.createdAt.toLocaleDateString();
 

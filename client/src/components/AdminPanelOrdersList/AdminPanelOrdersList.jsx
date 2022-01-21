@@ -9,8 +9,9 @@ function AdminPanelOrdersList() {
   const dispatch = useDispatch();
   const history = useHistory();
   const { listProductsOrders } = useSelector((state) => state.productsReducers);
-  const { userOrders }  = listProductsOrders;
-  
+  const { userOrders } = listProductsOrders;
+  const userOrderFlat = userOrders.flat();
+
   useEffect(() => {
     dispatch(getOrdersProductsAC());
   }, [dispatch, getOrdersProductsAC])
@@ -23,19 +24,15 @@ function AdminPanelOrdersList() {
         history.goBack()
       }}>Назад</button>
       <div>
-          {
-          userOrders?.length
-          ? 
-          userOrders.map((array) => {
-            let thisOrder
-            array.forEach((order) => {
-              thisOrder = order
-            });
-            return <UserProfileOrders key={uuidv4()} order={thisOrder} />
-          })
-          : 
-          'Заказов нет!'
-          }
+        {
+          userOrderFlat?.length
+            ?
+            userOrderFlat.map((order) => {
+              return <UserProfileOrders key={uuidv4()} order={order} />
+            })
+            :
+            'Заказов нет!'
+        }
       </div>
 
     </>

@@ -16,6 +16,8 @@ function UserProfile() {
     dispatch(initOrdersInProfileAC({ userId }));
   }, [dispatch, initOrdersInProfileAC])
 
+  const userOrderFlat = userOrder.flat()
+
   return (
     <>
       <h1>Здравствуйте, {userName}! <br />
@@ -23,14 +25,10 @@ function UserProfile() {
       <div>
 
         {
-          userOrder?.length
+          userOrderFlat?.length
             ?
-            userOrder.map((array) => {
-              let thisOrder
-              array.forEach((order) => {
-                thisOrder = order
-              });
-              return <UserProfileOrders key={uuidv4()} order={thisOrder} />
+            userOrderFlat.map((order) => {
+              return <UserProfileOrders key={uuidv4()} order={order} />
             })
             :
             'Вы ещё ничего не купили'
