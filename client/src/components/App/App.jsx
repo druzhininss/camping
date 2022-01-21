@@ -36,7 +36,7 @@ function App() {
           </Switch>
         </div>
       </div>
-      {window.location.pathname !== ('/admin' || '/admin/order' || '/admin/products') && <Footer />}
+      {window.location.pathname !== ('/admin' || '/admin/order' || '/admin/products' || '/profile') && <Footer />}
 
     </Router>
 
