@@ -16,7 +16,7 @@ function UserProfile() {
     dispatch(initOrdersInProfileAC({ userId }));
   }, [dispatch, initOrdersInProfileAC])
 
-  const userOrderFlat = userOrder.flat()
+  const userOrderFlat = userOrder?.flat()
 
   return (
     <>

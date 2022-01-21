@@ -10,7 +10,7 @@ function AdminPanelOrdersList() {
   const history = useHistory();
   const { listProductsOrders } = useSelector((state) => state.productsReducers);
   const { userOrders } = listProductsOrders;
-  const userOrderFlat = userOrders.flat();
+  const userOrderFlat = userOrders?.flat();
 
   useEffect(() => {
     dispatch(getOrdersProductsAC());
