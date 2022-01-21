@@ -16,3 +16,6 @@
   font-size: 1rem;
   text-align: center;
 }
+.cart_box{
+  min-height: 60vh;
+}
