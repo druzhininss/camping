@@ -1,0 +1,6 @@
+Mirage 4
+/tents/extreme/Mirage_4.jpg
+Matrix 3
+/tents/extreme/Matrix_3.jpg
+Storm 2
+/tents/extreme/Storm_2.jpg

@@ -2,7 +2,7 @@ const fs = require('fs').promises;
 
 module.exports = {
   up: async (queryInterface) => {
-    const cardData = (await fs.readFile('../server/db/dbData/prodSpec/prodSpecSpalnik.txt', 'utf-8')).split('\n');
+    const cardData = (await fs.readFile('../server/db/dbData/prodSpec/prodSpecKovriki.txt', 'utf-8')).split('\n');
     cardData.pop();
     const cards = [];
 
