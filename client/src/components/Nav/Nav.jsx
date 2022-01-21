@@ -5,10 +5,17 @@ import styleNav from './Nav.module.css';
 import Logo from '../../assets/campingLogo.png';
 import Cart from '../../assets/cart.png'
 import { userLogoutAC } from '../../redux/actionCreators/logoutAC';
+import { findItemsAC } from '../../redux/actionCreators/searchAC';
 
 function Nav() {
   const dispatch = useDispatch();
   const { login } = useSelector(state => state.userReducer);
+  
+  const getInputValue = (event) => {
+    event.preventDefault();
+    dispatch(findItemsAC(event.target.search.value))
+    
+  }
 
   return (
     // <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: '#D2B48C (tg://search_hashtag?hashtag=D2B48C)' }}>
@@ -26,8 +33,8 @@ function Nav() {
               <Link className={styleNav.product_links} to='/products/kovriki'>Коврики</Link>
             </div>
             <div className="navbar" id="navbarSupportedContent">
-              <form className="d-flex">
-                <input className="form-control me-2 alert-light" type="search" placeholder="Поиск" aria-label="Search" style={{ backgroundColor: '#1f472fc6 (tg://search_hashtag?hashtag=1f472fc6)', color: '#e0e0e0f2 (tg://search_hashtag?hashtag=e0e0e0f2)' }} />
+              <form onSubmit={getInputValue} className="d-flex">
+                <input name="search"className="form-control me-2 alert-light" type="search" placeholder="Поиск" aria-label="Search" style={{ backgroundColor: '#1f472fc6 (tg://search_hashtag?hashtag=1f472fc6)', color: '#e0e0e0f2 (tg://search_hashtag?hashtag=e0e0e0f2)' }} />
                 <button className="btn btn-outline-light" type="submit" style={{ backgroundColor: '#1f472fc6 (tg://search_hashtag?hashtag=1f472fc6)' }}>Поиск</button>
               </form>
             </div>

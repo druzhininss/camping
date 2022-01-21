@@ -18,7 +18,7 @@ function Cart() {
 
 
   return (
-    <div>
+    <div className={style.cart_box}>
       {
         carts.length
           ? carts.map((cart) => <CartItems key={cart.id} cart={cart} />)

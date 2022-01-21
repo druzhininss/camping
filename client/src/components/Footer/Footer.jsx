@@ -1,9 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import style from './Footer.module.css';
 import Facebook from '../../assets/Facebook.svg';
 import Instagram from '../../assets/Instagram (filled).svg';
 import Youtube from '../../assets/YouTube.svg';
-
 
 function Footer() {
   return (
@@ -31,6 +31,12 @@ function Footer() {
                   <li className={style.title}>КОНТАКТЫ</li>
                   <li className={style.item}> www.camping.com</li>
                   <li className={style.item}>P.  (+8800) 4670000</li>
+                </ul>
+              </div>
+              <div className={style.item}>
+                <ul className={style.social}>
+                  <li className={style.title}>
+                    <Link className={`${style.link_view}`}  to='/feedback'> ОТЗЫВЫ</Link></li>
                 </ul>
               </div>
             </div>
