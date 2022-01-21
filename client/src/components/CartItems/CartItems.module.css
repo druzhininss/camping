@@ -23,6 +23,9 @@
   width:210px;
 }
 .cartB{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height:25px;
   width: 30px;
   text-align: center;
