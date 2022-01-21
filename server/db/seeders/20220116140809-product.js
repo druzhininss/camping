@@ -2,7 +2,7 @@ const fs = require('fs').promises;
 
 module.exports = {
   up: async (queryInterface) => {
-    const cardData = (await fs.readFile('../server/db/dbData/products/tentsCamping.txt', 'utf-8')).split('\n');
+    const cardData = (await fs.readFile('../server/db/dbData/products/rugsCamp.txt', 'utf-8')).split('\n');
     cardData.pop();
     const cards = [];
 
@@ -10,7 +10,7 @@ module.exports = {
       const obj = {};
       if (i % 2 === 0) {
         obj.productName = text;
-        obj.category_id = 4;
+        obj.category_id = 11;
         obj.imagePath = cardData[i + 1];
         obj.createdAt = new Date();
         obj.updatedAt = new Date();

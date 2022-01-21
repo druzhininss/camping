@@ -1,0 +1,6 @@
+Siberia Wide Plus
+/sleeping-bags/camping/Siberia_Wild_Plus.jpg
+Tundra Plus
+/sleeping-bags/camping/Mark_70SB.jpg
+Summer Plus
+/sleeping-bags/camping/Summer_Plus.jpg
