@@ -1,0 +1,6 @@
+Indiana 4
+/tents/camping/Indiana_4.jpg
+Minnesota 4 Luxe
+/tents/camping/Minnesota_3_Lixe.jpg
+Nevada 4
+/tents/camping/Nevada_4.jpg

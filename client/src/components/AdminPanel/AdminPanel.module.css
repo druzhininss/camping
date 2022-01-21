@@ -1,0 +1,15 @@
+.container {
+  height: 200px;
+  width: 400px;
+  border: 4px solid teal; 
+  border-radius: 15px;
+  margin: 0 auto;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -100px;
+  margin-left: -200px;
+  padding-top: 40px;
+  background-color:cornsilk;
+}

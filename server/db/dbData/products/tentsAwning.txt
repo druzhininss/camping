@@ -1,0 +1,6 @@
+TARP 3х3,2
+/tents/awning/Mark_15T.jpg
+Mark 95A
+/tents/awning/Mark_95A.jpg
+MARK 83T
+/tents/awning/Mark_95A.jpg

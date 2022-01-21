@@ -1,0 +1,20 @@
+.sort_div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cards_div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 1em;
+}
+
+.sort_select {
+  background-color: #1f472fea;
+  border: solid white 1px;
+  border-radius: 5px;
+  box-shadow: 4px 4px #ccc;
+  color: white;
+  padding: 10px;
+}

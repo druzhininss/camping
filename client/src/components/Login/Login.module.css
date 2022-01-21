@@ -1,0 +1,30 @@
+.form {
+  max-width: 400px;
+}
+
+button {
+  border-radius: 6px;
+}
+
+.formHeight {
+  min-height: 60vh;
+}
+
+button {
+  padding: 10px;
+  background-color: #1f472ff9;
+  border: solid white 1px;
+  border-radius: 5px;
+  color: rgba(253, 253, 252, 0.897);
+}
+
+button:hover {
+  background-color: #21382aa4;
+}
+
+.form_input {
+  color: #1f472f;
+  padding: 10px;
+  border-radius: 5px;
+  border: #1f472ff9 solid 1px;
+}
