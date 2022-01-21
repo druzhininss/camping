@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import ProductPageCarousel from "../ProductPageCarousel/ProductPageCarousel";
+// import ProductPageCarousel from "../ProductPageCarousel/ProductPageCarousel";
 import ProductPageHeader from "../ProductPageHeader/ProductPageHeader";
 import ProductPageInfo from "../ProductPageInfo/ProductPageInfo";
 import ProductPageSlider from "../ProductPageSlider/ProductPageSlider";
@@ -21,7 +21,7 @@ const ProductPage = () => {
       <div className={style.product}>
       <div>
         <ProductPageSlider />
-        <ProductPageCarousel />
+        {/* <ProductPageCarousel /> */}
       </div>
       <div>
         <ProductPageInfo />
