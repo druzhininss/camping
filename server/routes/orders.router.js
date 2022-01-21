@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {
   Product, Order, OrderProduct, User,
 } = require('../db/models');
+const { sendConfirmMail } = require('../functions/mailService');
 
 router
   .route('/:id') // Все заказы на /products, здесь конкр customer
@@ -59,6 +60,8 @@ router
         });
       });
 
+      const orderNumber = id;
+      sendConfirmMail(req.session.user.email, orderNumber);
       res.status(201).json({ message: 'Order created successfully' });
     } catch (err) {
       res.status(500).json({ login: false, message: err.message });
