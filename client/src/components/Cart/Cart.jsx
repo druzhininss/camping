@@ -25,7 +25,7 @@ function Cart() {
           : "Вы ничего не добавили в корзину"
       }
       <div className={makeOrder ? style.visible : style.hidden} >
-        <h3>Итого к оплате: {numRanks(totalPrice)}</h3>
+        <h3>Итого к оплате: {numRanks(totalPrice)} ₽</h3>
         <button onClick={() => {
           dispatch(makeOrderAC({ carts, userId }));
           history.push('/');
