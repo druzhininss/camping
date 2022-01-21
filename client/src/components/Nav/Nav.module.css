@@ -30,8 +30,8 @@ li {
 }
 
 .nav_link_style {
-  background-color: #1f472ff9;
-  border: solid white 1px;
+  background-color: rgb(193, 206, 206);
+  border: solid teal 2px;
   border-radius: 5px;
 }
 
@@ -45,7 +45,7 @@ li {
 
 .product_links {
   text-decoration: none;
-  color: #0d0e0df1;
+  color: white;
   margin: 10px;
   padding-left: 30px;
   font-size: 15pt;
