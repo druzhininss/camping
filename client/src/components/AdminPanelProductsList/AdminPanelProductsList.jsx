@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import AdminPanelProductItems from '../AdminPanelProductItems/AdminPanelProductItems';
 import { getAllProductsAC } from '../../redux/actionCreators/adminAC';
+import classes from './AdminPanelProductsList.module.css';
 
 function AdminPanelProductsList() {
 
@@ -22,7 +23,7 @@ function AdminPanelProductsList() {
         history.goBack()
       }}>Назад</button>
       <div>
-        <ul>
+        <ul className={classes.container}>
           {allProducts.length > 0 ? allProducts.map((product) => <AdminPanelProductItems key={product.product_id} product={product}
           />) : <li>Заказов нет!</li>
           }

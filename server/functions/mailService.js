@@ -21,7 +21,6 @@ function sendConfirmMail(to, orderNumber) {
       html: `
                 <div>
                   <h1>Ваш заказ №${orderNumber} подтверждён</h1>
-                  <div>Коврик, Палатка, Спальный мешок</div>
                 </div>
             `,
     });
