@@ -80,16 +80,15 @@ export const productsReducers = (state = initialState, action) => {
     case "ORDERS_ALL_USER":
       return { ...state, listProductsOrders: action.payload }
 
-    case searchAT.SEARCH_EXACT_ITEMS:
+    case searchAT.SEARCH_EXACT_ITEMS: {
       const copyListProductsAll = [...state.listProducts]
-      console.log(copyListProductsAll, 7);
       const newItems = copyListProductsAll.filter((el) => el.product_name.toLowerCase().includes(action.payload.toLowerCase()));
-      console.log(newItems)
 
       return {
         ...state, listProducts: newItems
       }
-
+    }
+    
     default:
       return state;
   }
