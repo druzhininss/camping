@@ -19,7 +19,7 @@ function UserProfile() {
   const userOrderFlat = userOrder?.flat()
 
   return (
-    <>
+    <div style={{minHeight: '60vh'}}>
       <h1>Здравствуйте, {userName}! <br />
         Здесь вы можете посмотреть ваши заказы <img src={OrderList} /></h1>
       <div>
@@ -35,7 +35,7 @@ function UserProfile() {
         }
 
       </div>
-    </>
+    </div>
   );
 }
 
