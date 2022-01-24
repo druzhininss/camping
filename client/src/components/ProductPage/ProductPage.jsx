@@ -8,7 +8,7 @@ import ProductPageSlider from "../ProductPageSlider/ProductPageSlider";
 import style from './ProductPage.module.css';
 
 const ProductPage = () => {
-  const { listProducts } = useSelector((state) => state.productsReducers); // TODO: change reducer name
+  const { listProducts } = useSelector((state) => state.productsReducer);
   const { productId } = useParams();
   const product = listProducts?.find(
     (product) => product.product_id === +productId

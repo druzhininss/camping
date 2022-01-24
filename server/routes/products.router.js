@@ -16,7 +16,7 @@ router
           product_id: product.id,
           product_name: product.productName,
           product_category_id: product.category_id,
-          product_img_path: product.imagePath ?? null, // TODO: path
+          product_img_path: product.imagePath ?? null,
         };
 
         product.Specifications.forEach((spec) => {
@@ -58,7 +58,7 @@ router
           product_id: product.id,
           product_name: product.productName,
           product_category_id: product.category_id,
-          product_img_path: product.imagePath ?? null, // TODO: path
+          product_img_path: product.imagePath ?? null,
         };
 
         product.Specifications.forEach((spec) => {
@@ -100,7 +100,7 @@ router
           product_id: product.id,
           product_name: product.productName,
           product_category_id: product.category_id,
-          product_img_path: product.imagePath ?? null, // TODO: path
+          product_img_path: product.imagePath ?? null,
         };
 
         product.Specifications.forEach((spec) => {
@@ -142,7 +142,7 @@ router
           product_id: product.id,
           product_name: product.productName,
           product_category_id: product.category_id,
-          product_img_path: product.imagePath ?? null, // TODO: path
+          product_img_path: product.imagePath ?? null,
         };
 
         product.Specifications.forEach((spec) => {

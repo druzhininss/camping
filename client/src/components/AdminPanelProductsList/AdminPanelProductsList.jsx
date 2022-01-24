@@ -7,7 +7,7 @@ import classes from './AdminPanelProductsList.module.css';
 
 function AdminPanelProductsList() {
 
-  const allProducts = useSelector((state) => state.productsReducers.listProductsAll);
+  const allProducts = useSelector((state) => state.productsReducer.listProductsAll);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -25,7 +25,7 @@ function AdminPanelProductsList() {
       <div>
         <ul className={classes.container}>
           {allProducts.length > 0 ? allProducts.map((product) => <AdminPanelProductItems key={product.product_id} product={product}
-          />) : <li>Заказов нет!</li>
+          />) : <li>Товаров нет!</li>
           }
         </ul>
       </div>
