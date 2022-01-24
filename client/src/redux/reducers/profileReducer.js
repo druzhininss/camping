@@ -8,14 +8,26 @@ const initialState = {
 export const profileReducer = (state = initialState, action) => {
   switch (action.type) {
 
-    case profileAT.ORDERS_IN_PROFILE:
-      return { ...state, orders: action.payload }
+    case profileAT.ORDERS_IN_PROFILE: {
+      return {
+        ...state,
+        orders: action.payload,
+      }
+    }
 
-    case "LIST_OF_ALL_PRODUCTS":
-      return { ...state, ordersAll: action.payload }
+    case "LIST_OF_ALL_PRODUCTS": {
+      return {
+        ...state,
+        ordersAll: action.payload,
+      }
+    }
 
     case logoutAT.LOGOUT_USER: {
-      return { ...state, orders: [], ordersAll: [] }
+      return {
+        ...state,
+        orders: [],
+        ordersAll: []
+      }
     }
 
     default:

@@ -10,46 +10,52 @@ const initialState = {
 export const userReducer = (state = initialState, action) => {
 
   switch (action.type) {
-    case loginAT.NEW_USER:
+    case loginAT.NEW_USER: {
       return {
         ...state,
         login: action.payload.login,
         message: '',
         userId: action.payload.userId,
       };
+    }
 
-    case loginAT.REGISTRATION_FAILED:
+    case loginAT.REGISTRATION_FAILED: {
       return {
         ...state,
         message: action.payload.message,
-      }
+      };
+    }
 
-    case loginAT.LOGIN_SUCCESS:
+    case loginAT.LOGIN_SUCCESS: {
       return {
         ...state,
         login: action.payload.login,
         message: '',
         userId: action.payload.userId,
       };
+    }
 
-    case loginAT.LOGIN_FAILED:
+    case loginAT.LOGIN_FAILED: {
       return {
         ...state,
         message: action.payload.message,
       };
+    }
 
-    case logoutAT.LOGOUT_USER:
+    case logoutAT.LOGOUT_USER: {
       return {
         ...state,
         login: false,
         userId: '',
       };
+    }
 
-    case loginAT.CLEAR_ERRORS:
+    case loginAT.CLEAR_ERRORS: {
       return {
         ...state,
         message: '',
-      }
+      };
+    }
 
     default:
       return state;

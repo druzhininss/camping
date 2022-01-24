@@ -6,7 +6,7 @@ import { sortPriceProductsAC } from '../../redux/actionCreators/productsAC';
 import style from './ProductsProductList.module.css';
 
 function ProductsProductList() {
-  const products = useSelector((state) => state.productsReducers.listProducts);
+  const products = useSelector((state) => state.productsReducer.listProducts);
   
   const dispatch = useDispatch();
 

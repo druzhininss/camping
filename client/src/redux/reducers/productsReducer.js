@@ -10,22 +10,24 @@ const initialState = {
   isAdmin: false,
 };
 
-export const productsReducers = (state = initialState, action) => {
+export const productsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "GOODS_RECEIVED":
+    case "GOODS_RECEIVED": {
       return {
         ...state,
         listProducts: action.payload.products, // Используем для отображения конкретного продукта (не трогать)
         //listProductsAll: action.payload.products, // Используем для отображения конкретного продукта (не трогать)
       };
+    }
 
-    case "LIST_OF_ALL_PRODUCTS":
+    case "LIST_OF_ALL_PRODUCTS": {
       return {
         ...state,
         listProductsAll: action.payload.products, // Используем для отображения конкретного продукта (не трогать)
       };
+    }
 
-    case "CHANGE_ITEMS_PRODUCT":  // изменение карточки доавление флага для условного рендеринга
+    case "CHANGE_ITEMS_PRODUCT": {  // изменение карточки доавление флага для условного рендеринга
       return {
         ...state, listProductsAll: state.listProductsAll.map((item) => {
           if (item.product_id == action.payload) {
@@ -37,8 +39,9 @@ export const productsReducers = (state = initialState, action) => {
           return item
         })
       };
+    }
 
-    case productsAT.SORT_PRICE_PRODUCT:
+    case productsAT.SORT_PRICE_PRODUCT: {
       // eslint-disable-next-line no-case-declarations 
       const notSortedProducts = [...state.listProducts];
 
@@ -50,25 +53,32 @@ export const productsReducers = (state = initialState, action) => {
       return {
         ...state,
         listProducts: notSortedProducts
-      }
+      };
+    }
 
-    case "PRODUCTS_ALL_USER":
+    case "PRODUCTS_ALL_USER": {
       return {
         ...state,
         listProductsOrders: action.payload,
       };
+    }
 
-    case "INIT_ADMIN_IN_SYSTEM":
+    case "INIT_ADMIN_IN_SYSTEM": {
       return {
         ...state,
         isAdmin: action.payload.isAdmin,
       };
-
-    case logoutAT.LOGOUT_USER: {
-      return { ...state, listProducts: [], listProductsAll: [] }
     }
 
-    case adminLogoutAT.ADMIN_LOGOUT:
+    case logoutAT.LOGOUT_USER: {
+      return {
+        ...state,
+        listProducts: [],
+        listProductsAll: [],
+      };
+    }
+
+    case adminLogoutAT.ADMIN_LOGOUT: {
       return {
         ...state,
         isAdmin: false,
@@ -76,19 +86,25 @@ export const productsReducers = (state = initialState, action) => {
         listProductsAll: [],
         listProductsOrders: [],
       };
+    }
 
-    case "ORDERS_ALL_USER":
-      return { ...state, listProductsOrders: action.payload }
+    case "ORDERS_ALL_USER": {
+      return {
+        ...state,
+        listProductsOrders: action.payload,
+      };
+    }
 
     case searchAT.SEARCH_EXACT_ITEMS: {
       const copyListProductsAll = [...state.listProducts]
       const newItems = copyListProductsAll.filter((el) => el.product_name.toLowerCase().includes(action.payload.toLowerCase()));
 
       return {
-        ...state, listProducts: newItems
+        ...state,
+        listProducts: newItems,
       }
     }
-    
+
     default:
       return state;
   }
