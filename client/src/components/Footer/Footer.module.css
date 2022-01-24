@@ -10,7 +10,7 @@
   background: linear-gradient(#50525400, #16181a83);
   padding: 60px 20px 0 0;
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(3,1fr);
   justify-items: center;
 
   /* flex: 0 0; */
