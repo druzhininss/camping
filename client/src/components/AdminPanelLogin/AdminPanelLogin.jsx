@@ -19,7 +19,7 @@ function AdminPanelLogin() {
       <form className={style.transparent}>
         <div className={style.form_inner}>
           <h3>Вход</h3>
-          <input ref={email} type="text" id="username" placeholder='e-mail' />
+          <input ref={email} type="text" id="username" placeholder='E-mail' />
           <input ref={password} id="password" type="password" placeholder='Password' />
           <input type="submit" value="Отправить"
             onClick={(event) => {
