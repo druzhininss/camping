@@ -33,7 +33,10 @@ export const cartReducer = (state = initialState, action) => {
       copiedTotalPrice += Number(action.payload.totalForItem)
 
       return {
-        ...state, cart: addItemToCart(state.cart, action.payload), makeOrder: true, totalPrice: copiedTotalPrice
+        ...state, 
+        cart: addItemToCart(state.cart, action.payload), 
+        makeOrder: true, 
+        totalPrice: copiedTotalPrice,
       };
 
     case cartAT.INCREASE_PRODUCT: {
@@ -54,7 +57,9 @@ export const cartReducer = (state = initialState, action) => {
       copiedTotalPrice = numTotalSum;
 
       return {
-        ...state, totalPrice: copiedTotalPrice, cart: copiedCart
+        ...state, 
+        totalPrice: copiedTotalPrice, 
+        cart: copiedCart,
       }
     }
 
@@ -82,7 +87,9 @@ export const cartReducer = (state = initialState, action) => {
       }
 
       return {
-        ...state, totalPrice: copiedTotalPrice, cart: copiedCart
+        ...state, 
+        totalPrice: copiedTotalPrice, 
+        cart: copiedCart,
       }
     }
 
@@ -94,18 +101,27 @@ export const cartReducer = (state = initialState, action) => {
       copiedTotalPrice -= Number(action.payload.price);
 
       return {
-        ...state, totalPrice: copiedTotalPrice, cart: newCart
+        ...state, 
+        totalPrice: copiedTotalPrice, 
+        cart: newCart,
       }
     }
 
     case cartAT.ORDER_SUCCESS: {
       return {
-        ...state, cart: [], totalPrice: 0,
+        ...state, 
+        cart: [], 
+        totalPrice: 0,
       }
     }
 
     case logoutAT.LOGOUT_USER: {
-      return { ...state, cart: [], totalPrice: 0, makeOrder: false }
+      return {
+        ...state,
+        cart: [],
+        totalPrice: 0,
+        makeOrder: false,
+      };
     }
 
     default:

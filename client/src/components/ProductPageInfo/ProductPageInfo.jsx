@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 export default function ProductPageInfo() {
-  const { listProducts } = useSelector((state) => state.productsReducers); // TODO: change reducer name
+  const { listProducts } = useSelector((state) => state.productsReducer);
   const { productId } = useParams();
   const product = listProducts?.find(
     (product) => product.product_id === +productId

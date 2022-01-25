@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom';
 function AdminPanelOrdersList() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { listProductsOrders } = useSelector((state) => state.productsReducers);
+  const { listProductsOrders } = useSelector((state) => state.productsReducer);
   const { userOrders } = listProductsOrders;
   const userOrderFlat = userOrders?.flat();
 

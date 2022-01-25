@@ -6,7 +6,7 @@ import { adminLogoutAC } from "../../redux/actionCreators/adminLogoutAC";
 import style from "./AdminPanel.module.css";
 
 function AdminPanel() {
-  const { isAdmin } = useSelector((state) => state.productsReducers);
+  const { isAdmin } = useSelector((state) => state.productsReducer);
   const dispatch = useDispatch();
 
   return (

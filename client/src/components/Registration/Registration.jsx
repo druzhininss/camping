@@ -41,12 +41,12 @@ function Registration() {
       <div className={style.form} >
 
         <div className="mb-3 d-flex flex-column">
-          <label htmlFor="username" className="form-label">Ник</label>
-          <input className={style.form_input} ref={usernameRef} type="text" placeholder="username" name="username" required />
+          <label htmlFor="username" className="form-label">Ваше имя</label>
+          <input className={style.form_input} ref={usernameRef} type="text" placeholder="Введите ваше имя" name="username" required />
         </div>
         <div className="mb-3 d-flex flex-column">
           <label htmlFor="email" className="form-label">Почта</label>
-          <input className={style.form_input} ref={emailRef} type="text" placeholder="Enter Email" name="email" required />
+          <input className={style.form_input} ref={emailRef} type="text" placeholder="Введите адрес вашей почты" name="email" required />
         </div>
         <div className="mb-3 d-flex flex-column">
           <label htmlFor="phone_number" className="form-label">Телефон</label>
@@ -54,11 +54,11 @@ function Registration() {
         </div>
         <div className="mb-3 d-flex flex-column">
           <label htmlFor="psw" className="form-label">Пароль</label>
-          <input className={style.form_input} ref={passwordRef} type="password" minLength={8} placeholder="Enter Password" name="psw" required />
+          <input className={style.form_input} ref={passwordRef} type="password" minLength={8} placeholder="Введите пароль" name="psw" required />
         </div>
         <div className="mb-3 d-flex flex-column">
           <label htmlFor="psw2" className="form-label">Повторите пароль</label>
-          <input className={style.form_input} ref={repeatPasswordRef} type="password" placeholder="Repeat Password" name="psw2" required />
+          <input className={style.form_input} ref={repeatPasswordRef} type="password" placeholder="Введите пароль" name="psw2" required />
         </div>
 
         {registrationStatus?.message
